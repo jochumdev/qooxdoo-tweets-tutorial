@@ -1,0 +1,33 @@
+{
+  "targets": [
+    {
+      "type": "source",
+      "outputPath": "source-output"
+    },
+    {
+      "type": "hybrid",
+      "outputPath": "hybrid-output"
+    },
+    {
+      "type": "build",
+      "outputPath": "build-output"
+    }
+  ],
+  "defaultTarget": "source",
+  "locales": ["en"],
+
+  "applications": [
+    {
+      "class": "tweets.Application",
+      "theme": "tweets.theme.Theme",
+      "name": "tweets"
+    }
+  ],
+
+  "libraries": [
+    "node_modules/qooxdoo-sdk/framework",
+    "node_modules/qxc.require",
+    "node_modules/qxc.restful",
+    "."
+  ]
+}

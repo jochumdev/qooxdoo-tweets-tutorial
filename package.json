@@ -1,0 +1,15 @@
+{
+    "name": "tweets",
+    "description": "",
+    "version": "0.0.1",
+    "author": {
+        "name": "René Jochum",
+        "email": "rene@jochums.at",
+        "url": "https://rene.jochums.at"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "qooxdoo-sdk": "^6.0.0-alpha",
+        "qxc.restful": "^0.9.9"
+    }
+}
