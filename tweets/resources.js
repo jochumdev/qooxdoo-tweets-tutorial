@@ -268,6 +268,30 @@ qx.$$packageData['0'] = {
     }
   },
   "resources": {
+    "qx/decoration/Simple/checkbox/checked-disabled.png": [
+      6,
+      6,
+      "png",
+      "qx"
+    ],
+    "qx/decoration/Simple/checkbox/checked.png": [
+      6,
+      6,
+      "png",
+      "qx"
+    ],
+    "qx/decoration/Simple/checkbox/undetermined-disabled.png": [
+      6,
+      2,
+      "png",
+      "qx"
+    ],
+    "qx/decoration/Simple/checkbox/undetermined.png": [
+      6,
+      2,
+      "png",
+      "qx"
+    ],
     "qx/decoration/Simple/arrows/down-invert.gif": [
       7,
       4,
@@ -340,28 +364,28 @@ qx.$$packageData['0'] = {
       "gif",
       "qx"
     ],
-    "qx/decoration/Simple/checkbox/checked-disabled.png": [
-      6,
-      6,
-      "png",
+    "qx/decoration/Simple/cursors/alias.gif": [
+      19,
+      15,
+      "gif",
       "qx"
     ],
-    "qx/decoration/Simple/checkbox/checked.png": [
-      6,
-      6,
-      "png",
+    "qx/decoration/Simple/cursors/copy.gif": [
+      19,
+      15,
+      "gif",
       "qx"
     ],
-    "qx/decoration/Simple/checkbox/undetermined-disabled.png": [
-      6,
-      2,
-      "png",
+    "qx/decoration/Simple/cursors/move.gif": [
+      13,
+      9,
+      "gif",
       "qx"
     ],
-    "qx/decoration/Simple/checkbox/undetermined.png": [
-      6,
-      2,
-      "png",
+    "qx/decoration/Simple/cursors/nodrop.gif": [
+      20,
+      20,
+      "gif",
       "qx"
     ],
     "qx/decoration/Simple/colorselector/brightness-field.png": [
@@ -388,42 +412,6 @@ qx.$$packageData['0'] = {
       "gif",
       "qx"
     ],
-    "qx/decoration/Simple/cursors/alias.gif": [
-      19,
-      15,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/cursors/copy.gif": [
-      19,
-      15,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/cursors/move.gif": [
-      13,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/cursors/nodrop.gif": [
-      20,
-      20,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/splitpane/knob-horizontal.png": [
-      1,
-      8,
-      "png",
-      "qx"
-    ],
-    "qx/decoration/Simple/splitpane/knob-vertical.png": [
-      8,
-      1,
-      "png",
-      "qx"
-    ],
     "qx/decoration/Simple/menu/checkbox-invert.gif": [
       16,
       7,
@@ -448,10 +436,16 @@ qx.$$packageData['0'] = {
       "gif",
       "qx"
     ],
-    "qx/decoration/Simple/tabview/close.gif": [
-      10,
-      9,
-      "gif",
+    "qx/decoration/Simple/splitpane/knob-horizontal.png": [
+      1,
+      8,
+      "png",
+      "qx"
+    ],
+    "qx/decoration/Simple/splitpane/knob-vertical.png": [
+      8,
+      1,
+      "png",
       "qx"
     ],
     "qx/decoration/Simple/table/ascending-invert.png": [
@@ -496,6 +490,12 @@ qx.$$packageData['0'] = {
       "png",
       "qx"
     ],
+    "qx/decoration/Simple/tabview/close.gif": [
+      10,
+      9,
+      "gif",
+      "qx"
+    ],
     "qx/decoration/Simple/tree/minus.gif": [
       19,
       16,
@@ -505,54 +505,6 @@ qx.$$packageData['0'] = {
     "qx/decoration/Simple/tree/plus.gif": [
       19,
       16,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/close-white.gif": [
-      10,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/close.gif": [
-      10,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/maximize-white.gif": [
-      9,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/maximize.gif": [
-      9,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/minimize-white.gif": [
-      9,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/minimize.gif": [
-      9,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/restore-white.gif": [
-      8,
-      9,
-      "gif",
-      "qx"
-    ],
-    "qx/decoration/Simple/window/restore.gif": [
-      8,
-      9,
       "gif",
       "qx"
     ],
@@ -628,6 +580,54 @@ qx.$$packageData['0'] = {
       "gif",
       "qx"
     ],
+    "qx/decoration/Simple/window/close-white.gif": [
+      10,
+      9,
+      "gif",
+      "qx"
+    ],
+    "qx/decoration/Simple/window/close.gif": [
+      10,
+      9,
+      "gif",
+      "qx"
+    ],
+    "qx/decoration/Simple/window/maximize-white.gif": [
+      9,
+      9,
+      "gif",
+      "qx"
+    ],
+    "qx/decoration/Simple/window/maximize.gif": [
+      9,
+      9,
+      "gif",
+      "qx"
+    ],
+    "qx/decoration/Simple/window/minimize-white.gif": [
+      9,
+      9,
+      "gif",
+      "qx"
+    ],
+    "qx/decoration/Simple/window/minimize.gif": [
+      9,
+      9,
+      "gif",
+      "qx"
+    ],
+    "qx/decoration/Simple/window/restore-white.gif": [
+      8,
+      9,
+      "gif",
+      "qx"
+    ],
+    "qx/decoration/Simple/window/restore.gif": [
+      8,
+      9,
+      "gif",
+      "qx"
+    ],
     "qx/icon/Tango/16/actions/dialog-cancel.png": [
       16,
       16,
@@ -700,13 +700,13 @@ qx.$$packageData['0'] = {
       "js",
       "qxc.restful"
     ],
-    "qxc.restful/js/restful.standalone.js": [
+    "qxc.restful/js/restful.js": [
       null,
       null,
       "js",
       "qxc.restful"
     ],
-    "qxc.restful/js/restful.standalone.min.js": [
+    "qxc.restful/js/restful.min.js": [
       null,
       null,
       "js",

@@ -24,11 +24,11 @@ var libinfo = {
   "__out__": {
     "sourceUri": "."
   },
-  "qx": {
+  "qxc.require": {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
-  "qxc.require": {
+  "qxc.restful": {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
@@ -36,7 +36,7 @@ var libinfo = {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
-  "qxc.restful": {
+  "qx": {
     "sourceUri": ".",
     "resourceUri": "../resource"
   }
