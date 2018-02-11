@@ -251,6 +251,7 @@
         "qx:qx/ui/virtual/selection/MModel.js",
         "qx:qx/data/controller/ISelection.js",
         "qx:qx/ui/virtual/core/Pane.js",
+        "qx:qx/ui/virtual/core/Axis.js",
         "qx:qx/ui/list/List.js",
         "qx:qx/ui/form/MForm.js",
         "qx:qx/ui/form/AbstractField.js",
@@ -259,7 +260,6 @@
         "qx:qx/util/format/IFormat.js",
         "qx:qx/util/format/DateFormat.js",
         "qx:qx/locale/Date.js",
-        "qx:qx/ui/layout/Basic.js",
         "qx:qx/ui/form/Form.js",
         "qx:qx/ui/form/TextField.js",
         "qx:qx/ui/form/PasswordField.js",
@@ -335,6 +335,7 @@
         "qx:qx/ui/menubar/Button.js",
         "qx:qx/ui/toolbar/Part.js",
         "qx:qx/ui/toolbar/PartContainer.js",
+        "qx:qx/ui/layout/Basic.js",
         "qx:qx/ui/form/MModelSelection.js",
         "qx:qx/ui/core/ISingleSelection.js",
         "qx:qx/ui/form/IModelSelection.js",
@@ -359,7 +360,6 @@
         "qx:qx/ui/list/core/MWidgetController.js",
         "qx:qx/ui/list/provider/WidgetProvider.js",
         "qx:qx/util/Delegate.js",
-        "qx:qx/ui/virtual/core/Axis.js",
         "qx:qx/ui/virtual/core/CellEvent.js",
         "qx:qx/html/Input.js",
         "qx:qx/ui/form/validation/Manager.js",
@@ -430,7 +430,7 @@
         "tweets:tweets/theme/Theme.js",
         "qx:qx/theme/simple/Image.js"
       ],
-      "hashValue": "a529362c6b37423b84b2cbcb9f3429fa0cbe1b564b37fca578f9e72b649d7533",
+      "hashValue": "a0eeaca92290d7000c85c45a64365acfa546f5cbc59c27005aa1b5635e1497c3",
       "modified": true
     }
   }
