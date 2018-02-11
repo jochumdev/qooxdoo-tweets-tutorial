@@ -102,13 +102,12 @@ qx.Class.define("tweets.Application", {
       this.__loginWindow.moveTo(320, 30);
       this.__loginWindow.open();
 
-      var that = this;
-      this.__loginWindow.addListener("changeLoginData", function(ev) {
+      this.__loginWindow.addListener("changeLoginData", ev => {
         var loginData = ev.getData();
         service.fetchTweets(loginData.username, loginData.password);
         main.open();
 
-        that.addPromiseTable();
+        this.addPromiseTable();
       });
     },
 

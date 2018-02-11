@@ -11,9 +11,15 @@ qx.Class.define("tweets.window.Login", {
   construct: function() {
     this.base(arguments, this.tr("Login"), "tweets/logo.png");
 
-    var layout = new qx.ui.layout.Basic();
+    var layout = new qx.ui.layout.VBox();
+    layout.setSpacing(4);
     this.setLayout(layout);
     this.setModal(true);
+
+    this.add(new qx.ui.basic.Label().set({
+      value: 'Any login will work.',
+      rich: false
+    }));
 
     var form = new qx.ui.form.Form();
 

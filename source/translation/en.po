@@ -38,19 +38,19 @@ msgstr ""
 msgid "Enter your message here..."
 msgstr ""
 
-#: tweets.window.Login:31
+#: tweets.window.Login:37
 msgid "Login"
 msgstr ""
 
-#: tweets.window.Login:22
+#: tweets.window.Login:28
 msgid "Username"
 msgstr ""
 
-#: tweets.window.Login:26
+#: tweets.window.Login:32
 msgid "Password"
 msgstr ""
 
-#: tweets.window.Login:44
+#: tweets.window.Login:50
 msgid "Cancel"
 msgstr ""
 

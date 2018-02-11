@@ -1,9 +1,11 @@
-# qooxdoo "tweets" with [qxcompiler](https://github.com/johnspackman/qxcompiler) and [grunt-qx](https://github.com/drawstack/grunt-qx)
+# qooxdoo "tweets" with [qxcompiler](https://github.com/johnspackman/qxcompiler)
 
 This is the tweets application from the offical Qooxdoo [tutorial](http://www.qooxdoo.org/current/pages/desktop/tutorials/tutorial-part-1.html), its also here as an
 example for an app with [QxCompiler](https://github.com/qooxdoo/qooxdoo-compiler).
 
 I've added a demo for [qx-contrib-restful](https://github.com/drawstack/qx-contrib-restful) also.
+
+See the online [Demo](https://pcdummy.github.io/qooxdoo-tweets-tutorial/tweets/).
 
 ### Install
 
