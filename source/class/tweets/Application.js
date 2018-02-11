@@ -44,7 +44,7 @@ qx.Class.define("tweets.Application", {
         /* eslint-enable no-unused-expressions */
       }
 
-      qxc.restful.Init.getInstance().initPretty();
+      qxc.restful.Init.getInstance().init();
       // Must be last
       qxc.require.Init.getInstance().init();
 

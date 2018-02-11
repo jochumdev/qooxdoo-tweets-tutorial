@@ -8,7 +8,7 @@
         "url": "https://rene.jochums.at"
     },
     "license": "MIT",
-    "devDependencies": {
+    "dependencies": {
         "qooxdoo-sdk": "^6.0.0-alpha",
         "qxc.restful": "^0.9.9"
     }
