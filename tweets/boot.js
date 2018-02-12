@@ -12,7 +12,7 @@ var envinfo = {
   "qx.revision": "",
   "qx.theme": "tweets.theme.Theme",
   "qx.version": "6.0.0-alpha",
-  "qx.compilerVersion": "0.2.1",
+  "qx.compilerVersion": "0.2.2",
   "qx.icontheme": "Tango"
 };
 for (var k in envinfo) 
@@ -28,7 +28,7 @@ var libinfo = {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
-  "tweets": {
+  "qxc.require": {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
@@ -36,7 +36,7 @@ var libinfo = {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
-  "qxc.require": {
+  "tweets": {
     "sourceUri": ".",
     "resourceUri": "../resource"
   }

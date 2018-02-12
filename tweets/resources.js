@@ -1,6 +1,6 @@
 qx.$$packageData['0'] = {
   "locales": {
-    "C": {
+    "en": {
       "alternateQuotationEnd": "’",
       "alternateQuotationStart": "‘",
       "quotationEnd": "”",
@@ -133,7 +133,7 @@ qx.$$packageData['0'] = {
         "time zone"
       ]
     },
-    "en": {
+    "C": {
       "alternateQuotationEnd": "’",
       "alternateQuotationStart": "‘",
       "quotationEnd": "”",

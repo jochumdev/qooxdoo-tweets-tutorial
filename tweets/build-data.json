@@ -251,7 +251,6 @@
         "qx:qx/ui/virtual/selection/MModel.js",
         "qx:qx/data/controller/ISelection.js",
         "qx:qx/ui/virtual/core/Pane.js",
-        "qx:qx/ui/virtual/core/Axis.js",
         "qx:qx/ui/list/List.js",
         "qx:qx/ui/form/MForm.js",
         "qx:qx/ui/form/AbstractField.js",
@@ -360,6 +359,7 @@
         "qx:qx/ui/list/core/MWidgetController.js",
         "qx:qx/ui/list/provider/WidgetProvider.js",
         "qx:qx/util/Delegate.js",
+        "qx:qx/ui/virtual/core/Axis.js",
         "qx:qx/ui/virtual/core/CellEvent.js",
         "qx:qx/html/Input.js",
         "qx:qx/ui/form/validation/Manager.js",
@@ -430,7 +430,7 @@
         "tweets:tweets/theme/Theme.js",
         "qx:qx/theme/simple/Image.js"
       ],
-      "hashValue": "7b71da44e79ced12e263a1f0dc7bc696bb08b3d7a4ba8671fd56e19b51fc7135",
+      "hashValue": "cd899297ea46a8455fbdc8f76e21aba5ebffe9373747a804a2c5708dd2bef1b5",
       "modified": true
     }
   }
