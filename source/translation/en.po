@@ -1,63 +1,64 @@
-#: qx.ui.table.Table:1974
+#: qx.ui.table.Table:1974 qx/ui/table/Table.js:1974
 msgid "one row"
 msgid_plural "%1 rows"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qx.ui.table.Table:1976
+#: qx.ui.table.Table:1976 qx/ui/table/Table.js:1976
 msgid "one of one row"
 msgid_plural "%1 of %2 rows"
 msgstr[0] ""
 msgstr[1] ""
 
-#: tweets.window.Settings:5
+#: tweets.window.Settings:5 tweets/window/Main.js:48
+#: tweets/window/Settings.js:5
 msgid "Preferences"
 msgstr ""
 
-#: tweets.window.Main:50
+#: tweets.window.Main:50 tweets/window/Main.js:50
 msgid "Change the applications settings."
 msgstr ""
 
-#: tweets.window.Main:60
+#: tweets.window.Main:60 tweets/window/Main.js:60
 msgid "Reload"
 msgstr ""
 
-#: tweets.window.Main:61
+#: tweets.window.Main:61 tweets/window/Main.js:61
 msgid "Reload the tweets."
 msgstr ""
 
-#: tweets.window.Main:73
+#: tweets.window.Main:73 tweets/window/Main.js:73
 msgid "Post"
 msgstr ""
 
-#: tweets.window.Main:74
+#: tweets.window.Main:74 tweets/window/Main.js:74
 msgid "Post this message on identi.ca"
 msgstr ""
 
-#: tweets.window.Main:82
+#: tweets.window.Main:82 tweets/window/Main.js:82
 msgid "Enter your message here..."
 msgstr ""
 
-#: tweets.window.Login:37
+#: tweets.window.Login:37 tweets/window/Login.js:12 tweets/window/Login.js:37
 msgid "Login"
 msgstr ""
 
-#: tweets.window.Login:28
+#: tweets.window.Login:28 tweets/window/Login.js:28
 msgid "Username"
 msgstr ""
 
-#: tweets.window.Login:32
+#: tweets.window.Login:32 tweets/window/Login.js:32
 msgid "Password"
 msgstr ""
 
-#: tweets.window.Login:50
+#: tweets.window.Login:50 tweets/window/Login.js:50
 msgid "Cancel"
 msgstr ""
 
-#: tweets.window.Settings:10
+#: tweets.window.Settings:10 tweets/window/Settings.js:10
 msgid "Language"
 msgstr ""
 
-#: tweets.window.Settings:39
+#: tweets.window.Settings:39 tweets/window/Settings.js:39
 msgid "$$languagename"
 msgstr ""
