@@ -1,0 +1,260 @@
+{
+  "className": "qx.ui.table.columnmenu.Button",
+  "packageName": "qx.ui.table.columnmenu",
+  "name": "Button",
+  "superClass": "qx.ui.form.MenuButton",
+  "interfaces": [
+    "qx.ui.table.IColumnMenuButton"
+  ],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0
+      },
+      "end": {
+        "line": 111,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2009 Derrell Lipman\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nDerrell Lipman (derrell)\nJonathan Weiß (jonathan_rass)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "The traditional qx.ui.menu.MenuButton to access the column visibility menu."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 32,
+        "column": 2
+      },
+      "end": {
+        "line": 38,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "Create a new instance of a column visibility menu button. This button\nalso contains the factory for creating each of the sub-widgets."
+        }
+      ]
+    }
+  },
+  "members": {
+    "__columnMenuButtons": {
+      "location": {
+        "start": {
+          "line": 42,
+          "column": 4
+        },
+        "end": {
+          "line": 42,
+          "column": 30
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__blocker": {
+      "location": {
+        "start": {
+          "line": 43,
+          "column": 4
+        },
+        "end": {
+          "line": 43,
+          "column": 20
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "factory": {
+      "location": {
+        "start": {
+          "line": 46,
+          "column": 4
+        },
+        "end": {
+          "line": 76,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Documented in qx.ui.table.IColumnMenu"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "item {String}\nOne of the following strings, indicating what type of\ncolumn-menu-specific object to instantiate:\n<dl>\n<dt>menu</dt>\n<dd>\nInstantiate a menu which will appear when the column visibility\nbutton is pressed. No options are provided in this case.\n</dd>\n<dt>menu-button</dt>\n<dd>\nInstantiate a button to correspond to a column within the\ntable. The options are a map containing <i>text</i>, the name of\nthe column; <i>column</i>, the column number; and\n<i>bVisible</i>, a boolean indicating whether this column is\ncurrently visible. The instantiated return object must implement\ninterface {@link qx.ui.table.IColumnMenuItem}\n</dd>\n<dt>user-button</dt>\n<dd>\nInstantiate a button for other than a column name. This is used,\nfor example, to add the \"Reset column widths\" button when the\nResize column model is requested. The options is a map containing\n<i>text</i>, the text to present in the button.\n</dd>\n<dt>separator</dt>\n<dd>\nInstantiate a separator object to added to the menu. This is\nused, for example, to separate the table column name list from\nthe \"Reset column widths\" button when the Resize column model is\nrequested. No options are provided in this case.\n</dd>\n</dl>",
+            "paramName": "item",
+            "description": "\nOne of the following strings, indicating what type of\ncolumn-menu-specific object to instantiate:\n<dl>\n<dt>menu</dt>\n<dd>\nInstantiate a menu which will appear when the column visibility\nbutton is pressed. No options are provided in this case.\n</dd>\n<dt>menu-button</dt>\n<dd>\nInstantiate a button to correspond to a column within the\ntable. The options are a map containing <i>text</i>, the name of\nthe column; <i>column</i>, the column number; and\n<i>bVisible</i>, a boolean indicating whether this column is\ncurrently visible. The instantiated return object must implement\ninterface {@link qx.ui.table.IColumnMenuItem}\n</dd>\n<dt>user-button</dt>\n<dd>\nInstantiate a button for other than a column name. This is used,\nfor example, to add the \"Reset column widths\" button when the\nResize column model is requested. The options is a map containing\n<i>text</i>, the text to present in the button.\n</dd>\n<dt>separator</dt>\n<dd>\nInstantiate a separator object to added to the menu. This is\nused, for example, to separate the table column name list from\nthe \"Reset column widths\" button when the Resize column model is\nrequested. No options are provided in this case.\n</dd>\n</dl>",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map}\nOptions specific to the <i>item</i> being requested.",
+            "paramName": "options",
+            "description": "\nOptions specific to the <i>item</i> being requested.",
+            "type": "Map"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.Widget}\nThe instantiated object as specified by <i>item</i>.",
+            "type": "qx.ui.core.Widget",
+            "desc": "\nThe instantiated object as specified by <i>item</i>."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.table.IColumnMenuButton",
+      "appearsIn": [
+        "qx.ui.table.IColumnMenuButton"
+      ]
+    },
+    "getBlocker": {
+      "location": {
+        "start": {
+          "line": 84,
+          "column": 4
+        },
+        "end": {
+          "line": 86,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the blocker of the columnmenu button."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.Blocker} the blocker.",
+            "type": "qx.ui.core.Blocker",
+            "desc": " the blocker."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "empty": {
+      "location": {
+        "start": {
+          "line": 89,
+          "column": 4
+        },
+        "end": {
+          "line": 98,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Documented in qx.ui.table.IColumnMenu"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.table.IColumnMenuButton",
+      "appearsIn": [
+        "qx.ui.table.IColumnMenuButton"
+      ]
+    },
+    "getMenu": {
+      "type": "function",
+      "name": "getMenu",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setMenu": {
+      "type": "function",
+      "name": "setMenu",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetMenu": {
+      "type": "function",
+      "name": "resetMenu",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 107,
+        "column": 2
+      },
+      "end": {
+        "line": 109,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

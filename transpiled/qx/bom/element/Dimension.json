@@ -1,0 +1,34 @@
+{
+  "className": "qx.bom.element.Dimension",
+  "packageName": "qx.bom.element",
+  "name": "Dimension",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 28,
+        "column": 0
+      },
+      "end": {
+        "line": 218,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Contains support for calculating dimensions of HTML elements.\n\nWe differ between the box (or border) size which is available via\n{@link #getWidth} and {@link #getHeight} and the content or scroll\nsizes which are available via {@link #getContentWidth} and\n{@link #getContentHeight}."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

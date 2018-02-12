@@ -1,0 +1,2189 @@
+{
+  "className": "qx.ui.form.AbstractField",
+  "packageName": "qx.ui.form",
+  "name": "AbstractField",
+  "superClass": "qx.ui.core.Widget",
+  "interfaces": [
+    "qx.ui.form.IStringForm",
+    "qx.ui.form.IForm"
+  ],
+  "mixins": [
+    "qx.ui.form.MForm"
+  ],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 29,
+        "column": 0
+      },
+      "end": {
+        "line": 1081,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This is a basic form field with common functionality for\n{@link TextArea} and {@link TextField}.\n\nOn every keystroke the value is synchronized with the\nvalue of the textfield. Value changes can be monitored by listening to the\n{@link #input} or {@link #changeValue} events, respectively."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 84,
+        "column": 2
+      },
+      "end": {
+        "line": 116,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "value {String} initial text value of the input field ({@link #setValue}).",
+          "paramName": "value",
+          "description": " initial text value of the input field ({@link #setValue}).",
+          "type": "String"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "textAlign": {
+      "location": {
+        "start": {
+          "line": 164,
+          "column": 4
+        },
+        "end": {
+          "line": 170,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Alignment of the text"
+          }
+        ]
+      },
+      "name": "textAlign",
+      "propertyType": "new",
+      "themeable": true,
+      "apply": "_applyTextAlign",
+      "allowNull": true,
+      "possibleValues": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "readOnly": {
+      "location": {
+        "start": {
+          "line": 174,
+          "column": 4
+        },
+        "end": {
+          "line": 180,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the field is read only"
+          }
+        ]
+      },
+      "name": "readOnly",
+      "propertyType": "new",
+      "event": "changeReadOnly",
+      "apply": "_applyReadOnly",
+      "check": "Boolean",
+      "defaultValue": false
+    },
+    "selectable": {
+      "location": {
+        "start": {
+          "line": 184,
+          "column": 4
+        },
+        "end": {
+          "line": 188,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "name": "selectable",
+      "propertyType": "new",
+      "refine": true,
+      "defaultValue": true,
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": {
+        "qx.ui.core.Widget": "class"
+      }
+    },
+    "focusable": {
+      "location": {
+        "start": {
+          "line": 192,
+          "column": 4
+        },
+        "end": {
+          "line": 196,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "name": "focusable",
+      "propertyType": "new",
+      "refine": true,
+      "defaultValue": true,
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": {
+        "qx.ui.core.Widget": "class"
+      }
+    },
+    "maxLength": {
+      "location": {
+        "start": {
+          "line": 199,
+          "column": 4
+        },
+        "end": {
+          "line": 204,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Maximal number of characters that can be entered in the TextArea."
+          }
+        ]
+      },
+      "name": "maxLength",
+      "propertyType": "new",
+      "apply": "_applyMaxLength",
+      "check": "PositiveInteger",
+      "defaultValue": "Infinity"
+    },
+    "liveUpdate": {
+      "location": {
+        "start": {
+          "line": 211,
+          "column": 4
+        },
+        "end": {
+          "line": 215,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the {@link #changeValue} event should be fired on every key\ninput. If set to true, the changeValue event is equal to the\n{@link #input} event."
+          }
+        ]
+      },
+      "name": "liveUpdate",
+      "propertyType": "new",
+      "check": "Boolean",
+      "defaultValue": false
+    },
+    "placeholder": {
+      "location": {
+        "start": {
+          "line": 222,
+          "column": 4
+        },
+        "end": {
+          "line": 227,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "String value which will be shown as a hint if the field is all of:\nunset, unfocused and enabled. Set to null to not show a placeholder\ntext."
+          }
+        ]
+      },
+      "name": "placeholder",
+      "propertyType": "new",
+      "apply": "_applyPlaceholder",
+      "allowNull": true,
+      "check": "String"
+    },
+    "filter": {
+      "location": {
+        "start": {
+          "line": 239,
+          "column": 4
+        },
+        "end": {
+          "line": 244,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "RegExp responsible for filtering the value of the textfield. the RegExp\ngives the range of valid values.\nNote: The regexp specified is applied to each character in turn,\nNOT to the entire string. So only regular expressions matching a\nsingle character make sense in the context.\nThe following example only allows digits in the textfield.\n<pre class='javascript'>field.setFilter(/[0-9]/);</pre>"
+          }
+        ]
+      },
+      "name": "filter",
+      "propertyType": "new",
+      "allowNull": true,
+      "check": "RegExp"
+    },
+    "valid": {
+      "type": "property",
+      "name": "valid",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.MForm"
+    },
+    "required": {
+      "type": "property",
+      "name": "required",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.MForm"
+    },
+    "invalidMessage": {
+      "type": "property",
+      "name": "invalidMessage",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.MForm"
+    },
+    "requiredInvalidMessage": {
+      "type": "property",
+      "name": "requiredInvalidMessage",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.MForm"
+    }
+  },
+  "members": {
+    "__nullValue": {
+      "location": {
+        "start": {
+          "line": 258,
+          "column": 4
+        },
+        "end": {
+          "line": 258,
+          "column": 22
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "_placeholder": {
+      "location": {
+        "start": {
+          "line": 259,
+          "column": 4
+        },
+        "end": {
+          "line": 259,
+          "column": 23
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "__oldValue": {
+      "location": {
+        "start": {
+          "line": 260,
+          "column": 4
+        },
+        "end": {
+          "line": 260,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__oldInputValue": {
+      "location": {
+        "start": {
+          "line": 261,
+          "column": 4
+        },
+        "end": {
+          "line": 261,
+          "column": 26
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__useQxPlaceholder": {
+      "location": {
+        "start": {
+          "line": 262,
+          "column": 4
+        },
+        "end": {
+          "line": 262,
+          "column": 29
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__font": {
+      "location": {
+        "start": {
+          "line": 263,
+          "column": 4
+        },
+        "end": {
+          "line": 263,
+          "column": 17
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__webfontListenerId": {
+      "location": {
+        "start": {
+          "line": 264,
+          "column": 4
+        },
+        "end": {
+          "line": 264,
+          "column": 30
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "getFocusElement": {
+      "location": {
+        "start": {
+          "line": 274,
+          "column": 4
+        },
+        "end": {
+          "line": 279,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nWIDGET API\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.html.Element} The html element to focus.",
+            "type": "qx.html.Element",
+            "desc": " The html element to focus."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_createInputElement": {
+      "location": {
+        "start": {
+          "line": 288,
+          "column": 4
+        },
+        "end": {
+          "line": 290,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Creates the input element. Derived classes may override this\nmethod, to create different input elements."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.html.Input} a new input element.",
+            "type": "qx.html.Input",
+            "desc": " a new input element."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "renderLayout": {
+      "location": {
+        "start": {
+          "line": 294,
+          "column": 4
+        },
+        "end": {
+          "line": 357,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "left {Integer} Any integer value for the left position,\nalways in pixels",
+            "paramName": "left",
+            "description": " Any integer value for the left position,\nalways in pixels",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "top {Integer} Any integer value for the top position,\nalways in pixels",
+            "paramName": "top",
+            "description": " Any integer value for the top position,\nalways in pixels",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "width {Integer} Any positive integer value for the width,\nalways in pixels",
+            "paramName": "width",
+            "description": " Any positive integer value for the width,\nalways in pixels",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "height {Integer} Any positive integer value for the height,\nalways in pixels",
+            "paramName": "height",
+            "description": " Any positive integer value for the height,\nalways in pixels",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} A map of which layout sizes changed.",
+            "type": "Map",
+            "desc": " A map of which layout sizes changed."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget",
+        "qx.ui.core.LayoutItem"
+      ]
+    },
+    "_renderContentElement": {
+      "location": {
+        "start": {
+          "line": 369,
+          "column": 4
+        },
+        "end": {
+          "line": 371,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Hook into {@link qx.ui.form.AbstractField#renderLayout} method.\nCalled after the contentElement has a width and an innerWidth.\n\nNote: This was introduced to fix BUG#1585"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "innerHeight {Integer} The inner height of the element.",
+            "paramName": "innerHeight",
+            "description": " The inner height of the element.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "element {Element} The element.",
+            "paramName": "element",
+            "description": " The element.",
+            "type": "Element"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_createContentElement": {
+      "location": {
+        "start": {
+          "line": 375,
+          "column": 4
+        },
+        "end": {
+          "line": 400,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.html.Element} The widget's content element",
+            "type": "qx.html.Element",
+            "desc": " The widget's content element"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_applyEnabled": {
+      "location": {
+        "start": {
+          "line": 404,
+          "column": 4
+        },
+        "end": {
+          "line": 421,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "__textSize": {
+      "location": {
+        "start": {
+          "line": 428,
+          "column": 4
+        },
+        "end": {
+          "line": 432,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "default text sizes"
+          },
+          {
+            "name": "@description",
+            "body": ""
+          }
+        ],
+        "@lint": [
+          {
+            "name": "@lint",
+            "body": "ignoreReferenceField(__textSize)"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "_getContentHint": {
+      "location": {
+        "start": {
+          "line": 436,
+          "column": 4
+        },
+        "end": {
+          "line": 442,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map}",
+            "type": "Map",
+            "desc": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_applyFont": {
+      "location": {
+        "start": {
+          "line": 446,
+          "column": 4
+        },
+        "end": {
+          "line": 502,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_applyTextColor": {
+      "location": {
+        "start": {
+          "line": 506,
+          "column": 4
+        },
+        "end": {
+          "line": 515,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_applyMaxLength": {
+      "location": {
+        "start": {
+          "line": 519,
+          "column": 4
+        },
+        "end": {
+          "line": 525,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "property apply"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "tabFocus": {
+      "location": {
+        "start": {
+          "line": 529,
+          "column": 4
+        },
+        "end": {
+          "line": 533,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_getTextSize": {
+      "location": {
+        "start": {
+          "line": 539,
+          "column": 4
+        },
+        "end": {
+          "line": 541,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the text size."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} The text size.",
+            "type": "Map",
+            "desc": " The text size."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onHtmlInput": {
+      "location": {
+        "start": {
+          "line": 555,
+          "column": 4
+        },
+        "end": {
+          "line": 590,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nEVENTS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Event listener for native input events. Redirects the event\nto the widget. Also checks for the filter and max length."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Data} Input event",
+            "paramName": "e",
+            "description": " Input event",
+            "type": "qx.event.type.Data"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onWebFontStatusChange": {
+      "location": {
+        "start": {
+          "line": 597,
+          "column": 4
+        },
+        "end": {
+          "line": 604,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Triggers text size recalculation after a web font was loaded"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "ev {qx.event.type.Data} \"changeStatus\" event",
+            "paramName": "ev",
+            "description": " \"changeStatus\" event",
+            "type": "qx.event.type.Data"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "__fireChangeValueEvent": {
+      "location": {
+        "start": {
+          "line": 613,
+          "column": 4
+        },
+        "end": {
+          "line": 621,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Handles the firing of the changeValue event including the local cache\nfor sending the old value in the event."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "value {String} The new value.",
+            "paramName": "value",
+            "description": " The new value.",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    },
+    "setValue": {
+      "location": {
+        "start": {
+          "line": 635,
+          "column": 4
+        },
+        "end": {
+          "line": 677,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nTEXTFIELD VALUE API\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Sets the value of the textfield to the given value."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "value {String} The new value",
+            "paramName": "value",
+            "description": " The new value",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.IStringForm",
+      "appearsIn": [
+        "qx.ui.form.IStringForm",
+        "qx.ui.form.IField"
+      ]
+    },
+    "getValue": {
+      "location": {
+        "start": {
+          "line": 685,
+          "column": 4
+        },
+        "end": {
+          "line": 687,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the current value of the textfield."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String|null} The current value",
+            "type": "String|null",
+            "desc": " The current value"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.IStringForm",
+      "appearsIn": [
+        "qx.ui.form.IStringForm",
+        "qx.ui.form.IField"
+      ]
+    },
+    "resetValue": {
+      "location": {
+        "start": {
+          "line": 693,
+          "column": 4
+        },
+        "end": {
+          "line": 695,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the value to the default"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.IStringForm",
+      "appearsIn": [
+        "qx.ui.form.IStringForm",
+        "qx.ui.form.IField"
+      ]
+    },
+    "_onChangeContent": {
+      "location": {
+        "start": {
+          "line": 703,
+          "column": 4
+        },
+        "end": {
+          "line": 707,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Event listener for change event of content element"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Data} Incoming change event",
+            "paramName": "e",
+            "description": " Incoming change event",
+            "type": "qx.event.type.Data"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "getTextSelection": {
+      "location": {
+        "start": {
+          "line": 724,
+          "column": 4
+        },
+        "end": {
+          "line": 726,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nTEXTFIELD SELECTION API\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Returns the current selection.\nThis method only works if the widget is already created and\nadded to the document."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String|null}",
+            "type": "String|null",
+            "desc": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getTextSelectionLength": {
+      "location": {
+        "start": {
+          "line": 736,
+          "column": 4
+        },
+        "end": {
+          "line": 738,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the current selection length.\nThis method only works if the widget is already created and\nadded to the document."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer|null}",
+            "type": "Integer|null",
+            "desc": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getTextSelectionStart": {
+      "location": {
+        "start": {
+          "line": 746,
+          "column": 4
+        },
+        "end": {
+          "line": 748,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the start of the text selection"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer|null} Start of selection or null if not available",
+            "type": "Integer|null",
+            "desc": " Start of selection or null if not available"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getTextSelectionEnd": {
+      "location": {
+        "start": {
+          "line": 756,
+          "column": 4
+        },
+        "end": {
+          "line": 758,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the end of the text selection"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer|null} End of selection or null if not available",
+            "type": "Integer|null",
+            "desc": " End of selection or null if not available"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setTextSelection": {
+      "location": {
+        "start": {
+          "line": 771,
+          "column": 4
+        },
+        "end": {
+          "line": 773,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Set the selection to the given start and end (zero-based).\nIf no end value is given the selection will extend to the\nend of the textfield's content.\nThis method only works if the widget is already created and\nadded to the document."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "start {Integer} start of the selection (zero-based)",
+            "paramName": "start",
+            "description": " start of the selection (zero-based)",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "end {Integer} end of the selection",
+            "paramName": "end",
+            "description": " end of the selection",
+            "type": "Integer"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "clearTextSelection": {
+      "location": {
+        "start": {
+          "line": 782,
+          "column": 4
+        },
+        "end": {
+          "line": 784,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Clears the current selection.\nThis method only works if the widget is already created and\nadded to the document."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "selectAllText": {
+      "location": {
+        "start": {
+          "line": 791,
+          "column": 4
+        },
+        "end": {
+          "line": 793,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Selects the whole content"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setLayoutParent": {
+      "location": {
+        "start": {
+          "line": 803,
+          "column": 4
+        },
+        "end": {
+          "line": 814,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nPLACEHOLDER HELPERS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "parent {qx.ui.core.Widget|null} The new parent.",
+            "paramName": "parent",
+            "description": " The new parent.",
+            "type": [
+              "qx.ui.core.Widget",
+              "null"
+            ]
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget",
+        "qx.ui.core.LayoutItem"
+      ]
+    },
+    "_showPlaceholder": {
+      "location": {
+        "start": {
+          "line": 821,
+          "column": 4
+        },
+        "end": {
+          "line": 842,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Helper to show the placeholder text in the field. It checks for all\nstates and possible conditions and shows the placeholder only if allowed."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onPointerDownPlaceholder": {
+      "location": {
+        "start": {
+          "line": 848,
+          "column": 4
+        },
+        "end": {
+          "line": 852,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Remove the fake placeholder"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_removePlaceholder": {
+      "location": {
+        "start": {
+          "line": 859,
+          "column": 4
+        },
+        "end": {
+          "line": 866,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Helper to remove the placeholder. Deletes the placeholder text from the\nfield and removes the state."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_syncPlaceholder": {
+      "location": {
+        "start": {
+          "line": 872,
+          "column": 4
+        },
+        "end": {
+          "line": 877,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Updates the placeholder text with the DOM"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_getPlaceholderElement": {
+      "location": {
+        "start": {
+          "line": 883,
+          "column": 4
+        },
+        "end": {
+          "line": 901,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the placeholder label and creates it if necessary."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onChangeLocale": {
+      "location": {
+        "start": {
+          "line": 910,
+          "column": 4
+        },
+        "end": {
+          "line": 921,
+          "column": 6
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Locale change event handler"
+          }
+        ],
+        "@signature": [
+          {
+            "name": "@signature",
+            "body": "function(e)"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {Event} the change event",
+            "paramName": "e",
+            "description": " the change event",
+            "type": "Event"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_onChangeTheme": {
+      "location": {
+        "start": {
+          "line": 925,
+          "column": 4
+        },
+        "end": {
+          "line": 937,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_validateInput": {
+      "location": {
+        "start": {
+          "line": 945,
+          "column": 4
+        },
+        "end": {
+          "line": 963,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Validates the the input value."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "value {Object} The value to check",
+            "paramName": "value",
+            "description": " The value to check",
+            "type": "Object"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "The checked value"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_applyPlaceholder": {
+      "location": {
+        "start": {
+          "line": 972,
+          "column": 4
+        },
+        "end": {
+          "line": 1005,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nPROPERTY APPLY ROUTINES\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "property apply"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_applyTextAlign": {
+      "location": {
+        "start": {
+          "line": 1009,
+          "column": 4
+        },
+        "end": {
+          "line": 1011,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "property apply"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_applyReadOnly": {
+      "location": {
+        "start": {
+          "line": 1015,
+          "column": 4
+        },
+        "end": {
+          "line": 1031,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "property apply"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "setRequired": {
+      "type": "function",
+      "name": "setRequired",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "getRequired": {
+      "type": "function",
+      "name": "getRequired",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setValid": {
+      "type": "function",
+      "name": "setValid",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "getValid": {
+      "type": "function",
+      "name": "getValid",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setInvalidMessage": {
+      "type": "function",
+      "name": "setInvalidMessage",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "String",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "getInvalidMessage": {
+      "type": "function",
+      "name": "getInvalidMessage",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "String",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setRequiredInvalidMessage": {
+      "type": "function",
+      "name": "setRequiredInvalidMessage",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "String",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "getRequiredInvalidMessage": {
+      "type": "function",
+      "name": "getRequiredInvalidMessage",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "String",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "_applyValid": {
+      "type": "function",
+      "name": "_applyValid",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.form.MForm"
+    },
+    "isValid": {
+      "type": "function",
+      "name": "isValid",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "is",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "resetValid": {
+      "type": "function",
+      "name": "resetValid",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "isRequired": {
+      "type": "function",
+      "name": "isRequired",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "is",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "resetRequired": {
+      "type": "function",
+      "name": "resetRequired",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "resetInvalidMessage": {
+      "type": "function",
+      "name": "resetInvalidMessage",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "resetRequiredInvalidMessage": {
+      "type": "function",
+      "name": "resetRequiredInvalidMessage",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getTextAlign": {
+      "type": "function",
+      "name": "getTextAlign",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setTextAlign": {
+      "type": "function",
+      "name": "setTextAlign",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetTextAlign": {
+      "type": "function",
+      "name": "resetTextAlign",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getReadOnly": {
+      "type": "function",
+      "name": "getReadOnly",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "isReadOnly": {
+      "type": "function",
+      "name": "isReadOnly",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "is",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setReadOnly": {
+      "type": "function",
+      "name": "setReadOnly",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetReadOnly": {
+      "type": "function",
+      "name": "resetReadOnly",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getMaxLength": {
+      "type": "function",
+      "name": "getMaxLength",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "PositiveInteger",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setMaxLength": {
+      "type": "function",
+      "name": "setMaxLength",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "PositiveInteger",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetMaxLength": {
+      "type": "function",
+      "name": "resetMaxLength",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getLiveUpdate": {
+      "type": "function",
+      "name": "getLiveUpdate",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "isLiveUpdate": {
+      "type": "function",
+      "name": "isLiveUpdate",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "is",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setLiveUpdate": {
+      "type": "function",
+      "name": "setLiveUpdate",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetLiveUpdate": {
+      "type": "function",
+      "name": "resetLiveUpdate",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getPlaceholder": {
+      "type": "function",
+      "name": "getPlaceholder",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "String",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setPlaceholder": {
+      "type": "function",
+      "name": "setPlaceholder",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "String",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetPlaceholder": {
+      "type": "function",
+      "name": "resetPlaceholder",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getFilter": {
+      "type": "function",
+      "name": "getFilter",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "RegExp",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setFilter": {
+      "type": "function",
+      "name": "setFilter",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "RegExp",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetFilter": {
+      "type": "function",
+      "name": "resetFilter",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 1036,
+        "column": 2
+      },
+      "end": {
+        "line": 1050,
+        "column": 3
+      }
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 1058,
+        "column": 2
+      },
+      "end": {
+        "line": 1080,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "abstract": true,
+  "descendants": [
+    "qx.ui.form.TextArea",
+    "qx.ui.form.TextField"
+  ]
+}

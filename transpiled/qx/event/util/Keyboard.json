@@ -1,0 +1,46 @@
+{
+  "className": "qx.event.util.Keyboard",
+  "packageName": "qx.event.util",
+  "name": "Keyboard",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 24,
+        "column": 0
+      },
+      "end": {
+        "line": 290,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2012 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Utilities for working with character codes and key identifiers"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 274,
+        "column": 2
+      },
+      "end": {
+        "line": 289,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

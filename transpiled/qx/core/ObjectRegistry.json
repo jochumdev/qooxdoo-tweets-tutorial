@@ -1,0 +1,52 @@
+{
+  "className": "qx.core.ObjectRegistry",
+  "packageName": "qx.core",
+  "name": "ObjectRegistry",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 26,
+        "column": 0
+      },
+      "end": {
+        "line": 362,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Registration for all instances of qooxdoo classes. Mainly\nused to manage them for the final shutdown sequence and to\nuse weak references when connecting widgets to DOM nodes etc."
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "qx.dev, qx.dev.Debug.*"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 346,
+        "column": 2
+      },
+      "end": {
+        "line": 361,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

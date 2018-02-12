@@ -1,0 +1,40 @@
+{
+  "className": "qx.Mixin",
+  "packageName": "qx",
+  "name": "Mixin",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 30,
+        "column": 0
+      },
+      "end": {
+        "line": 413,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This class is used to define mixins (similar to mixins in Ruby).\n\nMixins are collections of code and variables, which can be merged into\nother classes. They are similar to classes but don't support inheritance.\n\nSee the description of the {@link #define} method how a mixin is defined."
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.lang.normalize.Array"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

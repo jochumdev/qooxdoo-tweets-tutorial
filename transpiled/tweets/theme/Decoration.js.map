@@ -1,0 +1,25 @@
+{
+  "version": 3,
+  "sources": [
+    "Decoration.js"
+  ],
+  "names": [
+    "qx",
+    "Bootstrap",
+    "executePendingDefers",
+    "$$dbClassInfo",
+    "Theme",
+    "define",
+    "extend",
+    "theme",
+    "simple",
+    "Decoration",
+    "decorations",
+    "tweets"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAAA,KAAGC,SAAH,CAAaC,oBAAb,CAAkCC,aAAlC,EAUAH,GAAGI,KAAH,CAASC,MAAT,CAAgB,yBAAhB,EACE;AACEC,YAAQN,GAAGO,KAAH,CAASC,MAAT,CAAgBC,UAD1B;;AAGEC,iBAAa;AAHf,GADF,C;AAVAC,SAAOJ,KAAP,CAAaE,UAAb,CAAwBN,aAAxB,GAAwCA,aAAxC",
+  "file": "Decoration.js",
+  "sourcesContent": [
+    "/* ************************************************************************\n\n   Copyright:\n\n   License:\n\n   Authors:\n\n************************************************************************ */\n\nqx.Theme.define(\"tweets.theme.Decoration\",\n  {\n    extend: qx.theme.simple.Decoration,\n\n    decorations: {\n    }\n  });\n"
+  ]
+}

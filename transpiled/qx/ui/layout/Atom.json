@@ -1,0 +1,391 @@
+{
+  "className": "qx.ui.layout.Atom",
+  "packageName": "qx.ui.layout",
+  "name": "Atom",
+  "superClass": "qx.ui.layout.Abstract",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 45,
+        "column": 0
+      },
+      "end": {
+        "line": 367,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "A atom layout. Used to place an image and label in relation\nto each other. Useful to create buttons, list items, etc.\n\n*Features*\n\n* Gap between icon and text (using {@link #gap})\n* Vertical and horizontal mode (using {@link #iconPosition})\n* Sorting options to place first child on top/left or bottom/right (using {@link #iconPosition})\n* Automatically middles/centers content to the available space\n* Auto-sizing\n* Supports more than two children (will be processed the same way like the previous ones)\n\n*Item Properties*\n\nNone\n\n*Notes*\n\n* Does not support margins and alignment of {@link qx.ui.core.LayoutItem}.\n\n*Alternative Names*\n\nNone"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "properties": {
+    "gap": {
+      "location": {
+        "start": {
+          "line": 61,
+          "column": 4
+        },
+        "end": {
+          "line": 66,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "The gap between the icon and the text"
+          }
+        ]
+      },
+      "name": "gap",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "check": "Integer",
+      "defaultValue": 4
+    },
+    "iconPosition": {
+      "location": {
+        "start": {
+          "line": 70,
+          "column": 4
+        },
+        "end": {
+          "line": 75,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "The position of the icon in relation to the text"
+          }
+        ]
+      },
+      "name": "iconPosition",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "possibleValues": [
+        "left",
+        "top",
+        "right",
+        "bottom",
+        "top-left",
+        "bottom-left",
+        "top-right",
+        "bottom-right"
+      ],
+      "defaultValue": "left"
+    },
+    "center": {
+      "location": {
+        "start": {
+          "line": 87,
+          "column": 4
+        },
+        "end": {
+          "line": 92,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the content should be rendered centrally when to much space\nis available. Enabling this property centers in both axis. The behavior\nwhen disabled of the centering depends on the {@link #iconPosition} property.\nIf the icon position is <code>left</code> or <code>right</code>, the X axis\nis not centered, only the Y axis. If the icon position is <code>top</code>\nor <code>bottom</code>, the Y axis is not centered. In case of e.g. an\nicon position of <code>top-left</code> no axis is centered."
+          }
+        ]
+      },
+      "name": "center",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "check": "Boolean",
+      "defaultValue": false
+    }
+  },
+  "members": {
+    "verifyLayoutProperty": {
+      "location": {
+        "start": {
+          "line": 113,
+          "column": 4
+        },
+        "end": {
+          "line": 120,
+          "column": 6
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nLAYOUT INTERFACE\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "renderLayout": {
+      "location": {
+        "start": {
+          "line": 124,
+          "column": 4
+        },
+        "end": {
+          "line": 267,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "availWidth {Integer} Final width available for the content (in pixel)",
+            "paramName": "availWidth",
+            "description": " Final width available for the content (in pixel)",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "availHeight {Integer} Final height available for the content (in pixel)",
+            "paramName": "availHeight",
+            "description": " Final height available for the content (in pixel)",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "padding {Map} Map containing the padding values. Keys:\n<code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>",
+            "paramName": "padding",
+            "description": " Map containing the padding values. Keys:\n<code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>",
+            "type": "Map"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.layout.Abstract",
+      "appearsIn": [
+        "qx.ui.layout.Abstract"
+      ]
+    },
+    "_computeSizeHint": {
+      "location": {
+        "start": {
+          "line": 271,
+          "column": 4
+        },
+        "end": {
+          "line": 365,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} The size hint.",
+            "type": "Map",
+            "desc": " The size hint."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.layout.Abstract",
+      "appearsIn": [
+        "qx.ui.layout.Abstract"
+      ]
+    },
+    "getGap": {
+      "type": "function",
+      "name": "getGap",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setGap": {
+      "type": "function",
+      "name": "setGap",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetGap": {
+      "type": "function",
+      "name": "resetGap",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getIconPosition": {
+      "type": "function",
+      "name": "getIconPosition",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setIconPosition": {
+      "type": "function",
+      "name": "setIconPosition",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetIconPosition": {
+      "type": "function",
+      "name": "resetIconPosition",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getCenter": {
+      "type": "function",
+      "name": "getCenter",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "isCenter": {
+      "type": "function",
+      "name": "isCenter",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "is",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setCenter": {
+      "type": "function",
+      "name": "setCenter",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetCenter": {
+      "type": "function",
+      "name": "resetCenter",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

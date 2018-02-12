@@ -1,0 +1,455 @@
+{
+  "className": "qx.util.ResourceManager",
+  "packageName": "qx.util",
+  "name": "ResourceManager",
+  "superClass": "qx.core.Object",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 24,
+        "column": 0
+      },
+      "end": {
+        "line": 346,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Contains information about images (size, format, clipping, ...) and\nother resources like CSS files, local data, ..."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 35,
+        "column": 2
+      },
+      "end": {
+        "line": 38,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "members": {
+    "getIds": {
+      "location": {
+        "start": {
+          "line": 69,
+          "column": 4
+        },
+        "end": {
+          "line": 86,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get all known resource IDs."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "pathfragment{String|null|undefined} an optional path fragment to check against with id.indexOf(pathfragment)"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array|null} an array containing the IDs or null if the registry is not initialized",
+            "type": "Array|null",
+            "desc": " an array containing the IDs or null if the registry is not initialized"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "has": {
+      "location": {
+        "start": {
+          "line": 94,
+          "column": 4
+        },
+        "end": {
+          "line": 96,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the registry has information about the given resource."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} The resource to get the information for",
+            "paramName": "id",
+            "description": " The resource to get the information for",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> when the resource is known.",
+            "type": "Boolean",
+            "desc": " <code>true</code> when the resource is known."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getData": {
+      "location": {
+        "start": {
+          "line": 105,
+          "column": 4
+        },
+        "end": {
+          "line": 107,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get information about an resource."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} The resource to get the information for",
+            "paramName": "id",
+            "description": " The resource to get the information for",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} Registered data or <code>null</code>",
+            "type": "Array",
+            "desc": " Registered data or <code>null</code>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getImageWidth": {
+      "location": {
+        "start": {
+          "line": 118,
+          "column": 4
+        },
+        "end": {
+          "line": 122,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the width of the given resource ID,\nwhen it is not a known image <code>0</code> is\nreturned."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} Resource identifier",
+            "paramName": "id",
+            "description": " Resource identifier",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} The image width, maybe <code>null</code> when the width is unknown",
+            "type": "Integer",
+            "desc": " The image width, maybe <code>null</code> when the width is unknown"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getImageHeight": {
+      "location": {
+        "start": {
+          "line": 133,
+          "column": 4
+        },
+        "end": {
+          "line": 137,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the height of the given resource ID,\nwhen it is not a known image <code>0</code> is\nreturned."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} Resource identifier",
+            "paramName": "id",
+            "description": " Resource identifier",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} The image height, maybe <code>null</code> when the height is unknown",
+            "type": "Integer",
+            "desc": " The image height, maybe <code>null</code> when the height is unknown"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getImageFormat": {
+      "location": {
+        "start": {
+          "line": 148,
+          "column": 4
+        },
+        "end": {
+          "line": 156,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the format of the given resource ID,\nwhen it is not a known image <code>null</code>\nis returned."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} Resource identifier",
+            "paramName": "id",
+            "description": " Resource identifier",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} File format of the image",
+            "type": "String",
+            "desc": " File format of the image"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getCombinedFormat": {
+      "location": {
+        "start": {
+          "line": 166,
+          "column": 4
+        },
+        "end": {
+          "line": 178,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the format of the combined image (png, gif, ...), if the given\nresource identifier is an image contained in one, or the empty string\notherwise."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} Resource identifier",
+            "paramName": "id",
+            "description": " Resource identifier",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} The type of the combined image containing id",
+            "type": "String",
+            "desc": " The type of the combined image containing id"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "toUri": {
+      "location": {
+        "start": {
+          "line": 187,
+          "column": 4
+        },
+        "end": {
+          "line": 219,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Converts the given resource ID to a full qualified URI"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} Resource ID",
+            "paramName": "id",
+            "description": " Resource ID",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} Resulting URI",
+            "type": "String",
+            "desc": " Resulting URI"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "toDataUri": {
+      "location": {
+        "start": {
+          "line": 232,
+          "column": 4
+        },
+        "end": {
+          "line": 246,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Construct a data: URI for an image resource.\n\nConstructs a data: URI for a given resource id, if this resource is\ncontained in a base64 combined image. If this is not the case (e.g.\nbecause the combined image has not been loaded yet), returns the direct\nURI to the image file itself."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "resid {String} resource id of the image",
+            "paramName": "resid",
+            "description": " resource id of the image",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"data:\" or \"http:\" URI",
+            "type": "String",
+            "desc": " \"data:\" or \"http:\" URI"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "isFontUri": {
+      "location": {
+        "start": {
+          "line": 254,
+          "column": 4
+        },
+        "end": {
+          "line": 257,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Checks whether a given resource id for an image is a font handle."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "resid {String} resource id of the image",
+            "paramName": "resid",
+            "description": " resource id of the image",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} True if it's a font URI",
+            "type": "Boolean",
+            "desc": " True if it's a font URI"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 261,
+        "column": 2
+      },
+      "end": {
+        "line": 345,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

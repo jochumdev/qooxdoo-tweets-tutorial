@@ -1,0 +1,359 @@
+{
+  "className": "qx.ui.core.EventHandler",
+  "packageName": "qx.ui.core",
+  "name": "EventHandler",
+  "superClass": "qx.core.Object",
+  "interfaces": [
+    "qx.event.IEventHandler"
+  ],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0
+      },
+      "end": {
+        "line": 387,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Connects the widgets to the browser DOM events."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 36,
+        "column": 2
+      },
+      "end": {
+        "line": 41,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "members": {
+    "__manager": {
+      "location": {
+        "start": {
+          "line": 145,
+          "column": 4
+        },
+        "end": {
+          "line": 145,
+          "column": 20
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__focusEvents": {
+      "location": {
+        "start": {
+          "line": 153,
+          "column": 4
+        },
+        "end": {
+          "line": 159,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": ""
+          }
+        ],
+        "@type": [
+          {
+            "name": "@type",
+            "body": "{Map} Supported focus event types"
+          }
+        ],
+        "@lint": [
+          {
+            "name": "@lint",
+            "body": "ignoreReferenceField(__focusEvents)"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__ignoreDisabled": {
+      "location": {
+        "start": {
+          "line": 167,
+          "column": 4
+        },
+        "end": {
+          "line": 176,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": ""
+          }
+        ],
+        "@type": [
+          {
+            "name": "@type",
+            "body": "{Map} Map of events which should be fired independently from being disabled"
+          }
+        ],
+        "@lint": [
+          {
+            "name": "@lint",
+            "body": "ignoreReferenceField(__ignoreDisabled)"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "canHandleEvent": {
+      "location": {
+        "start": {
+          "line": 180,
+          "column": 4
+        },
+        "end": {
+          "line": 182,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {var} The target to, which the event handler should\nbe attached",
+            "paramName": "target",
+            "description": " The target to, which the event handler should\nbe attached",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} event type",
+            "paramName": "type",
+            "description": " event type",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Whether the event handler can handle events of the\ngiven type.",
+            "type": "Boolean",
+            "desc": " Whether the event handler can handle events of the\ngiven type."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventHandler",
+      "appearsIn": [
+        "qx.event.IEventHandler"
+      ]
+    },
+    "_dispatchEvent": {
+      "location": {
+        "start": {
+          "line": 190,
+          "column": 4
+        },
+        "end": {
+          "line": 329,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Dispatches a DOM event on a widget."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "domEvent {qx.event.type.Event} The event object to dispatch.",
+            "paramName": "domEvent",
+            "description": " The event object to dispatch.",
+            "type": "qx.event.type.Event"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "registerEvent": {
+      "location": {
+        "start": {
+          "line": 333,
+          "column": 4
+        },
+        "end": {
+          "line": 346,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {var} The target to, which the event handler should\nbe attached",
+            "paramName": "target",
+            "description": " The target to, which the event handler should\nbe attached",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} event type",
+            "paramName": "type",
+            "description": " event type",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "capture {Boolean} Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "paramName": "capture",
+            "description": " Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "type": "Boolean"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventHandler",
+      "appearsIn": [
+        "qx.event.IEventHandler"
+      ]
+    },
+    "unregisterEvent": {
+      "location": {
+        "start": {
+          "line": 350,
+          "column": 4
+        },
+        "end": {
+          "line": 363,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {var} The target from, which the event handler should\nbe removed",
+            "paramName": "target",
+            "description": " The target from, which the event handler should\nbe removed",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} event type",
+            "paramName": "type",
+            "description": " event type",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "capture {Boolean} Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "paramName": "capture",
+            "description": " Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "type": "Boolean"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventHandler",
+      "appearsIn": [
+        "qx.event.IEventHandler"
+      ]
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 373,
+        "column": 2
+      },
+      "end": {
+        "line": 375,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 384,
+        "column": 2
+      },
+      "end": {
+        "line": 386,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDEFER\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

@@ -1,0 +1,522 @@
+{
+  "className": "qx.event.handler.Application",
+  "packageName": "qx.event.handler",
+  "name": "Application",
+  "superClass": "qx.core.Object",
+  "interfaces": [
+    "qx.event.IEventHandler",
+    "qx.core.IDisposable"
+  ],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0
+      },
+      "end": {
+        "line": 375,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This handler provides events for qooxdoo application startup/shutdown logic.\n\nNOTE: Instances of this class must be disposed of after use"
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.bom.client.Engine"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 46,
+        "column": 2
+      },
+      "end": {
+        "line": 64,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Create a new instance"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        }
+      ]
+    }
+  },
+  "members": {
+    "canHandleEvent": {
+      "location": {
+        "start": {
+          "line": 132,
+          "column": 4
+        },
+        "end": {
+          "line": 132,
+          "column": 46
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nEVENT HANDLER INTERFACE\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {var} The target to, which the event handler should\nbe attached",
+            "paramName": "target",
+            "description": " The target to, which the event handler should\nbe attached",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} event type",
+            "paramName": "type",
+            "description": " event type",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Whether the event handler can handle events of the\ngiven type.",
+            "type": "Boolean",
+            "desc": " Whether the event handler can handle events of the\ngiven type."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventHandler",
+      "appearsIn": [
+        "qx.event.IEventHandler"
+      ]
+    },
+    "registerEvent": {
+      "location": {
+        "start": {
+          "line": 136,
+          "column": 4
+        },
+        "end": {
+          "line": 138,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {var} The target to, which the event handler should\nbe attached",
+            "paramName": "target",
+            "description": " The target to, which the event handler should\nbe attached",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} event type",
+            "paramName": "type",
+            "description": " event type",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "capture {Boolean} Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "paramName": "capture",
+            "description": " Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "type": "Boolean"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventHandler",
+      "appearsIn": [
+        "qx.event.IEventHandler"
+      ]
+    },
+    "unregisterEvent": {
+      "location": {
+        "start": {
+          "line": 142,
+          "column": 4
+        },
+        "end": {
+          "line": 144,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {var} The target from, which the event handler should\nbe removed",
+            "paramName": "target",
+            "description": " The target from, which the event handler should\nbe removed",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} event type",
+            "paramName": "type",
+            "description": " event type",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "capture {Boolean} Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "paramName": "capture",
+            "description": " Whether to attach the event to the\ncapturing phase or the bubbling phase of the event.",
+            "type": "Boolean"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventHandler",
+      "appearsIn": [
+        "qx.event.IEventHandler"
+      ]
+    },
+    "__isReady": {
+      "location": {
+        "start": {
+          "line": 146,
+          "column": 4
+        },
+        "end": {
+          "line": 146,
+          "column": 20
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__domReady": {
+      "location": {
+        "start": {
+          "line": 147,
+          "column": 4
+        },
+        "end": {
+          "line": 147,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__loaded": {
+      "location": {
+        "start": {
+          "line": 148,
+          "column": 4
+        },
+        "end": {
+          "line": 148,
+          "column": 19
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__isUnloaded": {
+      "location": {
+        "start": {
+          "line": 149,
+          "column": 4
+        },
+        "end": {
+          "line": 149,
+          "column": 23
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__fireReady": {
+      "location": {
+        "start": {
+          "line": 165,
+          "column": 4
+        },
+        "end": {
+          "line": 192,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nUSER ACCESS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Fires a global ready event."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    },
+    "isApplicationReady": {
+      "location": {
+        "start": {
+          "line": 200,
+          "column": 4
+        },
+        "end": {
+          "line": 202,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the application is ready."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} ready status",
+            "type": "Boolean",
+            "desc": " ready status"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "_initObserver": {
+      "location": {
+        "start": {
+          "line": 217,
+          "column": 4
+        },
+        "end": {
+          "line": 267,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nOBSERVER INIT/STOP\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Initializes the native application event listeners."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_stopObserver": {
+      "location": {
+        "start": {
+          "line": 274,
+          "column": 4
+        },
+        "end": {
+          "line": 283,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Disconnect the native application event listeners."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onNativeLoad": {
+      "location": {
+        "start": {
+          "line": 298,
+          "column": 4
+        },
+        "end": {
+          "line": 304,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nNATIVE LISTENER\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "When qx.globalErrorHandling is enabled the callback will observed"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "__onNativeLoadHandler": {
+      "location": {
+        "start": {
+          "line": 310,
+          "column": 4
+        },
+        "end": {
+          "line": 313,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Event listener for native load event"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    },
+    "_onNativeUnload": {
+      "location": {
+        "start": {
+          "line": 319,
+          "column": 4
+        },
+        "end": {
+          "line": 325,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "When qx.globalErrorHandling is enabled the callback will observed"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "__onNativeUnloadHandler": {
+      "location": {
+        "start": {
+          "line": 331,
+          "column": 4
+        },
+        "end": {
+          "line": 344,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Event listener for native unload event"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 357,
+        "column": 2
+      },
+      "end": {
+        "line": 361,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 372,
+        "column": 2
+      },
+      "end": {
+        "line": 374,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDEFER\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

@@ -1,0 +1,58 @@
+"use strict";
+
+(function () {
+  var $$dbClassInfo = {
+    "dependsOn": {
+      "qx.Interface": {
+        "load": true,
+        "usage": "dynamic"
+      }
+    },
+    "extends": null,
+    "include": [],
+    "implement": [],
+    "hasDefer": null
+  };
+  qx.Bootstrap.executePendingDefers($$dbClassInfo);qx.Interface.define("qx.ui.table.IHeaderRenderer", {
+
+    members: {
+      /**
+       * Creates a header cell.
+       *
+       * The cellInfo map contains the following properties:
+       * <ul>
+       * <li>col (int): the model index of the column.</li>
+       * <li>xPos (int): the x position of the column in the table pane.</li>
+       * <li>name (string): the name of the column.</li>
+       * <li>editable (boolean): whether the column is editable.</li>
+       * <li>sorted (boolean): whether the column is sorted.</li>
+       * <li>sortedAscending (boolean): whether sorting is ascending.</li>
+       * </ul>
+       *
+       * @abstract
+       * @param cellInfo {Map} A map containing the information about the cell to
+       *      create.
+       * @return {qx.ui.core.Widget} the widget that renders the header cell.
+       */
+      createHeaderCell: function createHeaderCell(cellInfo) {
+        return true;
+      },
+
+      /**
+       * Updates a header cell.
+       *
+       * @abstract
+       * @param cellInfo {Map} A map containing the information about the cell to
+       *      create. This map has the same structure as in {@link #createHeaderCell}.
+       * @param cellWidget {qx.ui.core.Widget} the widget that renders the header cell. This is
+       *      the same widget formally created by {@link #createHeaderCell}.
+       */
+      updateHeaderCell: function updateHeaderCell(cellInfo, cellWidget) {
+        return true;
+      }
+    }
+  });
+  qx.ui.table.IHeaderRenderer.$$dbClassInfo = $$dbClassInfo;
+})();
+
+//# sourceMappingURL=IHeaderRenderer.js.map

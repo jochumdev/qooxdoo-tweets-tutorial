@@ -1,0 +1,68 @@
+{
+  "className": "qx.core.Init",
+  "packageName": "qx.core",
+  "name": "Init",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 26,
+        "column": 0
+      },
+      "end": {
+        "line": 97,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This is the base class for all qooxdoo applications."
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.event.handler.Application"
+        },
+        {
+          "name": "@require",
+          "body": "qx.event.handler.Window"
+        },
+        {
+          "name": "@require",
+          "body": "qx.event.dispatch.Direct"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 91,
+        "column": 2
+      },
+      "end": {
+        "line": 96,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDEFER\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

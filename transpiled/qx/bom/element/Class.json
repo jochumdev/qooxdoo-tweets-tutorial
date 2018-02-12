@@ -1,0 +1,34 @@
+{
+  "className": "qx.bom.element.Class",
+  "packageName": "qx.bom.element",
+  "name": "Class",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 41,
+        "column": 0
+      },
+      "end": {
+        "line": 293,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n======================================================================\n\nThis class contains code based on the following work:\n\nBase2\nhttp://code.google.com/p/base2/\nVersion 0.9\n\nCopyright:\n(c) 2006-2007, Dean Edwards\n\nLicense:\nMIT: http://www.opensource.org/licenses/mit-license.php\n\nAuthors:\nDean Edwards\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "CSS class name support for HTML elements. Supports multiple class names\nfor each element. Can query and apply class names to HTML elements."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

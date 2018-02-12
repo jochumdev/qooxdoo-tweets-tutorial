@@ -1,0 +1,156 @@
+{
+  "className": "qx.ui.table.celleditor.TextField",
+  "packageName": "qx.ui.table.celleditor",
+  "name": "TextField",
+  "superClass": "qx.ui.table.celleditor.AbstractField",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0
+      },
+      "end": {
+        "line": 58,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2006 STZ-IDA, Germany, http://www.stz-ida.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTil Schneider (til132)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "A cell editor factory creating text fields."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "members": {
+    "getCellEditorValue": {
+      "location": {
+        "start": {
+          "line": 30,
+          "column": 4
+        },
+        "end": {
+          "line": 48,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "cellEditor {qx.ui.core.Widget} The cell editor formally created by\n{@link #createCellEditor}.",
+            "paramName": "cellEditor",
+            "description": " The cell editor formally created by\n{@link #createCellEditor}.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{var} the current value from the editor.",
+            "type": "var",
+            "desc": " the current value from the editor."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.table.celleditor.AbstractField",
+      "appearsIn": [
+        "qx.ui.table.celleditor.AbstractField",
+        "qx.ui.table.ICellEditorFactory"
+      ]
+    },
+    "_createEditor": {
+      "location": {
+        "start": {
+          "line": 51,
+          "column": 4
+        },
+        "end": {
+          "line": 56,
+          "column": 5
+        }
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.table.celleditor.AbstractField",
+      "appearsIn": [
+        "qx.ui.table.celleditor.AbstractField"
+      ],
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.Widget} The editor widget",
+            "type": "qx.ui.core.Widget",
+            "desc": " The editor widget"
+          }
+        ]
+      }
+    },
+    "getValidationFunction": {
+      "type": "function",
+      "name": "getValidationFunction",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Function",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setValidationFunction": {
+      "type": "function",
+      "name": "setValidationFunction",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Function",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetValidationFunction": {
+      "type": "function",
+      "name": "resetValidationFunction",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

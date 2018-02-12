@@ -1,0 +1,34 @@
+{
+  "className": "qx.core.Aspect",
+  "packageName": "qx.core",
+  "name": "Aspect",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 36,
+        "column": 0
+      },
+      "end": {
+        "line": 132,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\nAndreas Ecker (ecker)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Basis for Aspect Oriented features in qooxdoo.\n\nThis class makes it possible to attach functions (aspects) before or\nafter each function call of any function defined in {@link qx.Class#define}.\n\nClasses, which define own aspects must add an explicit require to this class\nin the header comment using the following code:\n\n<pre>\n&#35;require(qx.core.Aspect)\n&#35;ignore(auto-require)\n</pre>\n\nOne example for a qooxdoo aspect is profiling ({@link qx.dev.Profile})."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

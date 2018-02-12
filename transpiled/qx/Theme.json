@@ -1,0 +1,34 @@
+{
+  "className": "qx.Theme",
+  "packageName": "qx",
+  "name": "Theme",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 32,
+        "column": 0
+      },
+      "end": {
+        "line": 530,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Theme classes contain styling information for certain aspects of the\ngraphical user interface.\n\nSupported themes are: colors, decorations, fonts, icons, appearances.\nThe additional meta theme allows for grouping of the individual\nthemes.\n\nFor more details, take a look at the\n<a href='http://manual.qooxdoo.org/${qxversion}/pages/desktop/ui_theming.html' target='_blank'>\ndocumentation of the theme system in the qooxdoo manual.</a>"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

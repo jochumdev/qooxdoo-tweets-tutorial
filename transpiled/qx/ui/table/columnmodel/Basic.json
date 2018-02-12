@@ -1,0 +1,969 @@
+{
+  "className": "qx.ui.table.columnmodel.Basic",
+  "packageName": "qx.ui.table.columnmodel",
+  "name": "Basic",
+  "superClass": "qx.core.Object",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 0
+      },
+      "end": {
+        "line": 765,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2006 STZ-IDA, Germany, http://www.stz-ida.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTil Schneider (til132)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "A model that contains all meta data about columns, such as width, renderer,\nvisibility and order."
+        }
+      ],
+      "@see": [
+        {
+          "name": "@see",
+          "body": "qx.ui.table.ITableModel"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 30,
+        "column": 2
+      },
+      "end": {
+        "line": 36,
+        "column": 3
+      }
+    }
+  },
+  "members": {
+    "__internalChange": {
+      "location": {
+        "start": {
+          "line": 131,
+          "column": 4
+        },
+        "end": {
+          "line": 131,
+          "column": 27
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__colToXPosMap": {
+      "location": {
+        "start": {
+          "line": 132,
+          "column": 4
+        },
+        "end": {
+          "line": 132,
+          "column": 25
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__visibleColumnArr": {
+      "location": {
+        "start": {
+          "line": 133,
+          "column": 4
+        },
+        "end": {
+          "line": 133,
+          "column": 29
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__overallColumnArr": {
+      "location": {
+        "start": {
+          "line": 134,
+          "column": 4
+        },
+        "end": {
+          "line": 134,
+          "column": 29
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__columnDataArr": {
+      "location": {
+        "start": {
+          "line": 135,
+          "column": 4
+        },
+        "end": {
+          "line": 135,
+          "column": 26
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__headerRenderer": {
+      "location": {
+        "start": {
+          "line": 137,
+          "column": 4
+        },
+        "end": {
+          "line": 137,
+          "column": 27
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__dataRenderer": {
+      "location": {
+        "start": {
+          "line": 138,
+          "column": 4
+        },
+        "end": {
+          "line": 138,
+          "column": 25
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__editorFactory": {
+      "location": {
+        "start": {
+          "line": 139,
+          "column": 4
+        },
+        "end": {
+          "line": 139,
+          "column": 26
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "init": {
+      "location": {
+        "start": {
+          "line": 151,
+          "column": 4
+        },
+        "end": {
+          "line": 220,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Initializes the column model."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "colCount {Integer}\nThe number of columns the model should have.",
+            "paramName": "colCount",
+            "description": "\nThe number of columns the model should have.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "table {qx.ui.table.Table}\nThe table to which this column model is attached.",
+            "paramName": "table",
+            "description": "\nThe table to which this column model is attached.",
+            "type": "qx.ui.table.Table"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVisibleColumns": {
+      "location": {
+        "start": {
+          "line": 228,
+          "column": 4
+        },
+        "end": {
+          "line": 230,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Return the array of visible columns"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} List of all visible columns",
+            "type": "Array",
+            "desc": " List of all visible columns"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setColumnWidth": {
+      "location": {
+        "start": {
+          "line": 247,
+          "column": 4
+        },
+        "end": {
+          "line": 272,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets the width of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer}\nThe model index of the column.",
+            "paramName": "col",
+            "description": "\nThe model index of the column.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "width {Integer}\nThe new width the column should get in pixels.",
+            "paramName": "width",
+            "description": "\nThe new width the column should get in pixels.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "isPointerAction {Boolean}\n<i>true</i> if the column width is being changed as a result of a\npointer drag in the header; false or undefined otherwise.",
+            "paramName": "isPointerAction",
+            "description": "\n<i>true</i> if the column width is being changed as a result of a\npointer drag in the header; false or undefined otherwise.",
+            "type": "Boolean"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getColumnWidth": {
+      "location": {
+        "start": {
+          "line": 281,
+          "column": 4
+        },
+        "end": {
+          "line": 289,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the width of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the width of the column in pixels.",
+            "type": "Integer",
+            "desc": " the width of the column in pixels."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setHeaderCellRenderer": {
+      "location": {
+        "start": {
+          "line": 299,
+          "column": 4
+        },
+        "end": {
+          "line": 315,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets the header renderer of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "renderer {qx.ui.table.IHeaderRenderer} the new header renderer the column\nshould get.",
+            "paramName": "renderer",
+            "description": " the new header renderer the column\nshould get.",
+            "type": "qx.ui.table.IHeaderRenderer"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getHeaderCellRenderer": {
+      "location": {
+        "start": {
+          "line": 324,
+          "column": 4
+        },
+        "end": {
+          "line": 333,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the header renderer of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.table.IHeaderRenderer} the header renderer of the column.",
+            "type": "qx.ui.table.IHeaderRenderer",
+            "desc": " the header renderer of the column."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setDataCellRenderer": {
+      "location": {
+        "start": {
+          "line": 346,
+          "column": 4
+        },
+        "end": {
+          "line": 362,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets the data renderer of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "renderer {qx.ui.table.ICellRenderer} the new data renderer\nthe column should get.",
+            "paramName": "renderer",
+            "description": " the new data renderer\nthe column should get.",
+            "type": "qx.ui.table.ICellRenderer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.table.ICellRenderer?null} If an old renderer was set and\nit was not the default renderer, the old renderer is returned for\npooling or disposing.",
+            "type": "qx.ui.table.ICellRenderer?null",
+            "desc": " If an old renderer was set and\nit was not the default renderer, the old renderer is returned for\npooling or disposing."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getDataCellRenderer": {
+      "location": {
+        "start": {
+          "line": 371,
+          "column": 4
+        },
+        "end": {
+          "line": 380,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the data renderer of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.table.ICellRenderer} the data renderer of the column.",
+            "type": "qx.ui.table.ICellRenderer",
+            "desc": " the data renderer of the column."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setCellEditorFactory": {
+      "location": {
+        "start": {
+          "line": 389,
+          "column": 4
+        },
+        "end": {
+          "line": 404,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets the cell editor factory of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "factory {qx.ui.table.ICellEditorFactory} the new cell editor factory the column should get.",
+            "paramName": "factory",
+            "description": " the new cell editor factory the column should get.",
+            "type": "qx.ui.table.ICellEditorFactory"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getCellEditorFactory": {
+      "location": {
+        "start": {
+          "line": 413,
+          "column": 4
+        },
+        "end": {
+          "line": 422,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the cell editor factory of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.table.ICellEditorFactory} the cell editor factory of the column.",
+            "type": "qx.ui.table.ICellEditorFactory",
+            "desc": " the cell editor factory of the column."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "_getColToXPosMap": {
+      "location": {
+        "start": {
+          "line": 435,
+          "column": 4
+        },
+        "end": {
+          "line": 455,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the map that translates model indexes to x positions.\n\nThe returned map contains for a model index (int) a map having two\nproperties: overX (the overall x position of the column, int) and\nvisX (the visible x position of the column, int). visX is missing for\nhidden columns."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} the \"column to x position\" map.",
+            "type": "Map",
+            "desc": " the \"column to x position\" map."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "getVisibleColumnCount": {
+      "location": {
+        "start": {
+          "line": 463,
+          "column": 4
+        },
+        "end": {
+          "line": 465,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the number of visible columns."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the number of visible columns.",
+            "type": "Integer",
+            "desc": " the number of visible columns."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVisibleColumnAtX": {
+      "location": {
+        "start": {
+          "line": 474,
+          "column": 4
+        },
+        "end": {
+          "line": 481,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the model index of a column at a certain visible x position."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "visXPos {Integer} the visible x position of the column.",
+            "paramName": "visXPos",
+            "description": " the visible x position of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the model index of the column.",
+            "type": "Integer",
+            "desc": " the model index of the column."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVisibleX": {
+      "location": {
+        "start": {
+          "line": 490,
+          "column": 4
+        },
+        "end": {
+          "line": 497,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the visible x position of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the visible x position of the column.",
+            "type": "Integer",
+            "desc": " the visible x position of the column."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getOverallColumnCount": {
+      "location": {
+        "start": {
+          "line": 505,
+          "column": 4
+        },
+        "end": {
+          "line": 507,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the overall number of columns (including hidden columns)."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the overall number of columns.",
+            "type": "Integer",
+            "desc": " the overall number of columns."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getOverallColumnAtX": {
+      "location": {
+        "start": {
+          "line": 516,
+          "column": 4
+        },
+        "end": {
+          "line": 523,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the model index of a column at a certain overall x position."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "overXPos {Integer} the overall x position of the column.",
+            "paramName": "overXPos",
+            "description": " the overall x position of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the model index of the column.",
+            "type": "Integer",
+            "desc": " the model index of the column."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getOverallX": {
+      "location": {
+        "start": {
+          "line": 532,
+          "column": 4
+        },
+        "end": {
+          "line": 539,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the overall x position of a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the overall x position of the column.",
+            "type": "Integer",
+            "desc": " the overall x position of the column."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "isColumnVisible": {
+      "location": {
+        "start": {
+          "line": 548,
+          "column": 4
+        },
+        "end": {
+          "line": 555,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns whether a certain column is visible."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} whether the column is visible.",
+            "type": "Boolean",
+            "desc": " whether the column is visible."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setColumnVisible": {
+      "location": {
+        "start": {
+          "line": 564,
+          "column": 4
+        },
+        "end": {
+          "line": 630,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets whether a certain column is visible."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "col {Integer} the model index of the column.",
+            "paramName": "col",
+            "description": " the model index of the column.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "visible {Boolean} whether the column should be visible.",
+            "paramName": "visible",
+            "description": " whether the column should be visible.",
+            "type": "Boolean"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "moveColumn": {
+      "location": {
+        "start": {
+          "line": 640,
+          "column": 4
+        },
+        "end": {
+          "line": 677,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Moves a column."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "fromOverXPos {Integer} the overall x position of the column to move.",
+            "paramName": "fromOverXPos",
+            "description": " the overall x position of the column to move.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "toOverXPos {Integer} the overall x position of where the column should be\nmoved to.",
+            "paramName": "toOverXPos",
+            "description": " the overall x position of where the column should be\nmoved to.",
+            "type": "Integer"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "setColumnsOrder": {
+      "location": {
+        "start": {
+          "line": 689,
+          "column": 4
+        },
+        "end": {
+          "line": 735,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Reorders all columns to new overall positions. Will fire one \"orderChanged\" event\nwithout data afterwards"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "newPositions {Integer[]} Array mapping the index of a column in table model to its wanted overall\nposition on screen (both zero based). If the table models holds\ncol0, col1, col2 and col3 and you give [1,3,2,0], the new column order\nwill be col3, col0, col2, col1",
+            "paramName": "newPositions",
+            "description": " Array mapping the index of a column in table model to its wanted overall\nposition on screen (both zero based). If the table models holds\ncol0, col1, col2 and col3 and you give [1,3,2,0], the new column order\nwill be col3, col0, col2, col1",
+            "type": "Integer[]"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 747,
+        "column": 2
+      },
+      "end": {
+        "line": 764,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

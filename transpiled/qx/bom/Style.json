@@ -1,0 +1,52 @@
+{
+  "className": "qx.bom.Style",
+  "packageName": "qx.bom",
+  "name": "Style",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 28,
+        "column": 0
+      },
+      "end": {
+        "line": 162,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (wittemann)\nDaniel Wagner (danielwagner)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Responsible class for everything concerning styles without the need of\nan element.\n\nIf you want to query or modify styles of HTML elements,\ntake a look at {@link qx.bom.element.Style}."
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.lang.String"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 155,
+        "column": 2
+      },
+      "end": {
+        "line": 161,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

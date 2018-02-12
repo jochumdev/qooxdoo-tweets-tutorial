@@ -1,0 +1,34 @@
+{
+  "className": "qx.bom.element.Animation",
+  "packageName": "qx.bom.element",
+  "name": "Animation",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0
+      },
+      "end": {
+        "line": 153,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2012 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (martinwittemann)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Wrapper for {@link qx.bom.element.AnimationCss} and\n{@link qx.bom.element.AnimationJs}. It offers the public API and decides using\nfeature checks either to use CSS animations or JS animations.\n\nIf you use this class, the restrictions of the JavaScript animations apply.\nThis means that you can not use transforms and custom bezier timing functions."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

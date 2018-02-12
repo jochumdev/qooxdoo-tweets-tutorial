@@ -1,0 +1,34 @@
+{
+  "className": "qx.ui.core.queue.Widget",
+  "packageName": "qx.ui.core.queue",
+  "name": "Widget",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 28,
+        "column": 0
+      },
+      "end": {
+        "line": 142,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\nMustafa Sak (msak)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "The widget queue handles the deferred computation of certain widget properties.\nIt is used e.g. for the tree to update the indentation of tree nodes.\n\nThis queue calls the method {@link qx.ui.core.Widget#syncWidget} of each\nqueued widget before the layout queues are processed."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

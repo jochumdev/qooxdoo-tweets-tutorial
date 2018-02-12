@@ -1,0 +1,52 @@
+{
+  "className": "qx.log.Logger",
+  "packageName": "qx.log",
+  "name": "Logger",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 60,
+        "column": 0
+      },
+      "end": {
+        "line": 866,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nJohn Spackman (john.spackman@zenesis.com)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Main qooxdoo logging class.\n\nUsed as central logging feature by qx.core.Object.\n\nExtremely modular and lightweight to support logging at bootstrap and\nat shutdown as well.\n\n* Supports dynamic appenders to push the output to the user\n* Supports buffering of the last 50 messages (configurable)\n* Supports different debug levels (\"debug\", \"info\", \"warn\" or \"error\")\n* Simple data serialization for incoming messages\n\nTypical use of this class is via qx.core.MLogging which is included into most\nclasses, so you would use \"this.debug(...)\" etc, but qx.log.Logger.debug(),\n.warn(), .error(), .info(), and .trace() can be used directly for static code.\n\nThe first parameter is expected to be the context object, ie the object which\nis sending the log; this can be null but that will prevent the filtering from\nfiltering on class name so ideally it will be a real qx.core.Object derived\nobject.  Other parameters are any Javascript object which will be serialized\ninto the log message\n\n<pre class=\"javascript\">\nqx.log.Logger.warn(myObject, \"This is a message to log\", myParam, otherData);\n</pre>\n\n\nThe output of logging is controlled by \"appenders\", which are classes that\naccept a log message and output it somehow (see examples in qx.log.appender.*);\ntypical examples are qx.log.appender.Console which outputs to the browser\nconsole, or qx.log.appender.Native which outputs messages into a popup\nwindow as part of your Qooxdoo UI.\n\nWhile it's quick and easy to add logging calls to code as and when you need it,\nit is often convenient to control which logging calls output messages at runtime\nrather than having to edit code. @see qx.log.Logger#addFilter"
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.dev.StackTrace"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 853,
+        "column": 2
+      },
+      "end": {
+        "line": 865,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

@@ -1,0 +1,1121 @@
+{
+  "className": "qx.ui.popup.Popup",
+  "packageName": "qx.ui.popup",
+  "name": "Popup",
+  "superClass": "qx.ui.container.Composite",
+  "interfaces": [],
+  "mixins": [
+    "qx.ui.core.MPlacement"
+  ],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 28,
+        "column": 0
+      },
+      "end": {
+        "line": 144,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Popups are widgets, which can be placed on top of the application.\nThey are automatically added to the application root.\n\nPopups are used to display menus, the lists of combo or select boxes,\ntooltips, etc."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 41,
+        "column": 2
+      },
+      "end": {
+        "line": 47,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "appearance": {
+      "location": {
+        "start": {
+          "line": 62,
+          "column": 4
+        },
+        "end": {
+          "line": 66,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "name": "appearance",
+      "propertyType": "new",
+      "refine": true,
+      "defaultValue": "popup",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": {
+        "qx.ui.core.Widget": "class"
+      }
+    },
+    "visibility": {
+      "location": {
+        "start": {
+          "line": 69,
+          "column": 4
+        },
+        "end": {
+          "line": 73,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "name": "visibility",
+      "propertyType": "new",
+      "refine": true,
+      "defaultValue": "excluded",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": {
+        "qx.ui.core.Widget": "class"
+      }
+    },
+    "autoHide": {
+      "location": {
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 84,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether to let the system decide when to hide the popup. Setting\nthis to false gives you better control but it also requires you\nto handle the closing of the popup."
+          }
+        ]
+      },
+      "name": "autoHide",
+      "propertyType": "new",
+      "check": "Boolean",
+      "defaultValue": true
+    },
+    "position": {
+      "type": "property",
+      "name": "position",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "placeMethod": {
+      "type": "property",
+      "name": "placeMethod",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "domMove": {
+      "type": "property",
+      "name": "domMove",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "placementModeX": {
+      "type": "property",
+      "name": "placementModeX",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "placementModeY": {
+      "type": "property",
+      "name": "placementModeY",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "offsetLeft": {
+      "type": "property",
+      "name": "offsetLeft",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "offsetTop": {
+      "type": "property",
+      "name": "offsetTop",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "offsetRight": {
+      "type": "property",
+      "name": "offsetRight",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "offsetBottom": {
+      "type": "property",
+      "name": "offsetBottom",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "offset": {
+      "type": "property",
+      "name": "offset",
+      "abstract": false,
+      "mixin": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    }
+  },
+  "members": {
+    "show": {
+      "location": {
+        "start": {
+          "line": 107,
+          "column": 4
+        },
+        "end": {
+          "line": 117,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nWIDGET API\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_applyVisibility": {
+      "location": {
+        "start": {
+          "line": 121,
+          "column": 4
+        },
+        "end": {
+          "line": 127,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "getLayoutLocation": {
+      "type": "function",
+      "name": "getLayoutLocation",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the location data like {qx.bom.element.Location#get} does,\nbut does not rely on DOM elements coordinates to be rendered. Instead,\nthis method works with the available layout data available in the moment\nwhen it is executed.\nThis works best when called in some type of <code>resize</code> or\n<code>move</code> event which are supported by all widgets out of the\nbox."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "widget {qx.ui.core.Widget} Any widget",
+            "paramName": "widget",
+            "description": " Any widget",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map|null} Returns a map with <code>left</code>, <code>top</code>,\n<code>right</code> and <code>bottom</code> which contains the distance\nof the widget relative coords the document.",
+            "type": "Map|null",
+            "desc": " Returns a map with <code>left</code>, <code>top</code>,\n<code>right</code> and <code>bottom</code> which contains the distance\nof the widget relative coords the document."
+          }
+        ]
+      }
+    },
+    "moveTo": {
+      "type": "function",
+      "name": "moveTo",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets the position. Uses low-level, high-performance DOM\nmethods when the property {@link #domMove} is enabled.\nChecks if an always visible element is set and moves the widget to not\noverlay the always visible widget if possible. The algorithm tries to\nmove the widget as far left as necessary but not of the screen.\n({@link #setVisibleElement})"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "left {Integer} The left position",
+            "paramName": "left",
+            "description": " The left position",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "top {Integer} The top position",
+            "paramName": "top",
+            "description": " The top position",
+            "type": "Integer"
+          }
+        ]
+      }
+    },
+    "placeToWidget": {
+      "type": "function",
+      "name": "placeToWidget",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Places the widget to another (at least laid out) widget. The DOM\nelement is not needed, but the bounds are needed to compute the\nlocation of the widget to align to."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {qx.ui.core.Widget} Target coords align coords",
+            "paramName": "target",
+            "description": " Target coords align coords",
+            "type": "qx.ui.core.Widget"
+          },
+          {
+            "name": "@param",
+            "body": "liveupdate {Boolean} Flag indicating if the position of the\nwidget should be checked and corrected automatically.",
+            "paramName": "liveupdate",
+            "description": " Flag indicating if the position of the\nwidget should be checked and corrected automatically.",
+            "type": "Boolean"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} true if the widget was successfully placed",
+            "type": "Boolean",
+            "desc": " true if the widget was successfully placed"
+          }
+        ]
+      }
+    },
+    "__cleanupFromLastPlaceToWidgetLiveUpdate": {
+      "type": "function",
+      "name": "__cleanupFromLastPlaceToWidgetLiveUpdate",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "private",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "placeToPointer": {
+      "type": "function",
+      "name": "placeToPointer",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Places the widget to the pointer position."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "event {qx.event.type.Pointer} Pointer event to align to",
+            "paramName": "event",
+            "description": " Pointer event to align to",
+            "type": "qx.event.type.Pointer"
+          }
+        ]
+      }
+    },
+    "placeToElement": {
+      "type": "function",
+      "name": "placeToElement",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Places the widget to any (rendered) DOM element."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "elem {Element} DOM element to align to",
+            "paramName": "elem",
+            "description": " DOM element to align to",
+            "type": "Element"
+          },
+          {
+            "name": "@param",
+            "body": "liveupdate {Boolean} Flag indicating if the position of the\nwidget should be checked and corrected automatically.",
+            "paramName": "liveupdate",
+            "description": " Flag indicating if the position of the\nwidget should be checked and corrected automatically.",
+            "type": "Boolean"
+          }
+        ]
+      }
+    },
+    "placeToPoint": {
+      "type": "function",
+      "name": "placeToPoint",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Places the widget in relation to the given point"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "point {Map} Coordinate of any point with the keys <code>left</code>\nand <code>top</code>.",
+            "paramName": "point",
+            "description": " Coordinate of any point with the keys <code>left</code>\nand <code>top</code>.",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "_getPlacementOffsets": {
+      "type": "function",
+      "name": "_getPlacementOffsets",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the placement offsets as a map"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} The placement offsets",
+            "type": "Map",
+            "desc": " The placement offsets"
+          }
+        ]
+      }
+    },
+    "__getPlacementSize": {
+      "type": "function",
+      "name": "__getPlacementSize",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "private",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the size of the object to place. The callback will be called with\nthe size as first argument. This methods works asynchronously.\n\nThe size of the object to place is the size of the widget. If a widget\nincluding this mixin needs a different size it can implement the method\n<code>_computePlacementSize</code>, which returns the size."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "callback {Function} This function will be called with the size as\nfirst argument",
+            "paramName": "callback",
+            "description": " This function will be called with the size as\nfirst argument",
+            "type": "Function"
+          }
+        ]
+      }
+    },
+    "_place": {
+      "type": "function",
+      "name": "_place",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Internal method to read specific this properties and\napply the results to the this afterwards."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "coords {Map} Location of the object to align the this to. This map\nshould have the keys <code>left</code>, <code>top</code>, <code>right</code>\nand <code>bottom</code>.",
+            "paramName": "coords",
+            "description": " Location of the object to align the this to. This map\nshould have the keys <code>left</code>, <code>top</code>, <code>right</code>\nand <code>bottom</code>.",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "getPosition": {
+      "type": "function",
+      "name": "getPosition",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setPosition": {
+      "type": "function",
+      "name": "setPosition",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetPosition": {
+      "type": "function",
+      "name": "resetPosition",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getPlaceMethod": {
+      "type": "function",
+      "name": "getPlaceMethod",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setPlaceMethod": {
+      "type": "function",
+      "name": "setPlaceMethod",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetPlaceMethod": {
+      "type": "function",
+      "name": "resetPlaceMethod",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getDomMove": {
+      "type": "function",
+      "name": "getDomMove",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "isDomMove": {
+      "type": "function",
+      "name": "isDomMove",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setDomMove": {
+      "type": "function",
+      "name": "setDomMove",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetDomMove": {
+      "type": "function",
+      "name": "resetDomMove",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getPlacementModeX": {
+      "type": "function",
+      "name": "getPlacementModeX",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setPlacementModeX": {
+      "type": "function",
+      "name": "setPlacementModeX",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetPlacementModeX": {
+      "type": "function",
+      "name": "resetPlacementModeX",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getPlacementModeY": {
+      "type": "function",
+      "name": "getPlacementModeY",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setPlacementModeY": {
+      "type": "function",
+      "name": "setPlacementModeY",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetPlacementModeY": {
+      "type": "function",
+      "name": "resetPlacementModeY",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getOffsetLeft": {
+      "type": "function",
+      "name": "getOffsetLeft",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setOffsetLeft": {
+      "type": "function",
+      "name": "setOffsetLeft",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetOffsetLeft": {
+      "type": "function",
+      "name": "resetOffsetLeft",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getOffsetTop": {
+      "type": "function",
+      "name": "getOffsetTop",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setOffsetTop": {
+      "type": "function",
+      "name": "setOffsetTop",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetOffsetTop": {
+      "type": "function",
+      "name": "resetOffsetTop",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getOffsetRight": {
+      "type": "function",
+      "name": "getOffsetRight",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setOffsetRight": {
+      "type": "function",
+      "name": "setOffsetRight",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetOffsetRight": {
+      "type": "function",
+      "name": "resetOffsetRight",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getOffsetBottom": {
+      "type": "function",
+      "name": "getOffsetBottom",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setOffsetBottom": {
+      "type": "function",
+      "name": "setOffsetBottom",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetOffsetBottom": {
+      "type": "function",
+      "name": "resetOffsetBottom",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getOffset": {
+      "type": "function",
+      "name": "getOffset",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setOffset": {
+      "type": "function",
+      "name": "setOffset",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetOffset": {
+      "type": "function",
+      "name": "resetOffset",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MPlacement"
+    },
+    "getAutoHide": {
+      "type": "function",
+      "name": "getAutoHide",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "isAutoHide": {
+      "type": "function",
+      "name": "isAutoHide",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "is",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setAutoHide": {
+      "type": "function",
+      "name": "setAutoHide",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetAutoHide": {
+      "type": "function",
+      "name": "resetAutoHide",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 139,
+        "column": 2
+      },
+      "end": {
+        "line": 143,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "abstract": true,
+  "descendants": [
+    "qx.ui.tooltip.ToolTip"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "className": "qx.bom.element.AnimationCss",
+  "packageName": "qx.bom.element",
+  "name": "AnimationCss",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 36,
+        "column": 0
+      },
+      "end": {
+        "line": 410,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2011 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (martinwittemann)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This class is responsible for applying CSS3 animations to plain DOM elements.\n\nThe implementation is mostly a cross-browser wrapper for applying the\nanimations, including transforms. If the browser does not support\nCSS animations, but you have set a keep frame, the keep frame will be applied\nimmediately, thus making the animations optional.\n\nThe API aligns closely to the spec wherever possible.\n\nhttp://www.w3.org/TR/css3-animations/\n\n{@link qx.bom.element.Animation} is the class, which takes care of the\nfeature detection for CSS animations and decides which implementation\n(CSS or JavaScript) should be used. Most likely, this implementation should\nbe the one to use."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 397,
+        "column": 2
+      },
+      "end": {
+        "line": 409,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

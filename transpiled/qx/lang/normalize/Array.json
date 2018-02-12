@@ -1,0 +1,72 @@
+{
+  "className": "qx.lang.normalize.Array",
+  "packageName": "qx.lang.normalize",
+  "name": "Array",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 29,
+        "column": 0
+      },
+      "end": {
+        "line": 471,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (wittemann)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This class is responsible for the normalization of the native 'Array' object.\nIt checks if these methods are available and, if not, appends them to\nensure compatibility in all browsers.\nFor usage samples, check out the attached links.\n\nMDN documentation &copy; Mozilla Contributors."
+        }
+      ],
+      "@group": [
+        {
+          "name": "@group",
+          "body": "Polyfill"
+        }
+      ],
+      "@use": [
+        {
+          "name": "@use",
+          "body": "qx.bom.client.EcmaScript"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 448,
+        "column": 2
+      },
+      "end": {
+        "line": 470,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@lint": [
+        {
+          "name": "@lint",
+          "body": "environmentNonLiteralKey()"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

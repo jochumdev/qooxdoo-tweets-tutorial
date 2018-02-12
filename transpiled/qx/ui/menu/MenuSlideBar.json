@@ -1,0 +1,687 @@
+{
+  "className": "qx.ui.menu.MenuSlideBar",
+  "packageName": "qx.ui.menu",
+  "name": "MenuSlideBar",
+  "superClass": "qx.ui.container.SlideBar",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0
+      },
+      "end": {
+        "line": 70,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "The MenuSlideBar is used to scroll menus if they don't fit on the screen."
+        }
+      ],
+      "@childControl": [
+        {
+          "name": "@childControl",
+          "body": "button-forward {qx.ui.form.HoverButton} scrolls forward of hovered"
+        },
+        {
+          "name": "@childControl",
+          "body": "button-backward {qx.ui.form.HoverButton} scrolls backward if hovered"
+        }
+      ],
+      "@internal": [
+        {
+          "name": "@internal",
+          "body": ""
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 31,
+        "column": 2
+      },
+      "end": {
+        "line": 34,
+        "column": 3
+      }
+    }
+  },
+  "properties": {
+    "appearance": {
+      "location": {
+        "start": {
+          "line": 38,
+          "column": 4
+        },
+        "end": {
+          "line": 42,
+          "column": 5
+        }
+      },
+      "name": "appearance",
+      "propertyType": "new",
+      "refine": true,
+      "defaultValue": "menu-slidebar",
+      "overriddenFrom": "qx.ui.container.SlideBar",
+      "appearsIn": {
+        "qx.ui.container.SlideBar": "class",
+        "qx.ui.core.Widget": "class"
+      }
+    }
+  },
+  "members": {
+    "_createChildControlImpl": {
+      "location": {
+        "start": {
+          "line": 48,
+          "column": 4
+        },
+        "end": {
+          "line": 68,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} ID of the child control. If a # is used, the id is\nthe part in front of the #.",
+            "paramName": "id",
+            "description": " ID of the child control. If a # is used, the id is\nthe part in front of the #.",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "hash {String?undefined} If a child control name contains a #,\nall text following the # will be the hash argument.",
+            "paramName": "hash",
+            "description": " If a child control name contains a #,\nall text following the # will be the hash argument.",
+            "optional": true,
+            "defaultValue": "undefined",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.Widget} The created control or <code>null</code>",
+            "type": "qx.ui.core.Widget",
+            "desc": " The created control or <code>null</code>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.container.SlideBar",
+      "appearsIn": [
+        "qx.ui.container.SlideBar",
+        "qx.ui.core.Widget"
+      ]
+    },
+    "__forward": {
+      "type": "function",
+      "name": "__forward",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "private",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Forward the call with the given function name to the children container"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "functionName {String} name of the method to forward",
+            "paramName": "functionName",
+            "description": " name of the method to forward",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "a1 {var} first argument of the method to call",
+            "paramName": "a1",
+            "description": " first argument of the method to call",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "a2 {var} second argument of the method to call",
+            "paramName": "a2",
+            "description": " second argument of the method to call",
+            "type": "var"
+          },
+          {
+            "name": "@param",
+            "body": "a3 {var} third argument of the method to call",
+            "paramName": "a3",
+            "description": " third argument of the method to call",
+            "type": "var"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{var} The return value of the forward method",
+            "type": "var",
+            "desc": " The return value of the forward method"
+          }
+        ]
+      }
+    },
+    "getChildren": {
+      "type": "function",
+      "name": "getChildren",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the children list"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{LayoutItem[]} The children array (Arrays are\nreference types, please do not modify them in-place)",
+            "type": "LayoutItem[]",
+            "desc": " The children array (Arrays are\nreference types, please do not modify them in-place)"
+          }
+        ]
+      }
+    },
+    "hasChildren": {
+      "type": "function",
+      "name": "hasChildren",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the widget contains children."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Returns <code>true</code> when the widget has children.",
+            "type": "Boolean",
+            "desc": " Returns <code>true</code> when the widget has children."
+          }
+        ]
+      }
+    },
+    "add": {
+      "type": "function",
+      "name": "add",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Adds a new child widget.\n\nThe supported keys of the layout options map depend on the layout manager\nused to position the widget. The options are documented in the class\ndocumentation of each layout manager {@link qx.ui.layout}."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} the item to add.",
+            "paramName": "child",
+            "description": " the item to add.",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for item.",
+            "paramName": "options",
+            "description": " Optional layout data for item.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Widget} This object (for chaining support)",
+            "type": "qx.ui.core.Widget",
+            "desc": " This object (for chaining support)"
+          }
+        ]
+      }
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Remove the given child item."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} the item to remove",
+            "paramName": "child",
+            "description": " the item to remove",
+            "type": "qx.ui.core.LayoutItem"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Widget} This object (for chaining support)",
+            "type": "qx.ui.core.Widget",
+            "desc": " This object (for chaining support)"
+          }
+        ]
+      }
+    },
+    "removeAll": {
+      "type": "function",
+      "name": "removeAll",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Remove all children."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} An array containing the removed children.",
+            "type": "Array",
+            "desc": " An array containing the removed children."
+          }
+        ]
+      }
+    },
+    "indexOf": {
+      "type": "function",
+      "name": "indexOf",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the index position of the given item if it is\na child item. Otherwise it returns <code>-1</code>.\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} the item to query for",
+            "paramName": "child",
+            "description": " the item to query for",
+            "type": "qx.ui.core.LayoutItem"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} The index position or <code>-1</code> when\nthe given item is no child of this layout.",
+            "type": "Integer",
+            "desc": " The index position or <code>-1</code> when\nthe given item is no child of this layout."
+          }
+        ]
+      }
+    },
+    "addAt": {
+      "type": "function",
+      "name": "addAt",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Add a child at the specified index\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} item to add",
+            "paramName": "child",
+            "description": " item to add",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "index {Integer} Index, at which the item will be inserted",
+            "paramName": "index",
+            "description": " Index, at which the item will be inserted",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for item.",
+            "paramName": "options",
+            "description": " Optional layout data for item.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "addBefore": {
+      "type": "function",
+      "name": "addBefore",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Add an item before another already inserted item\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} item to add",
+            "paramName": "child",
+            "description": " item to add",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "before {LayoutItem} item before the new item will be inserted.",
+            "paramName": "before",
+            "description": " item before the new item will be inserted.",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for item.",
+            "paramName": "options",
+            "description": " Optional layout data for item.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "addAfter": {
+      "type": "function",
+      "name": "addAfter",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Add an item after another already inserted item\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} item to add",
+            "paramName": "child",
+            "description": " item to add",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "after {LayoutItem} item, after which the new item will be inserted",
+            "paramName": "after",
+            "description": " item, after which the new item will be inserted",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for item.",
+            "paramName": "options",
+            "description": " Optional layout data for item.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "removeAt": {
+      "type": "function",
+      "name": "removeAt",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Remove the item at the specified index.\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "index {Integer} Index of the item to remove.",
+            "paramName": "index",
+            "description": " Index of the item to remove.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.LayoutItem} The removed item",
+            "type": "qx.ui.core.LayoutItem",
+            "desc": " The removed item"
+          }
+        ]
+      }
+    },
+    "setLayout": {
+      "type": "function",
+      "name": "setLayout",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteLayoutHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Set a layout manager for the widget. A a layout manager can only be connected\nwith one widget. Reset the connection with a previous widget first, if you\nlike to use it in another widget instead."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "layout {qx.ui.layout.Abstract} The new layout or\n<code>null</code> to reset the layout.",
+            "paramName": "layout",
+            "description": " The new layout or\n<code>null</code> to reset the layout.",
+            "type": "qx.ui.layout.Abstract"
+          }
+        ]
+      }
+    },
+    "getLayout": {
+      "type": "function",
+      "name": "getLayout",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MRemoteLayoutHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the widget's layout manager."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.layout.Abstract} The widget's layout manager",
+            "type": "qx.ui.layout.Abstract",
+            "desc": " The widget's layout manager"
+          }
+        ]
+      }
+    },
+    "getOrientation": {
+      "type": "function",
+      "name": "getOrientation",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setOrientation": {
+      "type": "function",
+      "name": "setOrientation",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetOrientation": {
+      "type": "function",
+      "name": "resetOrientation",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getScrollStep": {
+      "type": "function",
+      "name": "getScrollStep",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setScrollStep": {
+      "type": "function",
+      "name": "setScrollStep",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetScrollStep": {
+      "type": "function",
+      "name": "resetScrollStep",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

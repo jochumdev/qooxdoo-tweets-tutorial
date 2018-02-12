@@ -1,0 +1,668 @@
+{
+  "className": "qx.ui.virtual.layer.WidgetCell",
+  "packageName": "qx.ui.virtual.layer",
+  "name": "WidgetCell",
+  "superClass": "qx.ui.virtual.layer.Abstract",
+  "interfaces": [],
+  "mixins": [
+    "qx.ui.core.MChildrenHandling"
+  ],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0
+      },
+      "end": {
+        "line": 366,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\nJonathan Weiß (jonathan_rass)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "EXPERIMENTAL!\n\nThe WidgetCell layer renders each cell with a qooxdoo widget. The concrete\nwidget instance for each cell is provided by a cell provider."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 40,
+        "column": 2
+      },
+      "end": {
+        "line": 54,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "widgetCellProvider {qx.ui.virtual.core.IWidgetCellProvider} This\nclass manages the life cycle of the cell widgets.",
+          "paramName": "widgetCellProvider",
+          "description": " This\nclass manages the life cycle of the cell widgets.",
+          "type": "qx.ui.virtual.core.IWidgetCellProvider"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "anonymous": {
+      "location": {
+        "start": {
+          "line": 66,
+          "column": 5
+        },
+        "end": {
+          "line": 70,
+          "column": 6
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "name": "anonymous",
+      "propertyType": "new",
+      "refine": true,
+      "defaultValue": false,
+      "overriddenFrom": "qx.ui.virtual.layer.Abstract",
+      "appearsIn": {
+        "qx.ui.virtual.layer.Abstract": "class",
+        "qx.ui.core.Widget": "class"
+      }
+    }
+  },
+  "members": {
+    "__spacerPool": {
+      "location": {
+        "start": {
+          "line": 91,
+          "column": 5
+        },
+        "end": {
+          "line": 91,
+          "column": 24
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "getRenderedCellWidget": {
+      "location": {
+        "start": {
+          "line": 102,
+          "column": 5
+        },
+        "end": {
+          "line": 131,
+          "column": 6
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the widget used to render the given cell. May return null if the\ncell isn’t rendered currently rendered."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "row {Integer} The cell's row index",
+            "paramName": "row",
+            "description": " The cell's row index",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "column {Integer} The cell's column index",
+            "paramName": "column",
+            "description": " The cell's column index",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.LayoutItem|null} the widget used to render the given\ncell or <code>null</code>",
+            "type": "qx.ui.core.LayoutItem|null",
+            "desc": " the widget used to render the given\ncell or <code>null</code>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "_getSpacer": {
+      "location": {
+        "start": {
+          "line": 139,
+          "column": 4
+        },
+        "end": {
+          "line": 148,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the spacer widget, for empty cells"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.Spacer} The spacer widget.",
+            "type": "qx.ui.core.Spacer",
+            "desc": " The spacer widget."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_activateNotEmptyChild": {
+      "location": {
+        "start": {
+          "line": 155,
+          "column": 4
+        },
+        "end": {
+          "line": 170,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Activates one of the still not empty items."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "elementToPool {qx.ui.core.Widget} The widget which gets pooled.",
+            "paramName": "elementToPool",
+            "description": " The widget which gets pooled.",
+            "type": "qx.ui.core.Widget"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_fullUpdate": {
+      "location": {
+        "start": {
+          "line": 174,
+          "column": 4
+        },
+        "end": {
+          "line": 224,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "firstRow {Integer} Index of the first row to display",
+            "paramName": "firstRow",
+            "description": " Index of the first row to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "firstColumn {Integer} Index of the first column to display",
+            "paramName": "firstColumn",
+            "description": " Index of the first column to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "rowSizes {Integer[]} Array of heights for each row to display",
+            "paramName": "rowSizes",
+            "description": " Array of heights for each row to display",
+            "type": "Integer[]"
+          },
+          {
+            "name": "@param",
+            "body": "columnSizes {Integer[]} Array of widths for each column to display",
+            "paramName": "columnSizes",
+            "description": " Array of widths for each column to display",
+            "type": "Integer[]"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.virtual.layer.Abstract",
+      "appearsIn": [
+        "qx.ui.virtual.layer.Abstract"
+      ]
+    },
+    "_updateLayerWindow": {
+      "location": {
+        "start": {
+          "line": 227,
+          "column": 4
+        },
+        "end": {
+          "line": 354,
+          "column": 5
+        }
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.virtual.layer.Abstract",
+      "appearsIn": [
+        "qx.ui.virtual.layer.Abstract"
+      ],
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "body": "firstRow {Integer} Index of the first row to display",
+            "paramName": "firstRow",
+            "description": " Index of the first row to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "firstColumn {Integer} Index of the first column to display",
+            "paramName": "firstColumn",
+            "description": " Index of the first column to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "rowSizes {Integer[]} Array of heights for each row to display",
+            "paramName": "rowSizes",
+            "description": " Array of heights for each row to display",
+            "type": "Integer[]"
+          },
+          {
+            "name": "@param",
+            "body": "columnSizes {Integer[]} Array of widths for each column to display",
+            "paramName": "columnSizes",
+            "description": " Array of widths for each column to display",
+            "type": "Integer[]"
+          }
+        ]
+      }
+    },
+    "getChildren": {
+      "type": "function",
+      "name": "getChildren",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the children list"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{LayoutItem[]} The children array (Arrays are\nreference types, please do not modify them in-place)",
+            "type": "LayoutItem[]",
+            "desc": " The children array (Arrays are\nreference types, please do not modify them in-place)"
+          }
+        ]
+      }
+    },
+    "hasChildren": {
+      "type": "function",
+      "name": "hasChildren",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the widget contains children."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Returns <code>true</code> when the widget has children.",
+            "type": "Boolean",
+            "desc": " Returns <code>true</code> when the widget has children."
+          }
+        ]
+      }
+    },
+    "indexOf": {
+      "type": "function",
+      "name": "indexOf",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the index position of the given widget if it is\na child widget. Otherwise it returns <code>-1</code>.\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {Widget} the widget to query for",
+            "paramName": "child",
+            "description": " the widget to query for",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} The index position or <code>-1</code> when\nthe given widget is no child of this layout.",
+            "type": "Integer",
+            "desc": " The index position or <code>-1</code> when\nthe given widget is no child of this layout."
+          }
+        ]
+      }
+    },
+    "add": {
+      "type": "function",
+      "name": "add",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Adds a new child widget.\n\nThe supported keys of the layout options map depend on the layout manager\nused to position the widget. The options are documented in the class\ndocumentation of each layout manager {@link qx.ui.layout}."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} the widget to add.",
+            "paramName": "child",
+            "description": " the widget to add.",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for widget.",
+            "paramName": "options",
+            "description": " Optional layout data for widget.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "addAt": {
+      "type": "function",
+      "name": "addAt",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Add a child widget at the specified index\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} Widget to add",
+            "paramName": "child",
+            "description": " Widget to add",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "index {Integer} Index, at which the widget will be inserted",
+            "paramName": "index",
+            "description": " Index, at which the widget will be inserted",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for widget.",
+            "paramName": "options",
+            "description": " Optional layout data for widget.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "addBefore": {
+      "type": "function",
+      "name": "addBefore",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Add a widget before another already inserted widget\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} Widget to add",
+            "paramName": "child",
+            "description": " Widget to add",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "before {LayoutItem} Widget before the new widget will be inserted.",
+            "paramName": "before",
+            "description": " Widget before the new widget will be inserted.",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for widget.",
+            "paramName": "options",
+            "description": " Optional layout data for widget.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "addAfter": {
+      "type": "function",
+      "name": "addAfter",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Add a widget after another already inserted widget\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} Widget to add",
+            "paramName": "child",
+            "description": " Widget to add",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "after {LayoutItem} Widget, after which the new widget will be inserted",
+            "paramName": "after",
+            "description": " Widget, after which the new widget will be inserted",
+            "type": "qx.ui.core.LayoutItem"
+          },
+          {
+            "name": "@param",
+            "body": "options {Map?null} Optional layout data for widget.",
+            "paramName": "options",
+            "description": " Optional layout data for widget.",
+            "optional": true,
+            "defaultValue": "null",
+            "type": "Map"
+          }
+        ]
+      }
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Remove the given child widget."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "child {LayoutItem} the widget to remove",
+            "paramName": "child",
+            "description": " the widget to remove",
+            "type": "qx.ui.core.LayoutItem"
+          }
+        ]
+      }
+    },
+    "removeAt": {
+      "type": "function",
+      "name": "removeAt",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Remove the widget at the specified index.\n\nThis method works on the widget's children list. Some layout managers\n(e.g. {@link qx.ui.layout.HBox}) use the children order as additional\nlayout information. Other layout manager (e.g. {@link qx.ui.layout.Grid})\nignore the children order for the layout process."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "index {Integer} Index of the widget to remove.",
+            "paramName": "index",
+            "description": " Index of the widget to remove.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{LayoutItem} The child removed.",
+            "type": "qx.ui.core.LayoutItem",
+            "desc": " The child removed."
+          }
+        ]
+      }
+    },
+    "removeAll": {
+      "type": "function",
+      "name": "removeAll",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MChildrenHandling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Remove all children."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} An array of the removed children.",
+            "type": "Array",
+            "desc": " An array of the removed children."
+          }
+        ]
+      }
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 357,
+        "column": 2
+      },
+      "end": {
+        "line": 365,
+        "column": 3
+      }
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

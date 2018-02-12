@@ -1,0 +1,1384 @@
+{
+  "className": "qx.ui.virtual.core.Scroller",
+  "packageName": "qx.ui.virtual.core",
+  "name": "Scroller",
+  "superClass": "qx.ui.core.scroll.AbstractScrollArea",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 28,
+        "column": 0
+      },
+      "end": {
+        "line": 181,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\nJonathan Weiß (jonathan_rass)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "EXPERIMENTAL!\n\nThe Scroller wraps a {@link Pane} and provides scroll bars to interactively\nscroll the pane's content."
+        }
+      ],
+      "@childControl": [
+        {
+          "name": "@childControl",
+          "body": "pane {qx.ui.virtual.core.Pane} Virtual pane."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 39,
+        "column": 2
+      },
+      "end": {
+        "line": 53,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "rowCount {Integer?0} The number of rows of the virtual grid.",
+          "paramName": "rowCount",
+          "description": " The number of rows of the virtual grid.",
+          "optional": true,
+          "defaultValue": "0",
+          "type": "Integer"
+        },
+        {
+          "name": "@param",
+          "body": "columnCount {Integer?0} The number of columns of the virtual grid.",
+          "paramName": "columnCount",
+          "description": " The number of columns of the virtual grid.",
+          "optional": true,
+          "defaultValue": "0",
+          "type": "Integer"
+        },
+        {
+          "name": "@param",
+          "body": "cellHeight {Integer?10} The default cell height.",
+          "paramName": "cellHeight",
+          "description": " The default cell height.",
+          "optional": true,
+          "defaultValue": "10",
+          "type": "Integer"
+        },
+        {
+          "name": "@param",
+          "body": "cellWidth {Integer?10} The default cell width.",
+          "paramName": "cellWidth",
+          "description": " The default cell width.",
+          "optional": true,
+          "defaultValue": "10",
+          "type": "Integer"
+        }
+      ]
+    }
+  },
+  "members": {
+    "__pane": {
+      "location": {
+        "start": {
+          "line": 59,
+          "column": 4
+        },
+        "end": {
+          "line": 59,
+          "column": 17
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": ""
+          }
+        ],
+        "@type": [
+          {
+            "name": "@type",
+            "body": "{Pane} Virtual pane."
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "getPane": {
+      "location": {
+        "start": {
+          "line": 74,
+          "column": 4
+        },
+        "end": {
+          "line": 76,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nACCESSOR METHODS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Get the scroller's virtual pane."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Pane} The scroller's pane.",
+            "type": "qx.ui.virtual.core.Pane",
+            "desc": " The scroller's pane."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "_createChildControlImpl": {
+      "location": {
+        "start": {
+          "line": 87,
+          "column": 4
+        },
+        "end": {
+          "line": 94,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nCHILD CONTROL SUPPORT\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "id {String} ID of the child control. If a # is used, the id is\nthe part in front of the #.",
+            "paramName": "id",
+            "description": " ID of the child control. If a # is used, the id is\nthe part in front of the #.",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "hash {String?undefined} If a child control name contains a #,\nall text following the # will be the hash argument.",
+            "paramName": "hash",
+            "description": " If a child control name contains a #,\nall text following the # will be the hash argument.",
+            "optional": true,
+            "defaultValue": "undefined",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.Widget} The created control or <code>null</code>",
+            "type": "qx.ui.core.Widget",
+            "desc": " The created control or <code>null</code>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.AbstractScrollArea",
+      "appearsIn": [
+        "qx.ui.core.scroll.AbstractScrollArea",
+        "qx.ui.core.Widget"
+      ]
+    },
+    "getItemTop": {
+      "location": {
+        "start": {
+          "line": 111,
+          "column": 4
+        },
+        "end": {
+          "line": 114,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nITEM LOCATION SUPPORT\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "NOT IMPLEMENTED"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "item {qx.ui.core.Widget} Item to query.",
+            "paramName": "item",
+            "description": " Item to query.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} Top offset.",
+            "type": "Integer",
+            "desc": " Top offset."
+          }
+        ],
+        "@abstract": [
+          {
+            "name": "@abstract",
+            "body": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.scroll.AbstractScrollArea",
+      "appearsIn": [
+        "qx.ui.core.scroll.AbstractScrollArea"
+      ]
+    },
+    "getItemBottom": {
+      "location": {
+        "start": {
+          "line": 124,
+          "column": 4
+        },
+        "end": {
+          "line": 127,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "NOT IMPLEMENTED"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "item {qx.ui.core.Widget} Item to query.",
+            "paramName": "item",
+            "description": " Item to query.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} Top offset.",
+            "type": "Integer",
+            "desc": " Top offset."
+          }
+        ],
+        "@abstract": [
+          {
+            "name": "@abstract",
+            "body": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.scroll.AbstractScrollArea",
+      "appearsIn": [
+        "qx.ui.core.scroll.AbstractScrollArea"
+      ]
+    },
+    "getItemLeft": {
+      "location": {
+        "start": {
+          "line": 137,
+          "column": 4
+        },
+        "end": {
+          "line": 140,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "NOT IMPLEMENTED"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "item {qx.ui.core.Widget} Item to query.",
+            "paramName": "item",
+            "description": " Item to query.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} Top offset.",
+            "type": "Integer",
+            "desc": " Top offset."
+          }
+        ],
+        "@abstract": [
+          {
+            "name": "@abstract",
+            "body": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.scroll.AbstractScrollArea",
+      "appearsIn": [
+        "qx.ui.core.scroll.AbstractScrollArea"
+      ]
+    },
+    "getItemRight": {
+      "location": {
+        "start": {
+          "line": 150,
+          "column": 4
+        },
+        "end": {
+          "line": 153,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "NOT IMPLEMENTED"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "item {qx.ui.core.Widget} Item to query.",
+            "paramName": "item",
+            "description": " Item to query.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} Right offset.",
+            "type": "Integer",
+            "desc": " Right offset."
+          }
+        ],
+        "@abstract": [
+          {
+            "name": "@abstract",
+            "body": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.scroll.AbstractScrollArea",
+      "appearsIn": [
+        "qx.ui.core.scroll.AbstractScrollArea"
+      ]
+    },
+    "_onScrollBarX": {
+      "location": {
+        "start": {
+          "line": 164,
+          "column": 4
+        },
+        "end": {
+          "line": 166,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nEVENT LISTENERS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Data} The scroll event object",
+            "paramName": "e",
+            "description": " The scroll event object",
+            "type": "qx.event.type.Data"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.AbstractScrollArea",
+      "appearsIn": [
+        "qx.ui.core.scroll.AbstractScrollArea"
+      ]
+    },
+    "_onScrollBarY": {
+      "location": {
+        "start": {
+          "line": 170,
+          "column": 4
+        },
+        "end": {
+          "line": 172,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Data} The scroll event object",
+            "paramName": "e",
+            "description": " The scroll event object",
+            "type": "qx.event.type.Data"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.AbstractScrollArea",
+      "appearsIn": [
+        "qx.ui.core.scroll.AbstractScrollArea"
+      ]
+    },
+    "_createScrollBar": {
+      "type": "function",
+      "name": "_createScrollBar",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.MScrollBarFactory",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Creates a new scrollbar. This can either be a styled qooxdoo scrollbar\nor a native browser scrollbar."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "orientation {String?\"horizontal\"} The initial scroll bar orientation",
+            "paramName": "orientation",
+            "description": " The initial scroll bar orientation",
+            "optional": true,
+            "defaultValue": "\"horizontal\"",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.scroll.IScrollBar} The scrollbar instance",
+            "type": "qx.ui.core.scroll.IScrollBar",
+            "desc": " The scrollbar instance"
+          }
+        ]
+      }
+    },
+    "_addRollHandling": {
+      "type": "function",
+      "name": "_addRollHandling",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.MRoll"
+    },
+    "_removeRollHandling": {
+      "type": "function",
+      "name": "_removeRollHandling",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.MRoll"
+    },
+    "_onPointerDownForRoll": {
+      "type": "function",
+      "name": "_onPointerDownForRoll",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.MRoll",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Handler for the pointerdown event which simply stops the momentum scrolling."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Pointer} pointerdown event",
+            "paramName": "e",
+            "description": " pointerdown event",
+            "type": "qx.event.type.Pointer"
+          }
+        ]
+      }
+    },
+    "_onRoll": {
+      "type": "function",
+      "name": "_onRoll",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.scroll.MRoll",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Roll event handler"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Roll} Roll event",
+            "paramName": "e",
+            "description": " Roll event",
+            "type": "qx.event.type.Roll"
+          }
+        ]
+      }
+    },
+    "_findScrollableParent": {
+      "type": "function",
+      "name": "_findScrollableParent",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Finds the first scrollable parent (in the parent chain)."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "widget {qx.ui.core.LayoutItem} The widget to start from.",
+            "paramName": "widget",
+            "description": " The widget to start from.",
+            "type": "qx.ui.core.LayoutItem"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.core.Widget} A scrollable widget.",
+            "type": "qx.ui.core.Widget",
+            "desc": " A scrollable widget."
+          }
+        ]
+      }
+    },
+    "_isScrollable": {
+      "type": "function",
+      "name": "_isScrollable",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the widget is scrollable."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "widget {qx.ui.core.Widget} The widget to check.",
+            "paramName": "widget",
+            "description": " The widget to check.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Whether the widget is scrollable.",
+            "type": "Boolean",
+            "desc": " Whether the widget is scrollable."
+          }
+        ]
+      }
+    },
+    "_getBounds": {
+      "type": "function",
+      "name": "_getBounds",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Gets the bounds of the given scrollable."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "scrollable {qx.ui.core.Widget} Scrollable which has scrollbar child controls.",
+            "paramName": "scrollable",
+            "description": " Scrollable which has scrollbar child controls.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} A map with all four bounds (e.g. {\"left\":0, \"top\":20, \"right\":0, \"bottom\":80}).",
+            "type": "Map",
+            "desc": " A map with all four bounds (e.g. {\"left\":0, \"top\":20, \"right\":0, \"bottom\":80})."
+          }
+        ]
+      }
+    },
+    "_getEdgeType": {
+      "type": "function",
+      "name": "_getEdgeType",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Gets the edge type or null if the pointer isn't within one of the thresholds."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "diff {Map} Difference map with all for edgeTypes.",
+            "paramName": "diff",
+            "description": " Difference map with all for edgeTypes.",
+            "type": "Map"
+          },
+          {
+            "name": "@param",
+            "body": "thresholdX {Number} x-axis threshold.",
+            "paramName": "thresholdX",
+            "description": " x-axis threshold.",
+            "type": "Number"
+          },
+          {
+            "name": "@param",
+            "body": "thresholdY {Number} y-axis threshold.",
+            "paramName": "thresholdY",
+            "description": " y-axis threshold.",
+            "type": "Number"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} One of the four edgeTypes ('left', 'right', 'top', 'bottom').",
+            "type": "String",
+            "desc": " One of the four edgeTypes ('left', 'right', 'top', 'bottom')."
+          }
+        ]
+      }
+    },
+    "_getAxis": {
+      "type": "function",
+      "name": "_getAxis",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Gets the axis ('x' or 'y') by the edge type."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "edgeType {String} One of the four edgeTypes ('left', 'right', 'top', 'bottom').",
+            "paramName": "edgeType",
+            "description": " One of the four edgeTypes ('left', 'right', 'top', 'bottom').",
+            "type": "String"
+          }
+        ],
+        "@throws": [
+          {
+            "name": "@throws",
+            "body": "{Error} If edgeType is not one of the distinct four ones."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} Returns 'y' or 'x'.",
+            "type": "String",
+            "desc": " Returns 'y' or 'x'."
+          }
+        ]
+      }
+    },
+    "_getThresholdByEdgeType": {
+      "type": "function",
+      "name": "_getThresholdByEdgeType",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Gets the threshold amount by edge type."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "edgeType {String} One of the four edgeTypes ('left', 'right', 'top', 'bottom').",
+            "paramName": "edgeType",
+            "description": " One of the four edgeTypes ('left', 'right', 'top', 'bottom').",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Number} The threshold of the x or y axis.",
+            "type": "Number",
+            "desc": " The threshold of the x or y axis."
+          }
+        ]
+      }
+    },
+    "_isScrollbarVisible": {
+      "type": "function",
+      "name": "_isScrollbarVisible",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the scrollbar is visible."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "scrollable {qx.ui.core.Widget} Scrollable which has scrollbar child controls.",
+            "paramName": "scrollable",
+            "description": " Scrollable which has scrollbar child controls.",
+            "type": "qx.ui.core.Widget"
+          },
+          {
+            "name": "@param",
+            "body": "axis {String} Can be 'y' or 'x'.",
+            "paramName": "axis",
+            "description": " Can be 'y' or 'x'.",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Whether the scrollbar is visible.",
+            "type": "Boolean",
+            "desc": " Whether the scrollbar is visible."
+          }
+        ]
+      }
+    },
+    "_isScrollbarExceedingMaxPos": {
+      "type": "function",
+      "name": "_isScrollbarExceedingMaxPos",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the scrollbar is exceeding it's maximum position."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "scrollbar {qx.ui.core.scroll.IScrollBar} Scrollbar to check.",
+            "paramName": "scrollbar",
+            "description": " Scrollbar to check.",
+            "type": "qx.ui.core.scroll.IScrollBar"
+          },
+          {
+            "name": "@param",
+            "body": "axis {String} Can be 'y' or 'x'.",
+            "paramName": "axis",
+            "description": " Can be 'y' or 'x'.",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "amount {Number} Amount to scroll which may be negative.",
+            "paramName": "amount",
+            "description": " Amount to scroll which may be negative.",
+            "type": "Number"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Whether the amount will exceed the scrollbar max position.",
+            "type": "Boolean",
+            "desc": " Whether the amount will exceed the scrollbar max position."
+          }
+        ]
+      }
+    },
+    "_calculateThresholdExceedance": {
+      "type": "function",
+      "name": "_calculateThresholdExceedance",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Calculates the threshold exceedance (which may be negative)."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "diff {Number} Difference value of one edgeType.",
+            "paramName": "diff",
+            "description": " Difference value of one edgeType.",
+            "type": "Number"
+          },
+          {
+            "name": "@param",
+            "body": "threshold {Number} x-axis or y-axis threshold.",
+            "paramName": "threshold",
+            "description": " x-axis or y-axis threshold.",
+            "type": "Number"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Number} Threshold exceedance amount (positive or negative).",
+            "type": "Number",
+            "desc": " Threshold exceedance amount (positive or negative)."
+          }
+        ]
+      }
+    },
+    "_calculateScrollAmount": {
+      "type": "function",
+      "name": "_calculateScrollAmount",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Calculates the scroll amount (which may be negative).\nThe amount is influenced by the scrollbar size (bigger = faster)\nthe exceedanceAmount (bigger = faster) and the slowDownFactor."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "scrollbarSize {Number} Size of the scrollbar.",
+            "paramName": "scrollbarSize",
+            "description": " Size of the scrollbar.",
+            "type": "Number"
+          },
+          {
+            "name": "@param",
+            "body": "exceedanceAmount {Number} Threshold exceedance amount (positive or negative).",
+            "paramName": "exceedanceAmount",
+            "description": " Threshold exceedance amount (positive or negative).",
+            "type": "Number"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Number} Scroll amount (positive or negative).",
+            "type": "Number",
+            "desc": " Scroll amount (positive or negative)."
+          }
+        ]
+      }
+    },
+    "_scrollBy": {
+      "type": "function",
+      "name": "_scrollBy",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "protected",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Scrolls the given scrollable on the given axis for the given amount."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "scrollable {qx.ui.core.Widget} Scrollable which has scrollbar child controls.",
+            "paramName": "scrollable",
+            "description": " Scrollable which has scrollbar child controls.",
+            "type": "qx.ui.core.Widget"
+          },
+          {
+            "name": "@param",
+            "body": "axis {String} Can be 'y' or 'x'.",
+            "paramName": "axis",
+            "description": " Can be 'y' or 'x'.",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "exceedanceAmount {Number} Threshold exceedance amount (positive or negative).",
+            "paramName": "exceedanceAmount",
+            "description": " Threshold exceedance amount (positive or negative).",
+            "type": "Number"
+          }
+        ]
+      }
+    },
+    "__onDrag": {
+      "type": "function",
+      "name": "__onDrag",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "private",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nEVENT HANDLERS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Event handler for the drag event."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Drag} The drag event instance.",
+            "paramName": "e",
+            "description": " The drag event instance.",
+            "type": "qx.event.type.Drag"
+          }
+        ]
+      }
+    },
+    "__onDragend": {
+      "type": "function",
+      "name": "__onDragend",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "private",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Event handler for the dragend event."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Drag} The drag event instance.",
+            "paramName": "e",
+            "description": " The drag event instance.",
+            "type": "qx.event.type.Drag"
+          }
+        ]
+      }
+    },
+    "getDragScrollThresholdX": {
+      "type": "function",
+      "name": "getDragScrollThresholdX",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setDragScrollThresholdX": {
+      "type": "function",
+      "name": "setDragScrollThresholdX",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetDragScrollThresholdX": {
+      "type": "function",
+      "name": "resetDragScrollThresholdX",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling"
+    },
+    "getDragScrollThresholdY": {
+      "type": "function",
+      "name": "getDragScrollThresholdY",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setDragScrollThresholdY": {
+      "type": "function",
+      "name": "setDragScrollThresholdY",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetDragScrollThresholdY": {
+      "type": "function",
+      "name": "resetDragScrollThresholdY",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling"
+    },
+    "getDragScrollSlowDownFactor": {
+      "type": "function",
+      "name": "getDragScrollSlowDownFactor",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Float",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setDragScrollSlowDownFactor": {
+      "type": "function",
+      "name": "setDragScrollSlowDownFactor",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Float",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetDragScrollSlowDownFactor": {
+      "type": "function",
+      "name": "resetDragScrollSlowDownFactor",
+      "abstract": false,
+      "mixin": true,
+      "inherited": true,
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.MDragDropScrolling"
+    },
+    "getScrollbarX": {
+      "type": "function",
+      "name": "getScrollbarX",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setScrollbarX": {
+      "type": "function",
+      "name": "setScrollbarX",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetScrollbarX": {
+      "type": "function",
+      "name": "resetScrollbarX",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getScrollbarY": {
+      "type": "function",
+      "name": "getScrollbarY",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setScrollbarY": {
+      "type": "function",
+      "name": "setScrollbarY",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetScrollbarY": {
+      "type": "function",
+      "name": "resetScrollbarY",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getScrollbar": {
+      "type": "function",
+      "name": "getScrollbar",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setScrollbar": {
+      "type": "function",
+      "name": "setScrollbar",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetScrollbar": {
+      "type": "function",
+      "name": "resetScrollbar",
+      "abstract": false,
+      "mixin": false,
+      "inherited": true,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 176,
+        "column": 2
+      },
+      "end": {
+        "line": 180,
+        "column": 3
+      }
+    }
+  },
+  "abstract": true,
+  "descendants": [
+    "qx.ui.list.List"
+  ]
+}

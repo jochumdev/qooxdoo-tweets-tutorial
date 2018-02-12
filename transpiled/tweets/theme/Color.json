@@ -1,0 +1,30 @@
+{
+  "className": "tweets.theme.Color",
+  "packageName": "tweets.theme",
+  "name": "Color",
+  "superClass": "qx.theme.simple.Color",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 0
+      },
+      "end": {
+        "line": 18,
+        "column": 5
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nCopyright:\n\nLicense:\n\nAuthors:\n\n***********************************************************************"
+        }
+      ]
+    }
+  },
+  "type": "theme",
+  "descendants": []
+}

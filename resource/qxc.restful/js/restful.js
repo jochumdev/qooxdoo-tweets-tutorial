@@ -94,22 +94,39 @@ var objectAssign = shouldUseNative() ? Object.assign : function (target, source)
 	return to;
 };
 
-function entity(data, endpoint) {
+var toConsumableArray = function (arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  } else {
+    return Array.from(arr);
+  }
+};
+
+function _default(_data, endpoint) {
     return {
         all: endpoint.all,
         custom: endpoint.custom,
-        data() {
-            return data;
+        data: function data() {
+            return _data;
         },
+
         delete: endpoint.delete,
-        id() {
-            return data[endpoint.identifier()];
+        id: function id() {
+            return _data[endpoint.identifier()];
         },
+
         one: endpoint.one,
-        save(...args) {
-            return endpoint.put(data, ...args);
+        save: function save() {
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            return endpoint.put.apply(endpoint, [_data].concat(toConsumableArray(args)));
         },
-        url: endpoint.url,
+
+        url: endpoint.url
     };
 }
 
@@ -5105,7 +5122,7 @@ var immutable_2 = immutable.List;
 var immutable_3 = immutable.Map;
 var immutable_4 = immutable.Iterable;
 
-function serialize(value) {
+function serialize (value) {
     if (immutable_4.isIterable(value)) {
         return value.toJS();
     }
@@ -5113,57 +5130,329 @@ function serialize(value) {
     return value;
 }
 
-// import warning from 'warning';
+var global$1 = typeof global !== "undefined" ? global :
+            typeof self !== "undefined" ? self :
+            typeof window !== "undefined" ? window : {}
+
+// shim for using process in browser
+// based off https://github.com/defunctzombie/node-process/blob/master/browser.js
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+var cachedSetTimeout = defaultSetTimout;
+var cachedClearTimeout = defaultClearTimeout;
+if (typeof global$1.setTimeout === 'function') {
+    cachedSetTimeout = setTimeout;
+}
+if (typeof global$1.clearTimeout === 'function') {
+    cachedClearTimeout = clearTimeout;
+}
+
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+function nextTick(fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+}
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+var title = 'browser';
+var platform = 'browser';
+var browser = true;
+var env = {};
+var argv = [];
+var version = ''; // empty string to avoid regexp issues
+var versions = {};
+var release = {};
+var config = {};
+
+function noop() {}
+
+var on = noop;
+var addListener = noop;
+var once = noop;
+var off = noop;
+var removeListener = noop;
+var removeAllListeners = noop;
+var emit = noop;
+
+function binding(name) {
+    throw new Error('process.binding is not supported');
+}
+
+function cwd () { return '/' }
+function chdir (dir) {
+    throw new Error('process.chdir is not supported');
+}
+function umask() { return 0; }
+
+// from https://github.com/kumavis/browser-process-hrtime/blob/master/index.js
+var performance = global$1.performance || {};
+var performanceNow =
+  performance.now        ||
+  performance.mozNow     ||
+  performance.msNow      ||
+  performance.oNow       ||
+  performance.webkitNow  ||
+  function(){ return (new Date()).getTime() };
+
+// generate timestamp or delta
+// see http://nodejs.org/api/process.html#process_process_hrtime
+function hrtime(previousTimestamp){
+  var clocktime = performanceNow.call(performance)*1e-3;
+  var seconds = Math.floor(clocktime);
+  var nanoseconds = Math.floor((clocktime%1)*1e9);
+  if (previousTimestamp) {
+    seconds = seconds - previousTimestamp[0];
+    nanoseconds = nanoseconds - previousTimestamp[1];
+    if (nanoseconds<0) {
+      seconds--;
+      nanoseconds += 1e9;
+    }
+  }
+  return [seconds,nanoseconds]
+}
+
+var startTime = new Date();
+function uptime() {
+  var currentTime = new Date();
+  var dif = currentTime - startTime;
+  return dif / 1000;
+}
+
+var process = {
+  nextTick: nextTick,
+  title: title,
+  browser: browser,
+  env: env,
+  argv: argv,
+  version: version,
+  versions: versions,
+  on: on,
+  addListener: addListener,
+  once: once,
+  off: off,
+  removeListener: removeListener,
+  removeAllListeners: removeAllListeners,
+  emit: emit,
+  binding: binding,
+  cwd: cwd,
+  chdir: chdir,
+  umask: umask,
+  hrtime: hrtime,
+  platform: platform,
+  release: release,
+  config: config,
+  uptime: uptime
+};
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = function warning() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  warning = function warning(condition, format, args) {
+    var len = arguments.length;
+    args = new Array(len > 2 ? len - 2 : 0);
+    for (var key = 2; key < len; key++) {
+      args[key - 2] = arguments[key];
+    }
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.length < 10 || /^[s\W]*$/.test(format)) {
+      throw new Error('The warning format should be able to uniquely identify this ' + 'warning. Please, use a more descriptive format than: ' + format);
+    }
+
+    if (!condition) {
+      var argIndex = 0;
+      var message = 'Warning: ' + format.replace(/%s/g, function () {
+        return args[argIndex++];
+      });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch (x) {}
+    }
+  };
+}
+
+var warning$1 = warning;
 
 /* eslint-disable new-cap */
 function responseFactory (response, decoratedEndpoint) {
-    const identifier = decoratedEndpoint.identifier();
+    var identifier = decoratedEndpoint.identifier();
 
     return {
-        statusCode() {
+        statusCode: function statusCode() {
             return serialize(response.get('statusCode'));
         },
-        body(hydrate = true) {
-            const data = response.get('data');
+        body: function body() {
+            var hydrate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+            var data = response.get('data');
 
             if (!hydrate) {
                 return serialize(data);
             }
 
             if (immutable_2.isList(data)) {
-                // warning(response.get('method') !== 'get' || !decoratedEndpoint.all, 'Unexpected array as response, you should use all method for that');
+                warning$1(response.get('method') !== 'get' || !decoratedEndpoint.all, 'Unexpected array as response, you should use all method for that');
 
-                return serialize(data.map((datum) => {
-                    const id = datum.get(identifier);
-                    return entity(serialize(datum), decoratedEndpoint.custom(`${id}`));
+                return serialize(data.map(function (datum) {
+                    var id = datum.get(identifier);
+                    return _default(serialize(datum), decoratedEndpoint.custom('' + id));
                 }));
             }
 
-            // warning(response.get('method') !== 'get' || decoratedEndpoint.all, 'Expected array as response, you should use one method for that');
+            warning$1(response.get('method') !== 'get' || decoratedEndpoint.all, 'Expected array as response, you should use one method for that');
 
-            return entity(serialize(data), decoratedEndpoint);
+            return _default(serialize(data), decoratedEndpoint);
         },
-        headers() {
+        headers: function headers() {
             return serialize(response.get('headers'));
-        },
+        }
     };
 }
 
 /* eslint-disable new-cap */
-function endpoint(request) {
+function endpoint (request) {
     return function endpointFactory(scope) {
-        scope.on('error', () => true); // Add a default error listener to prevent unwanted exception
-        const endpoint = {}; // Persists reference
+        scope.on('error', function () {
+            return true;
+        }); // Add a default error listener to prevent unwanted exception
+        var endpoint = {}; // Persists reference
 
         function _generateRequestConfig(method, data, params, headers) {
-            let config = immutable_3({
+            var config = immutable_3({
                 errorInterceptors: immutable_2(scope.get('errorInterceptors')),
                 headers: immutable_3(scope.get('headers')).mergeDeep(immutable_3(headers)),
-                method,
-                params,
+                method: method,
+                params: params,
                 requestInterceptors: immutable_2(scope.get('requestInterceptors')),
                 responseInterceptors: immutable_2(scope.get('responseInterceptors')),
-                url: scope.get('url'),
+                url: scope.get('url')
             });
 
             if (data) {
@@ -5178,7 +5467,7 @@ function endpoint(request) {
         }
 
         function _onResponse(config, rawResponse) {
-            const response = responseFactory(rawResponse, endpoint);
+            var response = responseFactory(rawResponse, endpoint);
             scope.emit('response', response, serialize(config));
             return response;
         }
@@ -5188,33 +5477,43 @@ function endpoint(request) {
             throw error;
         }
 
-        function _httpMethodFactory(method, expectData = true) {
-            const emitter = (...args) => {
-                scope.emit(...args);
+        function _httpMethodFactory(method) {
+            var expectData = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+            var emitter = function emitter() {
+                scope.emit.apply(scope, arguments);
             };
 
             if (expectData) {
-                return (data, params = null, headers = null) => {
-                    const config = _generateRequestConfig(method, data, params, headers);
-                    return request(config, emitter).then(
-                        (rawResponse) => _onResponse(config, rawResponse),
-                        (rawResponse) => _onError(config, rawResponse)
-                    );
+                return function (data) {
+                    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+                    var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+                    var config = _generateRequestConfig(method, data, params, headers);
+                    return request(config, emitter).then(function (rawResponse) {
+                        return _onResponse(config, rawResponse);
+                    }, function (rawResponse) {
+                        return _onError(config, rawResponse);
+                    });
                 };
             }
 
-            return (params = null, headers = null) => {
-                const config = _generateRequestConfig(method, null, params, headers);
-                return request(config, emitter).then(
-                    (rawResponse) => _onResponse(config, rawResponse),
-                    (error) => _onError(config, error)
-                );
+            return function () {
+                var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+                var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+                var config = _generateRequestConfig(method, null, params, headers);
+                return request(config, emitter).then(function (rawResponse) {
+                    return _onResponse(config, rawResponse);
+                }, function (error) {
+                    return _onError(config, error);
+                });
             };
         }
 
         function addInterceptor(type) {
-            return (interceptor) => {
-                scope.push(`${type}Interceptors`, interceptor);
+            return function (interceptor) {
+                scope.push(type + 'Interceptors', interceptor);
 
                 return endpoint;
             };
@@ -5225,7 +5524,7 @@ function endpoint(request) {
             addRequestInterceptor: addInterceptor('request'),
             addResponseInterceptor: addInterceptor('response'),
             delete: _httpMethodFactory('DELETE'),
-            identifier: newIdentifier => {
+            identifier: function identifier(newIdentifier) {
                 if (newIdentifier === undefined) {
                     return scope.get('config').get('entityIdentifier');
                 }
@@ -5236,10 +5535,14 @@ function endpoint(request) {
             },
             get: _httpMethodFactory('GET', false),
             head: _httpMethodFactory('HEAD', false),
-            header: (key, value) => scope.assign('headers', key, value),
-            headers: () => scope.get('headers'),
-            new: (url) => {
-                const childScope = scope.new();
+            header: function header(key, value) {
+                return scope.assign('headers', key, value);
+            },
+            headers: function headers() {
+                return scope.get('headers');
+            },
+            new: function _new(url) {
+                var childScope = scope.new();
                 childScope.set('url', url);
 
                 return endpointFactory(childScope);
@@ -5250,7 +5553,9 @@ function endpoint(request) {
             post: _httpMethodFactory('POST'),
             put: _httpMethodFactory('PUT'),
             options: _httpMethodFactory('OPTIONS', false),
-            url: () => scope.get('url'),
+            url: function url() {
+                return scope.get('url');
+            }
         });
 
         return endpoint;
@@ -5500,7 +5805,7 @@ var arrayPrefixGenerators = {
 
 var toISO = Date.prototype.toISOString;
 
-var defaults = {
+var defaults$1 = {
     delimiter: '&',
     encode: true,
     encoder: utils.encode,
@@ -5533,7 +5838,7 @@ var stringify = function stringify( // eslint-disable-line func-name-matching
         obj = serializeDate(obj);
     } else if (obj === null) {
         if (strictNullHandling) {
-            return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder) : prefix;
+            return encoder && !encodeValuesOnly ? encoder(prefix, defaults$1.encoder) : prefix;
         }
 
         obj = '';
@@ -5541,8 +5846,8 @@ var stringify = function stringify( // eslint-disable-line func-name-matching
 
     if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || utils.isBuffer(obj)) {
         if (encoder) {
-            var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder);
-            return [formatter(keyValue) + '=' + formatter(encoder(obj, defaults.encoder))];
+            var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults$1.encoder);
+            return [formatter(keyValue) + '=' + formatter(encoder(obj, defaults$1.encoder))];
         }
         return [formatter(prefix) + '=' + formatter(String(obj))];
     }
@@ -5612,15 +5917,15 @@ var stringify_1 = function (object, opts) {
         throw new TypeError('Encoder has to be a function.');
     }
 
-    var delimiter = typeof options.delimiter === 'undefined' ? defaults.delimiter : options.delimiter;
-    var strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults.strictNullHandling;
-    var skipNulls = typeof options.skipNulls === 'boolean' ? options.skipNulls : defaults.skipNulls;
-    var encode = typeof options.encode === 'boolean' ? options.encode : defaults.encode;
-    var encoder = typeof options.encoder === 'function' ? options.encoder : defaults.encoder;
+    var delimiter = typeof options.delimiter === 'undefined' ? defaults$1.delimiter : options.delimiter;
+    var strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults$1.strictNullHandling;
+    var skipNulls = typeof options.skipNulls === 'boolean' ? options.skipNulls : defaults$1.skipNulls;
+    var encode = typeof options.encode === 'boolean' ? options.encode : defaults$1.encode;
+    var encoder = typeof options.encoder === 'function' ? options.encoder : defaults$1.encoder;
     var sort = typeof options.sort === 'function' ? options.sort : null;
     var allowDots = typeof options.allowDots === 'undefined' ? false : options.allowDots;
-    var serializeDate = typeof options.serializeDate === 'function' ? options.serializeDate : defaults.serializeDate;
-    var encodeValuesOnly = typeof options.encodeValuesOnly === 'boolean' ? options.encodeValuesOnly : defaults.encodeValuesOnly;
+    var serializeDate = typeof options.serializeDate === 'function' ? options.serializeDate : defaults$1.serializeDate;
+    var encodeValuesOnly = typeof options.encodeValuesOnly === 'boolean' ? options.encodeValuesOnly : defaults$1.encodeValuesOnly;
     if (typeof options.format === 'undefined') {
         options.format = formats['default'];
     } else if (!Object.prototype.hasOwnProperty.call(formats.formatters, options.format)) {
@@ -5694,7 +5999,7 @@ var stringify_1 = function (object, opts) {
 
 var has = Object.prototype.hasOwnProperty;
 
-var defaults$1 = {
+var defaults$2 = {
     allowDots: false,
     allowPrototypes: false,
     arrayLimit: 20,
@@ -5720,11 +6025,11 @@ var parseValues = function parseQueryStringValues(str, options) {
 
         var key, val;
         if (pos === -1) {
-            key = options.decoder(part, defaults$1.decoder);
+            key = options.decoder(part, defaults$2.decoder);
             val = options.strictNullHandling ? null : '';
         } else {
-            key = options.decoder(part.slice(0, pos), defaults$1.decoder);
-            val = options.decoder(part.slice(pos + 1), defaults$1.decoder);
+            key = options.decoder(part.slice(0, pos), defaults$2.decoder);
+            val = options.decoder(part.slice(pos + 1), defaults$2.decoder);
         }
         if (has.call(obj, key)) {
             obj[key] = [].concat(obj[key]).concat(val);
@@ -5833,16 +6138,16 @@ var parse = function (str, opts) {
     }
 
     options.ignoreQueryPrefix = options.ignoreQueryPrefix === true;
-    options.delimiter = typeof options.delimiter === 'string' || utils.isRegExp(options.delimiter) ? options.delimiter : defaults$1.delimiter;
-    options.depth = typeof options.depth === 'number' ? options.depth : defaults$1.depth;
-    options.arrayLimit = typeof options.arrayLimit === 'number' ? options.arrayLimit : defaults$1.arrayLimit;
+    options.delimiter = typeof options.delimiter === 'string' || utils.isRegExp(options.delimiter) ? options.delimiter : defaults$2.delimiter;
+    options.depth = typeof options.depth === 'number' ? options.depth : defaults$2.depth;
+    options.arrayLimit = typeof options.arrayLimit === 'number' ? options.arrayLimit : defaults$2.arrayLimit;
     options.parseArrays = options.parseArrays !== false;
-    options.decoder = typeof options.decoder === 'function' ? options.decoder : defaults$1.decoder;
-    options.allowDots = typeof options.allowDots === 'boolean' ? options.allowDots : defaults$1.allowDots;
-    options.plainObjects = typeof options.plainObjects === 'boolean' ? options.plainObjects : defaults$1.plainObjects;
-    options.allowPrototypes = typeof options.allowPrototypes === 'boolean' ? options.allowPrototypes : defaults$1.allowPrototypes;
-    options.parameterLimit = typeof options.parameterLimit === 'number' ? options.parameterLimit : defaults$1.parameterLimit;
-    options.strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults$1.strictNullHandling;
+    options.decoder = typeof options.decoder === 'function' ? options.decoder : defaults$2.decoder;
+    options.allowDots = typeof options.allowDots === 'boolean' ? options.allowDots : defaults$2.allowDots;
+    options.plainObjects = typeof options.plainObjects === 'boolean' ? options.plainObjects : defaults$2.plainObjects;
+    options.allowPrototypes = typeof options.allowPrototypes === 'boolean' ? options.allowPrototypes : defaults$2.allowPrototypes;
+    options.parameterLimit = typeof options.parameterLimit === 'number' ? options.parameterLimit : defaults$2.parameterLimit;
+    options.strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults$2.strictNullHandling;
 
     if (str === '' || str === null || typeof str === 'undefined') {
         return options.plainObjects ? Object.create(null) : {};
@@ -5869,16 +6174,14 @@ var lib = {
     stringify: stringify_1
 };
 
-// import warning from 'warning';
-
 function parseBody(response) {
-    return response.text().then(text => {
+    return response.text().then(function (text) {
         if (!text || !text.length) {
-            // warning(response.status === 204, 'You should return a 204 status code with an empty body.');
+            warning$1(response.status === 204, 'You should return a 204 status code with an empty body.');
             return null;
         }
 
-        // warning(response.status !== 204, 'You should return an empty body with a 204 status code.');
+        warning$1(response.status !== 204, 'You should return an empty body with a 204 status code.');
 
         try {
             return JSON.parse(text);
@@ -5889,8 +6192,8 @@ function parseBody(response) {
 }
 
 function fetchBackend (fetch) {
-    return (config) => {
-        const url = config.url;
+    return function (config) {
+        var url = config.url;
         delete config.url;
 
         if (config.data) {
@@ -5898,102 +6201,124 @@ function fetchBackend (fetch) {
             delete config.data;
         }
 
-        const queryString = lib.stringify(config.params || {}, { arrayFormat: 'brackets' });
+        var queryString = lib.stringify(config.params || {}, { arrayFormat: 'brackets' });
         delete config.params;
 
-        return fetch(!queryString.length ? url : `${url}?${queryString}`, config)
-            .then((response) => {
-                return parseBody(response).then((json) => {
-                    let headers = {};
+        return fetch(!queryString.length ? url : url + '?' + queryString, config).then(function (response) {
+            return parseBody(response).then(function (json) {
+                var headers = {};
 
-                    if (typeof Headers.prototype.forEach === 'function') {
-                        response.headers.forEach((value, name) => {
-                            headers[name] = value;
-                        });
-                    } else if (typeof Headers.prototype.keys === 'function') {
-                        const keys = response.headers.keys();
-                        for (const key of keys) {
+                if (typeof Headers.prototype.forEach === 'function') {
+                    response.headers.forEach(function (value, name) {
+                        headers[name] = value;
+                    });
+                } else if (typeof Headers.prototype.keys === 'function') {
+                    var keys = response.headers.keys();
+                    var _iteratorNormalCompletion = true;
+                    var _didIteratorError = false;
+                    var _iteratorError = undefined;
+
+                    try {
+                        for (var _iterator = keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                            var key = _step.value;
+
                             headers[key] = response.headers.get(key);
                         }
-                    } else {
-                        headers = response.headers;
+                    } catch (err) {
+                        _didIteratorError = true;
+                        _iteratorError = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion && _iterator.return) {
+                                _iterator.return();
+                            }
+                        } finally {
+                            if (_didIteratorError) {
+                                throw _iteratorError;
+                            }
+                        }
                     }
+                } else {
+                    headers = response.headers;
+                }
 
-                    const responsePayload = {
-                        data: json,
-                        headers: headers,
-                        method: config.method ? config.method.toLowerCase() : 'get',
-                        statusCode: response.status,
-                    };
+                var responsePayload = {
+                    data: json,
+                    headers: headers,
+                    method: config.method ? config.method.toLowerCase() : 'get',
+                    statusCode: response.status
+                };
 
-                    if (response.status >= 200 && response.status < 300) {
-                        return responsePayload;
-                    }
+                if (response.status >= 200 && response.status < 300) {
+                    return responsePayload;
+                }
 
-                    const error = new Error(response.statusText);
-                    error.response = responsePayload;
-                    throw error;
-                });
+                var error = new Error(response.statusText);
+                error.response = responsePayload;
+                throw error;
             });
+        });
     };
 }
 
 /* eslint-disable new-cap */
-function reducePromiseList(emitter, list, initialValue, params = []) {
-    return list.reduce((promise, nextItem) => {
-        return promise.then(currentValue => {
-            emitter('pre', serialize(currentValue), ...params, nextItem.name);
-            return Promise.resolve(nextItem(serialize(currentValue), ...params))
-                .then((nextValue) => {
-                    if (!immutable_4.isIterable(currentValue)) {
-                        return objectAssign({}, currentValue, nextValue);
-                    }
+function reducePromiseList(emitter, list, initialValue) {
+    var params = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
 
-                    return currentValue.mergeDeep(nextValue);
-                })
-                .then((nextValue) => {
-                    emitter('post', serialize(nextValue), ...params, nextItem.name);
+    return list.reduce(function (promise, nextItem) {
+        return promise.then(function (currentValue) {
+            emitter.apply(undefined, ['pre', serialize(currentValue)].concat(toConsumableArray(params), [nextItem.name]));
+            return Promise.resolve(nextItem.apply(undefined, [serialize(currentValue)].concat(toConsumableArray(params)))).then(function (nextValue) {
+                if (!immutable_4.isIterable(currentValue)) {
+                    return objectAssign({}, currentValue, nextValue);
+                }
 
-                    return nextValue;
-                });
+                return currentValue.mergeDeep(nextValue);
+            }).then(function (nextValue) {
+                emitter.apply(undefined, ['post', serialize(nextValue)].concat(toConsumableArray(params), [nextItem.name]));
+
+                return nextValue;
+            });
         });
     }, Promise.resolve(initialValue));
 }
 
-function http(httpBackend) {
-    return (config, emitter) => {
-        const errorInterceptors = immutable_2(config.get('errorInterceptors'));
-        const requestInterceptors = immutable_2(config.get('requestInterceptors'));
-        const responseInterceptors = immutable_2(config.get('responseInterceptors'));
-        const currentConfig = config
-            .delete('errorInterceptors')
-            .delete('requestInterceptors')
-            .delete('responseInterceptors');
+function http (httpBackend) {
+    return function (config, emitter) {
+        var errorInterceptors = immutable_2(config.get('errorInterceptors'));
+        var requestInterceptors = immutable_2(config.get('requestInterceptors'));
+        var responseInterceptors = immutable_2(config.get('responseInterceptors'));
+        var currentConfig = config.delete('errorInterceptors').delete('requestInterceptors').delete('responseInterceptors');
 
         function emitterFactory(type) {
-            return (event, ...args) => {
-                emitter(`${type}:${event}`, ...args);
+            return function (event) {
+                for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                    args[_key - 1] = arguments[_key];
+                }
+
+                emitter.apply(undefined, [type + ':' + event].concat(args));
             };
         }
 
-        return reducePromiseList(emitterFactory('request:interceptor'), requestInterceptors, currentConfig)
-            .then((transformedConfig) => {
-                emitter('request', serialize(transformedConfig));
-                return httpBackend(serialize(transformedConfig)).then((response) => {
-                    return reducePromiseList(emitterFactory('response:interceptor'), responseInterceptors, immutable_1(response), [serialize(transformedConfig)]);
-                });
-            })
-            .then(null, (error) => {
-                return reducePromiseList(emitterFactory('error:interceptor'), errorInterceptors, error, [serialize(currentConfig)])
-                    .then((transformedError) => Promise.reject(transformedError));
+        return reducePromiseList(emitterFactory('request:interceptor'), requestInterceptors, currentConfig).then(function (transformedConfig) {
+            emitter('request', serialize(transformedConfig));
+            return httpBackend(serialize(transformedConfig)).then(function (response) {
+                return reducePromiseList(emitterFactory('response:interceptor'), responseInterceptors, immutable_1(response), [serialize(transformedConfig)]);
             });
+        }).then(null, function (error) {
+            return reducePromiseList(emitterFactory('error:interceptor'), errorInterceptors, error, [serialize(currentConfig)]).then(function (transformedError) {
+                return Promise.reject(transformedError);
+            });
+        });
     };
 }
 
 function custom(endpoint) {
-    return (name, relative = true) => {
+    return function (name) {
+        var relative = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
         if (relative) {
-            return member(endpoint.new(`${endpoint.url()}/${name}`)); // eslint-disable-line no-use-before-define
+            return member(endpoint.new(endpoint.url() + '/' + name)); // eslint-disable-line no-use-before-define
         }
 
         return member(endpoint.new(name)); // eslint-disable-line no-use-before-define
@@ -6002,9 +6327,15 @@ function custom(endpoint) {
 
 function collection(endpoint) {
     function _bindHttpMethod(method) {
-        return (...args) => {
-            const id = args.shift();
-            return member(endpoint.new(`${endpoint.url()}/${id}`))[method](...args);  // eslint-disable-line no-use-before-define
+        return function () {
+            var _member;
+
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            var id = args.shift();
+            return (_member = member(endpoint.new(endpoint.url() + '/' + id)))[method].apply(_member, args); // eslint-disable-line no-use-before-define
         };
     }
 
@@ -6022,9 +6353,13 @@ function collection(endpoint) {
 
 function member(endpoint) {
     return objectAssign(endpoint, {
-        all: (name) => collection(endpoint.new(`${endpoint.url()}/${name}`)),
+        all: function all(name) {
+            return collection(endpoint.new(endpoint.url() + '/' + name));
+        },
         custom: custom(endpoint),
-        one: (name, id) => member(endpoint.new(`${endpoint.url()}/${name}/${id}`)),
+        one: function one(name, id) {
+            return member(endpoint.new(endpoint.url() + '/' + name + '/' + id));
+        }
     });
 }
 
@@ -6501,11 +6836,11 @@ function unwrapListeners(arr) {
 
 /* eslint-disable new-cap */
 function scopeFactory(parentScope) {
-    let _data = immutable_3();
-    const _emitter = new EventEmitter();
+    var _data = immutable_3();
+    var _emitter = new EventEmitter();
 
-    const scope = {
-        assign(key, subKey, value) {
+    var scope = {
+        assign: function assign(key, subKey, value) {
             if (!scope.has(key)) {
                 scope.set(key, immutable_3());
             }
@@ -6513,23 +6848,23 @@ function scopeFactory(parentScope) {
             _data = _data.setIn([key, subKey], value);
             return scope;
         },
-        emit(...args) {
-            _emitter.emit(...args);
+        emit: function emit() {
+            _emitter.emit.apply(_emitter, arguments);
 
             if (parentScope) {
-                parentScope.emit(...args);
+                parentScope.emit.apply(parentScope, arguments);
             }
         },
-        get(key) {
-            const datum = _data.get(key);
+        get: function get(key) {
+            var datum = _data.get(key);
 
-            if ((scope.has(key) && !immutable_4.isIterable(datum)) || !parentScope) {
+            if (scope.has(key) && !immutable_4.isIterable(datum) || !parentScope) {
                 return datum;
             } else if (!scope.has(key) && parentScope) {
                 return parentScope.get(key);
             }
 
-            const parentDatum = parentScope.get(key);
+            var parentDatum = parentScope.get(key);
 
             if (!parentDatum) {
                 return datum;
@@ -6541,51 +6876,58 @@ function scopeFactory(parentScope) {
 
             return parentDatum.mergeDeep(datum);
         },
-        has(key) {
+        has: function has(key) {
             return _data.has(key);
         },
-        new() {
+        new: function _new() {
             return scopeFactory(scope);
         },
+
         on: _emitter.on.bind(_emitter),
         once: _emitter.once.bind(_emitter),
-        push(key, value) {
+        push: function push(key, value) {
             if (!scope.has(key)) {
                 scope.set(key, immutable_2());
             }
 
-            _data = _data.update(key, (list) => list.push(value));
+            _data = _data.update(key, function (list) {
+                return list.push(value);
+            });
             return scope;
         },
-        set(key, value) {
+        set: function set(key, value) {
             _data = _data.set(key, value);
             return scope;
-        },
+        }
     };
 
     return scope;
 }
 
-const instances = [];
+var instances = [];
 
 function restful(baseUrl, httpBackend) {
-    const rootScope = scopeFactory();
+    var rootScope = scopeFactory();
     rootScope.assign('config', 'entityIdentifier', 'id');
-    if (!baseUrl && typeof(window) !== 'undefined' && window.location) {
-        rootScope.set('url', `${window.location.protocol}//${window.location.host}`);
+    if (!baseUrl && typeof window !== 'undefined' && window.location) {
+        rootScope.set('url', window.location.protocol + '//' + window.location.host);
     } else {
         rootScope.set('url', baseUrl);
     }
 
-    const rootEndpoint = member(endpoint(http(httpBackend))(rootScope));
+    var rootEndpoint = member(endpoint(http(httpBackend))(rootScope));
 
     instances.push(rootEndpoint);
 
     return rootEndpoint;
 }
 
-restful._instances = () => instances;
-restful._flush = () => instances.length = 0;
+restful._instances = function () {
+    return instances;
+};
+restful._flush = function () {
+    return instances.length = 0;
+};
 
 (function(self) {
   if (self.fetch) {
@@ -7045,9 +7387,11 @@ restful._flush = () => instances.length = 0;
     })
   };
   self.fetch.polyfill = true;
-})(typeof self !== 'undefined' ? self : undefined);
+})(typeof self !== 'undefined' ? self : window);
 
-function restful_fetch (baseUrl, httpBackend = fetchBackend(fetch)) {
+function restful_fetch (baseUrl) {
+    var httpBackend = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : fetchBackend(fetch);
+
     return restful(baseUrl, httpBackend);
 }
 

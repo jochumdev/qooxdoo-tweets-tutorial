@@ -1,0 +1,120 @@
+{
+  "className": "qx.bom.element.Style",
+  "packageName": "qx.bom.element",
+  "name": "Style",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 86,
+        "column": 0
+      },
+      "end": {
+        "line": 539,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n======================================================================\n\nThis class contains code based on the following work:\n\nPrototype JS\nhttp://www.prototypejs.org/\nVersion 1.5\n\nCopyright:\n(c) 2006-2007, Prototype Core Team\n\nLicense:\nMIT: http://www.opensource.org/licenses/mit-license.php\n\nAuthors:\nPrototype Core Team\n\n----------------------------------------------------------------------\n\nCopyright (c) 2005-2008 Sam Stephenson\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without restriction,\nincluding without limitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of the Software,\nand to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Style querying and modification of HTML elements.\n\nAutomatically normalizes cross-browser differences for setting and reading\nCSS attributes. Optimized for performance."
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.lang.String"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.client.Css"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Clip#set"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Cursor#set"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Opacity#set"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.BoxSizing#set"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Clip#get"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Cursor#get"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Opacity#get"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.BoxSizing#get"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Clip#reset"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Cursor#reset"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Opacity#reset"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.BoxSizing#reset"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Clip#compile"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Cursor#compile"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.Opacity#compile"
+        },
+        {
+          "name": "@require",
+          "body": "qx.bom.element.BoxSizing#compile"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 536,
+        "column": 2
+      },
+      "end": {
+        "line": 538,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

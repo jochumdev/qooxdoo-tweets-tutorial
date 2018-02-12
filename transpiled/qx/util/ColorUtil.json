@@ -1,0 +1,48 @@
+{
+  "className": "qx.util.ColorUtil",
+  "packageName": "qx.util",
+  "name": "ColorUtil",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 28,
+        "column": 0
+      },
+      "end": {
+        "line": 668,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nChristian Hagendorn (cs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Methods to convert colors between different color spaces."
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "qx.theme.*"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.Class"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.Class.*"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

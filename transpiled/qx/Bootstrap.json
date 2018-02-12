@@ -1,0 +1,30 @@
+{
+  "className": "qx.Bootstrap",
+  "packageName": "qx",
+  "name": "Bootstrap",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 223,
+        "column": 0
+      },
+      "end": {
+        "line": 933,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "Internal class that is responsible for bootstrapping the qooxdoo\nframework at load time."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

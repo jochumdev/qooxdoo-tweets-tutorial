@@ -1,0 +1,598 @@
+{
+  "className": "qx.data.store.Json",
+  "packageName": "qx.data.store",
+  "name": "Json",
+  "superClass": "qx.core.Object",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 45,
+        "column": 0
+      },
+      "end": {
+        "line": 324,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (martinwittemann)\nTristan Koch (tristankoch)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "The JSON data store is responsible for fetching data from an url. The type\nof the data has to be json.\n\nThe loaded data will be parsed and saved in qooxdoo objects. Every value\nof the loaded data will be stored in a qooxdoo property. The model classes\nfor the data will be created automatically.\n\nFor the fetching itself it uses the {@link qx.io.request.Xhr} class and\nfor parsing the loaded javascript objects into qooxdoo objects, the\n{@link qx.data.marshal.Json} class will be used.\n\nPlease note that if you\n\n* upgrade from qooxdoo 1.4 or lower\n* choose not to force the old transport\n* use a delegate with qx.data.store.IStoreDelegate#configureRequest\n\nyou probably need to change the implementation of your delegate to configure\nthe {@link qx.io.request.Xhr} request.\n\nThis class only needs to be disposed if you want to abort any current I/O\nrequest"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 58,
+        "column": 2
+      },
+      "end": {
+        "line": 70,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "url {String|null} The url where to find the data. The store starts\nloading as soon as the URL is give. If you want to change some details\nconcerning the request, add null here and set the URL as soon as\neverything is set up.",
+          "paramName": "url",
+          "description": " The url where to find the data. The store starts\nloading as soon as the URL is give. If you want to change some details\nconcerning the request, add null here and set the URL as soon as\neverything is set up.",
+          "type": [
+            "String",
+            "null"
+          ]
+        },
+        {
+          "name": "@param",
+          "body": "delegate {Object?null} The delegate containing one of the methods\nspecified in {@link qx.data.store.IStoreDelegate}.",
+          "paramName": "delegate",
+          "description": " The delegate containing one of the methods\nspecified in {@link qx.data.store.IStoreDelegate}.",
+          "optional": true,
+          "defaultValue": "null",
+          "type": "Object"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "model": {
+      "location": {
+        "start": {
+          "line": 95,
+          "column": 4
+        },
+        "end": {
+          "line": 98,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Property for holding the loaded model instance."
+          }
+        ]
+      },
+      "name": "model",
+      "propertyType": "new",
+      "event": "changeModel",
+      "allowNull": true
+    },
+    "state": {
+      "location": {
+        "start": {
+          "line": 106,
+          "column": 4
+        },
+        "end": {
+          "line": 113,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "The state of the request as an url. If you want to check if the request\ndid it’s job, use, the {@link #changeState} event and check for one of the\nlisted values."
+          }
+        ]
+      },
+      "name": "state",
+      "propertyType": "new",
+      "event": "changeState",
+      "possibleValues": [
+        "configured",
+        "queued",
+        "sending",
+        "receiving",
+        "completed",
+        "aborted",
+        "timeout",
+        "failed"
+      ],
+      "defaultValue": "configured"
+    },
+    "url": {
+      "location": {
+        "start": {
+          "line": 119,
+          "column": 4
+        },
+        "end": {
+          "line": 124,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "The url where the request should go to."
+          }
+        ]
+      },
+      "name": "url",
+      "propertyType": "new",
+      "event": "changeUrl",
+      "apply": "_applyUrl",
+      "allowNull": true,
+      "check": "String"
+    }
+  },
+  "members": {
+    "_marshaler": {
+      "location": {
+        "start": {
+          "line": 130,
+          "column": 4
+        },
+        "end": {
+          "line": 130,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_delegate": {
+      "location": {
+        "start": {
+          "line": 131,
+          "column": 4
+        },
+        "end": {
+          "line": 131,
+          "column": 20
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "__request": {
+      "location": {
+        "start": {
+          "line": 133,
+          "column": 4
+        },
+        "end": {
+          "line": 133,
+          "column": 20
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "_applyUrl": {
+      "location": {
+        "start": {
+          "line": 136,
+          "column": 4
+        },
+        "end": {
+          "line": 144,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "apply function"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_getRequest": {
+      "location": {
+        "start": {
+          "line": 151,
+          "column": 4
+        },
+        "end": {
+          "line": 153,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get request"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Object} The request.",
+            "type": "Object",
+            "desc": " The request."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_setRequest": {
+      "location": {
+        "start": {
+          "line": 161,
+          "column": 4
+        },
+        "end": {
+          "line": 163,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Set request."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "request {Object} The request.",
+            "paramName": "request",
+            "description": " The request.",
+            "type": "Object"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_createRequest": {
+      "location": {
+        "start": {
+          "line": 174,
+          "column": 4
+        },
+        "end": {
+          "line": 207,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Creates and sends a GET request with the given url.\n\nListeners will be added to respond to the request’s \"success\",\n\"changePhase\" and \"fail\" event."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "url {String} The url for the request.",
+            "paramName": "url",
+            "description": " The url for the request.",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onChangePhase": {
+      "location": {
+        "start": {
+          "line": 217,
+          "column": 4
+        },
+        "end": {
+          "line": 236,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Handler called when request phase changes.\n\nSets the store’s state."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "ev {qx.event.type.Data} The request’s changePhase event.",
+            "paramName": "ev",
+            "description": " The request’s changePhase event.",
+            "type": "qx.event.type.Data"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onFail": {
+      "location": {
+        "start": {
+          "line": 244,
+          "column": 4
+        },
+        "end": {
+          "line": 247,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Handler called when not completing the request successfully."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "ev {qx.event.type.Event} The request’s fail event.",
+            "paramName": "ev",
+            "description": " The request’s fail event.",
+            "type": "qx.event.type.Event"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onSuccess": {
+      "location": {
+        "start": {
+          "line": 257,
+          "column": 4
+        },
+        "end": {
+          "line": 293,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Handler for the completion of the requests. It invokes the creation of\nthe needed classes and instances for the fetched data using\n{@link qx.data.marshal.Json}."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "ev {qx.event.type.Event} The request’s success event.",
+            "paramName": "ev",
+            "description": " The request’s success event.",
+            "type": "qx.event.type.Event"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "reload": {
+      "location": {
+        "start": {
+          "line": 299,
+          "column": 4
+        },
+        "end": {
+          "line": 304,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Reloads the data with the url set in the {@link #url} property."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getModel": {
+      "type": "function",
+      "name": "getModel",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setModel": {
+      "type": "function",
+      "name": "setModel",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetModel": {
+      "type": "function",
+      "name": "resetModel",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getState": {
+      "type": "function",
+      "name": "getState",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setState": {
+      "type": "function",
+      "name": "setState",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetState": {
+      "type": "function",
+      "name": "resetState",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getUrl": {
+      "type": "function",
+      "name": "getUrl",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "String",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setUrl": {
+      "type": "function",
+      "name": "setUrl",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "String",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetUrl": {
+      "type": "function",
+      "name": "resetUrl",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 313,
+        "column": 2
+      },
+      "end": {
+        "line": 323,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCT\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "abstract": true,
+  "descendants": [
+    "qx.data.store.Jsonp"
+  ]
+}

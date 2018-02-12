@@ -1,0 +1,34 @@
+{
+  "className": "qx.bom.element.Transform",
+  "packageName": "qx.bom.element",
+  "name": "Transform",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0
+      },
+      "end": {
+        "line": 371,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (wittemann)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This class is responsible for applying CSS3 transforms to plain DOM elements.\nThe implementation is mostly a cross browser wrapper for applying the\ntransforms.\nThe API is keep to the spec as close as possible.\n\nhttp://www.w3.org/TR/css3-3d-transforms/"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

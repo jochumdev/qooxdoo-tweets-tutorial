@@ -1,0 +1,209 @@
+{
+  "className": "qx.event.dispatch.Direct",
+  "packageName": "qx.event.dispatch",
+  "name": "Direct",
+  "superClass": "qx.core.Object",
+  "interfaces": [
+    "qx.event.IEventDispatcher"
+  ],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 0
+      },
+      "end": {
+        "line": 157,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Dispatches events directly on the event target (no bubbling nor capturing)."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 41,
+        "column": 2
+      },
+      "end": {
+        "line": 43,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Create a new instance"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        }
+      ]
+    }
+  },
+  "members": {
+    "canDispatchEvent": {
+      "location": {
+        "start": {
+          "line": 82,
+          "column": 4
+        },
+        "end": {
+          "line": 84,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nEVENT DISPATCHER INTERFACE\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {Element|Event} The event dispatch target",
+            "paramName": "target",
+            "description": " The event dispatch target",
+            "type": [
+              "Element",
+              "Event"
+            ]
+          },
+          {
+            "name": "@param",
+            "body": "event {qx.event.type.Event} The event object",
+            "paramName": "event",
+            "description": " The event object",
+            "type": "qx.event.type.Event"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} the event type",
+            "paramName": "type",
+            "description": " the event type",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} Whether the event dispatcher is responsible for the this event",
+            "type": "Boolean",
+            "desc": " Whether the event dispatcher is responsible for the this event"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventDispatcher",
+      "appearsIn": [
+        "qx.event.IEventDispatcher"
+      ]
+    },
+    "dispatchEvent": {
+      "location": {
+        "start": {
+          "line": 88,
+          "column": 4
+        },
+        "end": {
+          "line": 143,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "target {Element|Event} The event dispatch target",
+            "paramName": "target",
+            "description": " The event dispatch target",
+            "type": [
+              "Element",
+              "Event"
+            ]
+          },
+          {
+            "name": "@param",
+            "body": "event {qx.event.type.Event} event object to dispatch",
+            "paramName": "event",
+            "description": " event object to dispatch",
+            "type": "qx.event.type.Event"
+          },
+          {
+            "name": "@param",
+            "body": "type {String} the event type",
+            "paramName": "type",
+            "description": " the event type",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.event.IEventDispatcher",
+      "appearsIn": [
+        "qx.event.IEventDispatcher",
+        "qx.core.Object",
+        "qx.core.MEvent"
+      ]
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 154,
+        "column": 2
+      },
+      "end": {
+        "line": 156,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDEFER\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

@@ -1,0 +1,49 @@
+{
+  "className": "tweets.theme.Theme",
+  "packageName": "tweets.theme",
+  "name": "Theme",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 0
+      },
+      "end": {
+        "line": 21,
+        "column": 5
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nCopyright: 2018 undefined\n\nLicense: MIT license\n\nAuthors: undefined\n\n***********************************************************************"
+        }
+      ]
+    }
+  },
+  "type": "theme",
+  "themeMeta": {
+    "location": {
+      "start": {
+        "line": 13,
+        "column": 4
+      },
+      "end": {
+        "line": 20,
+        "column": 3
+      }
+    },
+    "themeMetaMap": {
+      "color": "tweets.theme.Color",
+      "decoration": "tweets.theme.Decoration",
+      "font": "tweets.theme.Font",
+      "icon": "qx.theme.icon.Oxygen",
+      "appearance": "tweets.theme.Appearance"
+    }
+  },
+  "descendants": []
+}

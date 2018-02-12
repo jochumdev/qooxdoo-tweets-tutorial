@@ -1,0 +1,258 @@
+{
+  "className": "qx.theme.manager.Color",
+  "packageName": "qx.theme.manager",
+  "name": "Color",
+  "superClass": "qx.util.ValueManager",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0
+      },
+      "end": {
+        "line": 165,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Manager for color themes"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "properties": {
+    "theme": {
+      "location": {
+        "start": {
+          "line": 40,
+          "column": 4
+        },
+        "end": {
+          "line": 46,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "the currently selected color theme"
+          }
+        ]
+      },
+      "name": "theme",
+      "propertyType": "new",
+      "event": "changeTheme",
+      "apply": "_applyTheme",
+      "allowNull": true,
+      "check": "Theme"
+    }
+  },
+  "members": {
+    "_applyTheme": {
+      "location": {
+        "start": {
+          "line": 61,
+          "column": 4
+        },
+        "end": {
+          "line": 74,
+          "column": 5
+        }
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "__parseColor": {
+      "location": {
+        "start": {
+          "line": 86,
+          "column": 4
+        },
+        "end": {
+          "line": 103,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Helper to take a color stored in the theme and returns the string color value.\nIn most of the times that means it just returns the string stored in the theme.\nIt additionally checks if its a valid color at all."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "colors {Map} The map of color definitions.",
+            "paramName": "colors",
+            "description": " The map of color definitions.",
+            "type": "Map"
+          },
+          {
+            "name": "@param",
+            "body": "name {String} The name of the color to check.",
+            "paramName": "name",
+            "description": " The name of the color to check.",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} The resolved color as string.",
+            "type": "String",
+            "desc": " The resolved color as string."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    },
+    "resolve": {
+      "location": {
+        "start": {
+          "line": 113,
+          "column": 4
+        },
+        "end": {
+          "line": 134,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the dynamically interpreted result for the incoming value,\n(if available), otherwise returns the original value"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "value {String} Value to resolve",
+            "paramName": "value",
+            "description": " Value to resolve",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{var} either returns the (translated) result of the incoming\nvalue or the value itself",
+            "type": "var",
+            "desc": " either returns the (translated) result of the incoming\nvalue or the value itself"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.util.ValueManager",
+      "appearsIn": [
+        "qx.util.ValueManager"
+      ]
+    },
+    "isDynamic": {
+      "location": {
+        "start": {
+          "line": 143,
+          "column": 4
+        },
+        "end": {
+          "line": 163,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether a value is interpreted dynamically"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "value {String} dynamically interpreted identifier",
+            "paramName": "value",
+            "description": " dynamically interpreted identifier",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} returns true if the value is interpreted dynamically",
+            "type": "Boolean",
+            "desc": " returns true if the value is interpreted dynamically"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.util.ValueManager",
+      "appearsIn": [
+        "qx.util.ValueManager"
+      ]
+    },
+    "getTheme": {
+      "type": "function",
+      "name": "getTheme",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Theme",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setTheme": {
+      "type": "function",
+      "name": "setTheme",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Theme",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetTheme": {
+      "type": "function",
+      "name": "resetTheme",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

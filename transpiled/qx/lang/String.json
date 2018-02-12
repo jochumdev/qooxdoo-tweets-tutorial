@@ -1,0 +1,40 @@
+{
+  "className": "qx.lang.String",
+  "packageName": "qx.lang",
+  "name": "String",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 58,
+        "column": 0
+      },
+      "end": {
+        "line": 378,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\n\n======================================================================\n\nThis class contains code based on the following work:\n\nMootools\nhttp://mootools.net/\nVersion 1.1.1\n\nCopyright:\n(c) 2007 Valerio Proietti\n\nLicense:\nMIT: http://www.opensource.org/licenses/mit-license.php\n\nand\n\nXRegExp\nhttp://xregexp.com/\nVersion 1.5\n\nCopyright:\n(c) 2006-2007, Steven Levithan <http://stevenlevithan.com>\n\nLicense:\nMIT: http://www.opensource.org/licenses/mit-license.php\n\nAuthors:\nSteven Levithan\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "String helper functions\n\nThe native JavaScript String is not modified by this class. However,\nthere are modifications to the native String in {@link qx.lang.normalize.String} for\nbrowsers that do not support certain features."
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.lang.normalize.String"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

@@ -1,0 +1,34 @@
+{
+  "className": "qx.io.ImageLoader",
+  "packageName": "qx.io",
+  "name": "ImageLoader",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 29,
+        "column": 0
+      },
+      "end": {
+        "line": 362,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "The ImageLoader can preload and manage loaded image resources. It easily\nhandles multiple requests and supports callbacks for successful and failed\nrequests.\n\nAfter loading of an image the dimension of the image is stored as long\nas the application is running. This is quite useful for in-memory layouting.\n\nUse {@link #load} to preload your own images."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

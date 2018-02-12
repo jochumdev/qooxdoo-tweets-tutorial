@@ -1,0 +1,34 @@
+{
+  "className": "qx.util.PropertyUtil",
+  "packageName": "qx.util",
+  "name": "PropertyUtil",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 0
+      },
+      "end": {
+        "line": 217,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "A helper class for accessing the property system directly.\n\nThis class is rather to be used internally. For all regular usage of the\nproperty system the default API should be sufficient."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

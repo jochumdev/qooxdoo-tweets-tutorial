@@ -1,0 +1,125 @@
+{
+  "className": "qx.event.type.dom.Pointer",
+  "packageName": "qx.event.type.dom",
+  "name": "Pointer",
+  "superClass": "qx.event.type.dom.Custom",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0
+      },
+      "end": {
+        "line": 309,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2014 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nChristopher Zuendorf (czuendorf)\nDaniel Wagner (danielwagner)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Synthetic pointer event"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 199,
+        "column": 2
+      },
+      "end": {
+        "line": 201,
+        "column": 3
+      }
+    }
+  },
+  "members": {
+    "_createEvent": {
+      "location": {
+        "start": {
+          "line": 205,
+          "column": 4
+        },
+        "end": {
+          "line": 220,
+          "column": 5
+        }
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.event.type.dom.Custom",
+      "appearsIn": [
+        "qx.event.type.dom.Custom"
+      ],
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Event} event object",
+            "type": "Event",
+            "desc": " event object"
+          }
+        ]
+      }
+    },
+    "_initEvent": {
+      "location": {
+        "start": {
+          "line": 223,
+          "column": 4
+        },
+        "end": {
+          "line": 297,
+          "column": 5
+        }
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.event.type.dom.Custom",
+      "appearsIn": [
+        "qx.event.type.dom.Custom"
+      ],
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "body": "domEvent {Event} Native event that will be used as a template for the new event",
+            "paramName": "domEvent",
+            "description": " Native event that will be used as a template for the new event",
+            "type": "Event"
+          },
+          {
+            "name": "@param",
+            "body": "customProps {Map?} Map of event properties (will override the domEvent's values)",
+            "paramName": "customProps",
+            "description": " Map of event properties (will override the domEvent's values)",
+            "optional": true,
+            "type": "Map"
+          }
+        ]
+      }
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 301,
+        "column": 2
+      },
+      "end": {
+        "line": 308,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}

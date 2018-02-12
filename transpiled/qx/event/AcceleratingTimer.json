@@ -1,0 +1,443 @@
+{
+  "className": "qx.event.AcceleratingTimer",
+  "packageName": "qx.event",
+  "name": "AcceleratingTimer",
+  "superClass": "qx.core.Object",
+  "interfaces": [
+    "qx.core.IDisposable"
+  ],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 33,
+        "column": 0
+      },
+      "end": {
+        "line": 145,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Timer, which accelerates after each interval. The initial delay and the\ninterval time can be set using the properties {@link #firstInterval}\nand {@link #interval}. The {@link #interval} events will be fired with\ndecreasing interval times while the timer is running, until the {@link #minimum}\nis reached. The {@link #decrease} property sets the amount of milliseconds\nwhich will decreased after every firing.\n\nThis class is e.g. used in the {@link qx.ui.form.RepeatButton} and\n{@link qx.ui.form.HoverButton} widgets.\n\nNOTE: Instances of this class must be disposed of after use"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 38,
+        "column": 2
+      },
+      "end": {
+        "line": 44,
+        "column": 3
+      }
+    }
+  },
+  "properties": {
+    "interval": {
+      "location": {
+        "start": {
+          "line": 60,
+          "column": 4
+        },
+        "end": {
+          "line": 64,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Interval used after the first run of the timer. Usually a smaller value\nthan the \"firstInterval\" property value to get a faster reaction."
+          }
+        ]
+      },
+      "name": "interval",
+      "propertyType": "new",
+      "check": "Integer",
+      "defaultValue": 100
+    },
+    "firstInterval": {
+      "location": {
+        "start": {
+          "line": 71,
+          "column": 4
+        },
+        "end": {
+          "line": 75,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Interval used for the first run of the timer. Usually a greater value\nthan the \"interval\" property value to a little delayed reaction at the first\ntime."
+          }
+        ]
+      },
+      "name": "firstInterval",
+      "propertyType": "new",
+      "check": "Integer",
+      "defaultValue": 500
+    },
+    "minimum": {
+      "location": {
+        "start": {
+          "line": 78,
+          "column": 4
+        },
+        "end": {
+          "line": 82,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "This configures the minimum value for the timer interval."
+          }
+        ]
+      },
+      "name": "minimum",
+      "propertyType": "new",
+      "check": "Integer",
+      "defaultValue": 20
+    },
+    "decrease": {
+      "location": {
+        "start": {
+          "line": 85,
+          "column": 4
+        },
+        "end": {
+          "line": 89,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Decrease of the timer on each interval (for the next interval) until minTimer reached."
+          }
+        ]
+      },
+      "name": "decrease",
+      "propertyType": "new",
+      "check": "Integer",
+      "defaultValue": 2
+    }
+  },
+  "members": {
+    "__timer": {
+      "location": {
+        "start": {
+          "line": 95,
+          "column": 4
+        },
+        "end": {
+          "line": 95,
+          "column": 18
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__currentInterval": {
+      "location": {
+        "start": {
+          "line": 96,
+          "column": 4
+        },
+        "end": {
+          "line": 96,
+          "column": 28
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "start": {
+      "location": {
+        "start": {
+          "line": 101,
+          "column": 4
+        },
+        "end": {
+          "line": 105,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Reset and start the timer."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "stop": {
+      "location": {
+        "start": {
+          "line": 111,
+          "column": 4
+        },
+        "end": {
+          "line": 115,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Stop the timer"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "_onInterval": {
+      "location": {
+        "start": {
+          "line": 121,
+          "column": 4
+        },
+        "end": {
+          "line": 138,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Interval event handler"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "getInterval": {
+      "type": "function",
+      "name": "getInterval",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setInterval": {
+      "type": "function",
+      "name": "setInterval",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetInterval": {
+      "type": "function",
+      "name": "resetInterval",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getFirstInterval": {
+      "type": "function",
+      "name": "getFirstInterval",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setFirstInterval": {
+      "type": "function",
+      "name": "setFirstInterval",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetFirstInterval": {
+      "type": "function",
+      "name": "resetFirstInterval",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getMinimum": {
+      "type": "function",
+      "name": "getMinimum",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setMinimum": {
+      "type": "function",
+      "name": "setMinimum",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetMinimum": {
+      "type": "function",
+      "name": "resetMinimum",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getDecrease": {
+      "type": "function",
+      "name": "getDecrease",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setDecrease": {
+      "type": "function",
+      "name": "setDecrease",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetDecrease": {
+      "type": "function",
+      "name": "resetDecrease",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 142,
+        "column": 2
+      },
+      "end": {
+        "line": 144,
+        "column": 3
+      }
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

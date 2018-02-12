@@ -1,0 +1,537 @@
+{
+  "className": "qx.ui.virtual.layer.AbstractBackground",
+  "packageName": "qx.ui.virtual.layer",
+  "name": "AbstractBackground",
+  "superClass": "qx.ui.virtual.layer.Abstract",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 0
+      },
+      "end": {
+        "line": 211,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "EXPERIMENTAL!\n\nAbstract base class for the {@link Row} and {@link Column} layers."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 40,
+        "column": 3
+      },
+      "end": {
+        "line": 54,
+        "column": 4
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "colorEven {Color?null} color for even indexes",
+          "paramName": "colorEven",
+          "description": " color for even indexes",
+          "optional": true,
+          "defaultValue": "null",
+          "type": "Color"
+        },
+        {
+          "name": "@param",
+          "body": "colorOdd {Color?null} color for odd indexes",
+          "paramName": "colorOdd",
+          "description": " color for odd indexes",
+          "optional": true,
+          "defaultValue": "null",
+          "type": "Color"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "colorEven": {
+      "location": {
+        "start": {
+          "line": 66,
+          "column": 4
+        },
+        "end": {
+          "line": 72,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "color for event indexes"
+          }
+        ]
+      },
+      "name": "colorEven",
+      "propertyType": "new",
+      "themeable": true,
+      "apply": "_applyColorEven",
+      "allowNull": true,
+      "check": "Color"
+    },
+    "colorOdd": {
+      "location": {
+        "start": {
+          "line": 75,
+          "column": 4
+        },
+        "end": {
+          "line": 81,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "color for odd indexes"
+          }
+        ]
+      },
+      "name": "colorOdd",
+      "propertyType": "new",
+      "themeable": true,
+      "apply": "_applyColorOdd",
+      "allowNull": true,
+      "check": "Color"
+    }
+  },
+  "members": {
+    "__colorEven": {
+      "location": {
+        "start": {
+          "line": 93,
+          "column": 4
+        },
+        "end": {
+          "line": 93,
+          "column": 22
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__colorOdd": {
+      "location": {
+        "start": {
+          "line": 94,
+          "column": 4
+        },
+        "end": {
+          "line": 94,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__customColors": {
+      "location": {
+        "start": {
+          "line": 95,
+          "column": 4
+        },
+        "end": {
+          "line": 95,
+          "column": 25
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__decorators": {
+      "location": {
+        "start": {
+          "line": 96,
+          "column": 4
+        },
+        "end": {
+          "line": 96,
+          "column": 23
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "setColor": {
+      "location": {
+        "start": {
+          "line": 112,
+          "column": 4
+        },
+        "end": {
+          "line": 119,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nCOLOR HANDLING\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Sets the color for the given index"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "index {Integer} Index to set the color for",
+            "paramName": "index",
+            "description": " Index to set the color for",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "color {Color|null} the color to set. A value of <code>null</code>\nwill reset the color.",
+            "paramName": "color",
+            "description": " the color to set. A value of <code>null</code>\nwill reset the color.",
+            "type": [
+              "Color",
+              "null"
+            ]
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "clearCustomColors": {
+      "location": {
+        "start": {
+          "line": 125,
+          "column": 4
+        },
+        "end": {
+          "line": 129,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Clear all colors set using {@link #setColor}."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getColor": {
+      "location": {
+        "start": {
+          "line": 138,
+          "column": 4
+        },
+        "end": {
+          "line": 146,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the color at the given index"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "index {Integer} The index to get the color for.",
+            "paramName": "index",
+            "description": " The index to get the color for.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Color} The color at the given index",
+            "type": "Color",
+            "desc": " The color at the given index"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "_applyColorEven": {
+      "location": {
+        "start": {
+          "line": 150,
+          "column": 4
+        },
+        "end": {
+          "line": 158,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "property apply"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_applyColorOdd": {
+      "location": {
+        "start": {
+          "line": 162,
+          "column": 4
+        },
+        "end": {
+          "line": 170,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "property apply"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "setBackground": {
+      "location": {
+        "start": {
+          "line": 180,
+          "column": 4
+        },
+        "end": {
+          "line": 188,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets the decorator for the given index"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "index {Integer} Index to set the color for",
+            "paramName": "index",
+            "description": " Index to set the color for",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "decorator {qx.ui.decoration.IDecorator|null} the decorator to set. A value of\n<code>null</code> will reset the decorator.",
+            "paramName": "decorator",
+            "description": " the decorator to set. A value of\n<code>null</code> will reset the decorator.",
+            "type": [
+              "qx.ui.decoration.IDecorator",
+              "null"
+            ]
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getBackground": {
+      "location": {
+        "start": {
+          "line": 197,
+          "column": 4
+        },
+        "end": {
+          "line": 199,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the decorator at the given index"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "index {Integer} The index to get the decorator for.",
+            "paramName": "index",
+            "description": " The index to get the decorator for.",
+            "type": "Integer"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.decoration.IDecorator} The decorator at the given index",
+            "type": "qx.ui.decoration.IDecorator",
+            "desc": " The decorator at the given index"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getColorEven": {
+      "type": "function",
+      "name": "getColorEven",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Color",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setColorEven": {
+      "type": "function",
+      "name": "setColorEven",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Color",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetColorEven": {
+      "type": "function",
+      "name": "resetColorEven",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getColorOdd": {
+      "type": "function",
+      "name": "getColorOdd",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Color",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setColorOdd": {
+      "type": "function",
+      "name": "setColorOdd",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Color",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetColorOdd": {
+      "type": "function",
+      "name": "resetColorOdd",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 208,
+        "column": 2
+      },
+      "end": {
+        "line": 210,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCT\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "abstract": true,
+  "descendants": [
+    "qx.ui.virtual.layer.Row"
+  ]
+}

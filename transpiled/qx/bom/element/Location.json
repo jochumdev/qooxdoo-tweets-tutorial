@@ -1,0 +1,40 @@
+{
+  "className": "qx.bom.element.Location",
+  "packageName": "qx.bom.element",
+  "name": "Location",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 48,
+        "column": 0
+      },
+      "end": {
+        "line": 465,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n======================================================================\n\nThis class contains code based on the following work:\n\njQuery Dimension Plugin\nhttp://jquery.com/\nVersion 1.1.3\n\nCopyright:\n(c) 2007, Paul Bakaus & Brandon Aaron\n\nLicense:\nMIT: http://www.opensource.org/licenses/mit-license.php\n\nAuthors:\nPaul Bakaus\nBrandon Aaron\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Query the location of an arbitrary DOM element in relation to its top\nlevel body element. Works in all major browsers:\n\n* Mozilla 1.5 + 2.0\n* Internet Explorer 6.0 + 7.0 (both standard & quirks mode)\n* Opera 9.2\n* Safari 3.0 beta"
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "SVGElement"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

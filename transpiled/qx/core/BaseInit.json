@@ -1,0 +1,34 @@
+{
+  "className": "qx.core.BaseInit",
+  "packageName": "qx.core",
+  "name": "BaseInit",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 24,
+        "column": 0
+      },
+      "end": {
+        "line": 121,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nDaniel Wagner (d_wagner)\nJohn Spackman\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "This is the base class for non-browser qooxdoo applications."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

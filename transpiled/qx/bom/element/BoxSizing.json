@@ -1,0 +1,34 @@
+{
+  "className": "qx.bom.element.BoxSizing",
+  "packageName": "qx.bom.element",
+  "name": "BoxSizing",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0
+      },
+      "end": {
+        "line": 150,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Contains methods to control and query the element's box-sizing property.\n\nSupported values:\n\n* \"content-box\" = W3C model (dimensions are content specific)\n* \"border-box\" = Microsoft model (dimensions are box specific incl. border and padding)"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

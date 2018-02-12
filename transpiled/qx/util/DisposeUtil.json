@@ -1,0 +1,72 @@
+{
+  "className": "qx.util.DisposeUtil",
+  "packageName": "qx.util",
+  "name": "DisposeUtil",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 32,
+        "column": 0
+      },
+      "end": {
+        "line": 258,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Methods to cleanup fields from maps/objects."
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "qx.log.Logger"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.log"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.ui.container.Composite"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.ui.container.Scroll"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.ui.container.SlideBar"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.ui.container.Stack"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.ui.mobile"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.ui.mobile.container.Composite"
+        },
+        {
+          "name": "@ignore",
+          "body": "qx.ui.mobile.core.Widget"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

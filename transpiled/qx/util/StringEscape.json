@@ -1,0 +1,34 @@
+{
+  "className": "qx.util.StringEscape",
+  "packageName": "qx.util",
+  "name": "StringEscape",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 0
+      },
+      "end": {
+        "line": 111,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Generic escaping and unescaping of DOM strings.\n\n{@link qx.bom.String} for (un)escaping of HTML strings.\n{@link qx.xml.String} for (un)escaping of XML strings."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

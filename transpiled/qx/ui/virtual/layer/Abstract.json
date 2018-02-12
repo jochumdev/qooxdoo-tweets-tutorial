@@ -1,0 +1,614 @@
+{
+  "className": "qx.ui.virtual.layer.Abstract",
+  "packageName": "qx.ui.virtual.layer",
+  "name": "Abstract",
+  "superClass": "qx.ui.core.Widget",
+  "interfaces": [
+    "qx.ui.virtual.core.ILayer"
+  ],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 32,
+        "column": 0
+      },
+      "end": {
+        "line": 268,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "EXPERIMENTAL!\n\nAbstract base class for layers of a virtual pane.\n\nThis class queues calls to {@link #fullUpdate}, {@link #updateLayerWindow}\nand {@link #updateLayerData} and only performs the absolute necessary\nactions. Concrete implementation of this class must at least implement\nthe {@link #_fullUpdate} method. Additionally the two methods\n{@link #_updateLayerWindow} and {@link #_updateLayerData} may be implemented\nto increase the performance."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 45,
+        "column": 3
+      },
+      "end": {
+        "line": 50,
+        "column": 4
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "anonymous": {
+      "location": {
+        "start": {
+          "line": 62,
+          "column": 4
+        },
+        "end": {
+          "line": 66,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "name": "anonymous",
+      "propertyType": "new",
+      "refine": true,
+      "defaultValue": true,
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": {
+        "qx.ui.core.Widget": "class"
+      }
+    }
+  },
+  "members": {
+    "__jobs": {
+      "location": {
+        "start": {
+          "line": 78,
+          "column": 4
+        },
+        "end": {
+          "line": 78,
+          "column": 17
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__arguments": {
+      "location": {
+        "start": {
+          "line": 79,
+          "column": 4
+        },
+        "end": {
+          "line": 79,
+          "column": 22
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__firstRow": {
+      "location": {
+        "start": {
+          "line": 81,
+          "column": 4
+        },
+        "end": {
+          "line": 81,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__firstColumn": {
+      "location": {
+        "start": {
+          "line": 82,
+          "column": 4
+        },
+        "end": {
+          "line": 82,
+          "column": 24
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__rowSizes": {
+      "location": {
+        "start": {
+          "line": 83,
+          "column": 4
+        },
+        "end": {
+          "line": 83,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__columnSizes": {
+      "location": {
+        "start": {
+          "line": 84,
+          "column": 4
+        },
+        "end": {
+          "line": 84,
+          "column": 24
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "getFirstRow": {
+      "location": {
+        "start": {
+          "line": 92,
+          "column": 4
+        },
+        "end": {
+          "line": 94,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the first rendered row"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} The first rendered row",
+            "type": "Integer",
+            "desc": " The first rendered row"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getFirstColumn": {
+      "location": {
+        "start": {
+          "line": 102,
+          "column": 4
+        },
+        "end": {
+          "line": 104,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the first rendered column"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} The first rendered column",
+            "type": "Integer",
+            "desc": " The first rendered column"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getRowSizes": {
+      "location": {
+        "start": {
+          "line": 112,
+          "column": 4
+        },
+        "end": {
+          "line": 114,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the sizes of the rendered rows"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer[]} List of row heights",
+            "type": "Integer[]",
+            "desc": " List of row heights"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getColumnSizes": {
+      "location": {
+        "start": {
+          "line": 122,
+          "column": 4
+        },
+        "end": {
+          "line": 124,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Get the sizes of the rendered column"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer[]} List of column widths",
+            "type": "Integer[]",
+            "desc": " List of column widths"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "syncWidget": {
+      "location": {
+        "start": {
+          "line": 128,
+          "column": 4
+        },
+        "end": {
+          "line": 162,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "jobs {Map} A map of jobs.",
+            "paramName": "jobs",
+            "description": " A map of jobs.",
+            "type": "Map"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.core.Widget",
+      "appearsIn": [
+        "qx.ui.core.Widget"
+      ]
+    },
+    "_updateLayerData": {
+      "location": {
+        "start": {
+          "line": 171,
+          "column": 4
+        },
+        "end": {
+          "line": 177,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Update the layer to reflect changes in the data the layer displays.\n\nNote: It is guaranteed that this method is only called after the layer\nhas been rendered."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_fullUpdate": {
+      "location": {
+        "start": {
+          "line": 193,
+          "column": 4
+        },
+        "end": {
+          "line": 198,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Do a complete update of the layer. All cached data should be discarded.\nThis method is called e.g. after changes to the grid geometry\n(row/column sizes, row/column count, ...).\n\nNote: It is guaranteed that this method is only called after the layer\nhas been rendered."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "firstRow {Integer} Index of the first row to display",
+            "paramName": "firstRow",
+            "description": " Index of the first row to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "firstColumn {Integer} Index of the first column to display",
+            "paramName": "firstColumn",
+            "description": " Index of the first column to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "rowSizes {Integer[]} Array of heights for each row to display",
+            "paramName": "rowSizes",
+            "description": " Array of heights for each row to display",
+            "type": "Integer[]"
+          },
+          {
+            "name": "@param",
+            "body": "columnSizes {Integer[]} Array of widths for each column to display",
+            "paramName": "columnSizes",
+            "description": " Array of widths for each column to display",
+            "type": "Integer[]"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_updateLayerWindow": {
+      "location": {
+        "start": {
+          "line": 216,
+          "column": 4
+        },
+        "end": {
+          "line": 225,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Update the layer to display a different window of the virtual grid.\nThis method is called if the pane is scrolled, resized or cells\nare prefetched. The implementation can assume that no other grid\ndata has been changed since the last \"fullUpdate\" of \"updateLayerWindow\"\ncall.\n\nNote: It is guaranteed that this method is only called after the layer\nhas been rendered."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "firstRow {Integer} Index of the first row to display",
+            "paramName": "firstRow",
+            "description": " Index of the first row to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "firstColumn {Integer} Index of the first column to display",
+            "paramName": "firstColumn",
+            "description": " Index of the first column to display",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "rowSizes {Integer[]} Array of heights for each row to display",
+            "paramName": "rowSizes",
+            "description": " Array of heights for each row to display",
+            "type": "Integer[]"
+          },
+          {
+            "name": "@param",
+            "body": "columnSizes {Integer[]} Array of widths for each column to display",
+            "paramName": "columnSizes",
+            "description": " Array of widths for each column to display",
+            "type": "Integer[]"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "updateLayerData": {
+      "location": {
+        "start": {
+          "line": 229,
+          "column": 4
+        },
+        "end": {
+          "line": 233,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.virtual.core.ILayer",
+      "appearsIn": [
+        "qx.ui.virtual.core.ILayer"
+      ]
+    },
+    "fullUpdate": {
+      "location": {
+        "start": {
+          "line": 237,
+          "column": 4
+        },
+        "end": {
+          "line": 245,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "firstRow {Integer} Index of the first row to display.",
+            "paramName": "firstRow",
+            "description": " Index of the first row to display.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "firstColumn {Integer} Index of the first column to display.",
+            "paramName": "firstColumn",
+            "description": " Index of the first column to display.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "rowSizes {Integer[]} Array of heights for each row to display.",
+            "paramName": "rowSizes",
+            "description": " Array of heights for each row to display.",
+            "type": "Integer[]"
+          },
+          {
+            "name": "@param",
+            "body": "columnSizes {Integer[]} Array of widths for each column to display.",
+            "paramName": "columnSizes",
+            "description": " Array of widths for each column to display.",
+            "type": "Integer[]"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.virtual.core.ILayer",
+      "appearsIn": [
+        "qx.ui.virtual.core.ILayer"
+      ]
+    },
+    "updateLayerWindow": {
+      "location": {
+        "start": {
+          "line": 249,
+          "column": 4
+        },
+        "end": {
+          "line": 256,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "interface implementation"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "firstRow {Integer} Index of the first row to display.",
+            "paramName": "firstRow",
+            "description": " Index of the first row to display.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "firstColumn {Integer} Index of the first column to display.",
+            "paramName": "firstColumn",
+            "description": " Index of the first column to display.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "rowSizes {Integer[]} Array of heights for each row to display.",
+            "paramName": "rowSizes",
+            "description": " Array of heights for each row to display.",
+            "type": "Integer[]"
+          },
+          {
+            "name": "@param",
+            "body": "columnSizes {Integer[]} Array of widths for each column to display.",
+            "paramName": "columnSizes",
+            "description": " Array of widths for each column to display.",
+            "type": "Integer[]"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.virtual.core.ILayer",
+      "appearsIn": [
+        "qx.ui.virtual.core.ILayer"
+      ]
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 265,
+        "column": 2
+      },
+      "end": {
+        "line": 267,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "descendants": [
+    "qx.ui.virtual.layer.AbstractBackground",
+    "qx.ui.virtual.layer.WidgetCell"
+  ]
+}

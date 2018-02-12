@@ -1,0 +1,48 @@
+{
+  "className": "qx.event.Registration",
+  "packageName": "qx.event",
+  "name": "Registration",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 30,
+        "column": 0
+      },
+      "end": {
+        "line": 539,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Wrapper for browser generic event handling.\n\nSupported events differ from target to target. Generally the handlers\nin {@link qx.event.handler} defines the available features."
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.event.Manager"
+        },
+        {
+          "name": "@require",
+          "body": "qx.dom.Node"
+        },
+        {
+          "name": "@require",
+          "body": "qx.lang.Function"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

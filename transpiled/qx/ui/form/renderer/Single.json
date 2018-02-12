@@ -1,0 +1,324 @@
+{
+  "className": "qx.ui.form.renderer.Single",
+  "packageName": "qx.ui.form.renderer",
+  "name": "Single",
+  "superClass": "qx.ui.form.renderer.AbstractRenderer",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 0
+      },
+      "end": {
+        "line": 182,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (martinwittemann)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Single column renderer for {@link qx.ui.form.Form}."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 2
+      },
+      "end": {
+        "line": 36,
+        "column": 3
+      }
+    }
+  },
+  "members": {
+    "_row": {
+      "location": {
+        "start": {
+          "line": 41,
+          "column": 4
+        },
+        "end": {
+          "line": 41,
+          "column": 12
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_buttonRow": {
+      "location": {
+        "start": {
+          "line": 42,
+          "column": 4
+        },
+        "end": {
+          "line": 42,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_onFormChange": {
+      "location": {
+        "start": {
+          "line": 46,
+          "column": 4
+        },
+        "end": {
+          "line": 53,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.form.renderer.AbstractRenderer",
+      "appearsIn": [
+        "qx.ui.form.renderer.AbstractRenderer"
+      ]
+    },
+    "addItems": {
+      "location": {
+        "start": {
+          "line": 66,
+          "column": 4
+        },
+        "end": {
+          "line": 91,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Add a group of form items with the corresponding names. The names are\ndisplayed as label.\nThe title is optional and is used as grouping for the given form\nitems."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "items {qx.ui.core.Widget[]} An array of form items to render.",
+            "paramName": "items",
+            "description": " An array of form items to render.",
+            "type": "qx.ui.core.Widget[]"
+          },
+          {
+            "name": "@param",
+            "body": "names {String[]} An array of names for the form items.",
+            "paramName": "names",
+            "description": " An array of names for the form items.",
+            "type": "String[]"
+          },
+          {
+            "name": "@param",
+            "body": "title {String?} A title of the group you are adding.",
+            "paramName": "title",
+            "description": " A title of the group you are adding.",
+            "optional": true,
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.renderer.AbstractRenderer",
+      "appearsIn": [
+        "qx.ui.form.renderer.AbstractRenderer",
+        "qx.ui.form.renderer.IFormRenderer"
+      ]
+    },
+    "addButton": {
+      "location": {
+        "start": {
+          "line": 100,
+          "column": 4
+        },
+        "end": {
+          "line": 117,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Adds a button the form renderer. All buttons will be added in a\nsingle row at the bottom of the form."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "button {qx.ui.form.Button} The button to add.",
+            "paramName": "button",
+            "description": " The button to add.",
+            "type": "qx.ui.form.Button"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.form.renderer.AbstractRenderer",
+      "appearsIn": [
+        "qx.ui.form.renderer.AbstractRenderer",
+        "qx.ui.form.renderer.IFormRenderer"
+      ]
+    },
+    "getLayout": {
+      "location": {
+        "start": {
+          "line": 125,
+          "column": 4
+        },
+        "end": {
+          "line": 127,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the set layout for configuration."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.layout.Grid} The grid layout of the widget.",
+            "type": "qx.ui.layout.Grid",
+            "desc": " The grid layout of the widget."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "_createLabel": {
+      "location": {
+        "start": {
+          "line": 138,
+          "column": 4
+        },
+        "end": {
+          "line": 145,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Creates a label for the given form item."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "name {String} The content of the label without the\ntrailing * and :",
+            "paramName": "name",
+            "description": " The content of the label without the\ntrailing * and :",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "item {qx.ui.core.Widget} The item, which has the required state.",
+            "paramName": "item",
+            "description": " The item, which has the required state.",
+            "type": "qx.ui.core.Widget"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.basic.Label} The label for the given item.",
+            "type": "qx.ui.basic.Label",
+            "desc": " The label for the given item."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_createHeader": {
+      "location": {
+        "start": {
+          "line": 154,
+          "column": 4
+        },
+        "end": {
+          "line": 164,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Creates a header label for the form groups."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "title {String} Creates a header label.",
+            "paramName": "title",
+            "description": " Creates a header label.",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{qx.ui.basic.Label} The header for the form groups.",
+            "type": "qx.ui.basic.Label",
+            "desc": " The header for the form groups."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 173,
+        "column": 2
+      },
+      "end": {
+        "line": 181,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

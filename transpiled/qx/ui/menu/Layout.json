@@ -1,0 +1,443 @@
+{
+  "className": "qx.ui.menu.Layout",
+  "packageName": "qx.ui.menu",
+  "name": "Layout",
+  "superClass": "qx.ui.layout.VBox",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 0
+      },
+      "end": {
+        "line": 193,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Layouter used by the qooxdoo menu's to render their buttons"
+        }
+      ],
+      "@internal": [
+        {
+          "name": "@internal",
+          "body": ""
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "properties": {
+    "columnSpacing": {
+      "location": {
+        "start": {
+          "line": 39,
+          "column": 4
+        },
+        "end": {
+          "line": 44,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Spacing between each cell on the menu buttons"
+          }
+        ]
+      },
+      "name": "columnSpacing",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "check": "Integer",
+      "defaultValue": 0
+    },
+    "spanColumn": {
+      "location": {
+        "start": {
+          "line": 51,
+          "column": 4
+        },
+        "end": {
+          "line": 57,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether a column and which column should automatically span\nwhen the following cell is empty. Spanning may be disabled\nthrough setting this property to <code>null</code>."
+          }
+        ]
+      },
+      "name": "spanColumn",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "allowNull": true,
+      "check": "Integer",
+      "defaultValue": 1
+    },
+    "iconColumnWidth": {
+      "location": {
+        "start": {
+          "line": 60,
+          "column": 4
+        },
+        "end": {
+          "line": 66,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Default icon column width if no icons are rendered"
+          }
+        ]
+      },
+      "name": "iconColumnWidth",
+      "propertyType": "new",
+      "themeable": true,
+      "apply": "_applyLayoutChange",
+      "check": "Integer",
+      "defaultValue": 0
+    },
+    "arrowColumnWidth": {
+      "location": {
+        "start": {
+          "line": 69,
+          "column": 4
+        },
+        "end": {
+          "line": 75,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Default arrow column width if no sub menus are rendered"
+          }
+        ]
+      },
+      "name": "arrowColumnWidth",
+      "propertyType": "new",
+      "themeable": true,
+      "apply": "_applyLayoutChange",
+      "check": "Integer",
+      "defaultValue": 0
+    }
+  },
+  "members": {
+    "__columnSizes": {
+      "location": {
+        "start": {
+          "line": 88,
+          "column": 4
+        },
+        "end": {
+          "line": 88,
+          "column": 24
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "_computeSizeHint": {
+      "location": {
+        "start": {
+          "line": 97,
+          "column": 4
+        },
+        "end": {
+          "line": 164,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nLAYOUT INTERFACE\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} The size hint.",
+            "type": "Map",
+            "desc": " The size hint."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.layout.VBox",
+      "appearsIn": [
+        "qx.ui.layout.VBox",
+        "qx.ui.layout.Abstract"
+      ]
+    },
+    "getColumnSizes": {
+      "location": {
+        "start": {
+          "line": 179,
+          "column": 4
+        },
+        "end": {
+          "line": 181,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nCUSTOM ADDONS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "Returns the column sizes detected during the pre-layout phase"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} List of all column widths",
+            "type": "Array",
+            "desc": " List of all column widths"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getColumnSpacing": {
+      "type": "function",
+      "name": "getColumnSpacing",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setColumnSpacing": {
+      "type": "function",
+      "name": "setColumnSpacing",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetColumnSpacing": {
+      "type": "function",
+      "name": "resetColumnSpacing",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getSpanColumn": {
+      "type": "function",
+      "name": "getSpanColumn",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setSpanColumn": {
+      "type": "function",
+      "name": "setSpanColumn",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetSpanColumn": {
+      "type": "function",
+      "name": "resetSpanColumn",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getIconColumnWidth": {
+      "type": "function",
+      "name": "getIconColumnWidth",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setIconColumnWidth": {
+      "type": "function",
+      "name": "setIconColumnWidth",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetIconColumnWidth": {
+      "type": "function",
+      "name": "resetIconColumnWidth",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getArrowColumnWidth": {
+      "type": "function",
+      "name": "getArrowColumnWidth",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setArrowColumnWidth": {
+      "type": "function",
+      "name": "setArrowColumnWidth",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetArrowColumnWidth": {
+      "type": "function",
+      "name": "resetArrowColumnWidth",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 190,
+        "column": 2
+      },
+      "end": {
+        "line": 192,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCT\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

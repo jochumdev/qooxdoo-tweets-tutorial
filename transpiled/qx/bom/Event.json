@@ -1,0 +1,34 @@
+{
+  "className": "qx.bom.Event",
+  "packageName": "qx.bom",
+  "name": "Event",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 67,
+        "column": 0
+      },
+      "end": {
+        "line": 359,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\nSebastian Werner (wpbasti)\nAlexander Steitz (aback)\nChristian Hagendorn (chris_schmidt)\nTobias Oberrauch (toberrauch) <tobias.oberrauch@1und1.de>\n\n======================================================================\n\nThis class contains code based on the following work:\n\nJuriy Zaytsev\nhttp://thinkweb2.com/projects/prototype/detecting-event-support-without-browser-sniffing/\n\nCopyright (c) 2009 Juriy Zaytsev\n\nLicense:\nBSD: http://github.com/kangax/iseventsupported/blob/master/LICENSE\n\n----------------------------------------------------------------------\n\nhttp://github.com/kangax/iseventsupported/blob/master/LICENSE\n\nCopyright (c) 2009 Juriy Zaytsev\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without\nrestriction, including without limitation the rights to use,\ncopy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the\nSoftware is furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE.\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Wrapper around native event management capabilities of the browser.\nThis class should not be used directly normally. It's better\nto use {@link qx.event.Registration} instead."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

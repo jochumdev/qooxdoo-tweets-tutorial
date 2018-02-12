@@ -1,0 +1,34 @@
+{
+  "className": "qx.bom.element.Decoration",
+  "packageName": "qx.bom.element",
+  "name": "Decoration",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0
+      },
+      "end": {
+        "line": 637,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAlexander Steitz (aback)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Powerful creation and update features for images used for decoration\npurposes like for rounded borders, icons, etc.\n\nIncludes support for image clipping, PNG alpha channel support, additional\nrepeat options like <code>scale-x</code> or <code>scale-y</code>."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

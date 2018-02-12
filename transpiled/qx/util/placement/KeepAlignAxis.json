@@ -1,0 +1,34 @@
+{
+  "className": "qx.util.placement.KeepAlignAxis",
+  "packageName": "qx.util.placement",
+  "name": "KeepAlignAxis",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 0
+      },
+      "end": {
+        "line": 103,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2009 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\nChristian Hagendorn (chris_schmidt)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Places the object to the target. If parts of the object are outside of the\nrange this class places the object at the best \"edge\", \"alignment\"\ncombination so that the overlap between object and range is maximized."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "descendants": []
+}

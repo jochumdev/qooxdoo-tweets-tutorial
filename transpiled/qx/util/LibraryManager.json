@@ -1,0 +1,176 @@
+{
+  "className": "qx.util.LibraryManager",
+  "packageName": "qx.util",
+  "name": "LibraryManager",
+  "superClass": "qx.core.Object",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0
+      },
+      "end": {
+        "line": 74,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2012 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthor:\nDaniel Wagner (danielwagner)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "Provides read/write access to library-specific information such as\nsource/resource URIs."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "members": {
+    "has": {
+      "location": {
+        "start": {
+          "line": 43,
+          "column": 4
+        },
+        "end": {
+          "line": 46,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Checks whether the library with the given namespace is known to the\napplication."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "namespace {String} The library's namespace",
+            "paramName": "namespace",
+            "description": " The library's namespace",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if the given library is known",
+            "type": "Boolean",
+            "desc": " <code>true</code> if the given library is known"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "get": {
+      "location": {
+        "start": {
+          "line": 55,
+          "column": 4
+        },
+        "end": {
+          "line": 59,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Returns the value of an attribute of the given library"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "namespace {String} The library's namespace",
+            "paramName": "namespace",
+            "description": " The library's namespace",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "key {String} Name of the attribute",
+            "paramName": "key",
+            "description": " Name of the attribute",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{var|null} The attribute's value or <code>null</code> if it's not defined",
+            "type": "var|null",
+            "desc": " The attribute's value or <code>null</code> if it's not defined"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.core.Object",
+      "appearsIn": [
+        "qx.core.Object",
+        "qx.core.MProperty"
+      ]
+    },
+    "set": {
+      "location": {
+        "start": {
+          "line": 69,
+          "column": 4
+        },
+        "end": {
+          "line": 72,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Sets an attribute on the given library."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "namespace {String} The library's namespace",
+            "paramName": "namespace",
+            "description": " The library's namespace",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "key {String} Name of the attribute",
+            "paramName": "key",
+            "description": " Name of the attribute",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "value {var} Value of the attribute",
+            "paramName": "value",
+            "description": " Value of the attribute",
+            "type": "var"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.core.Object",
+      "appearsIn": [
+        "qx.core.Object",
+        "qx.core.MProperty"
+      ]
+    }
+  },
+  "descendants": []
+}

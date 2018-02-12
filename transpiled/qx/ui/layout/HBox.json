@@ -1,0 +1,712 @@
+{
+  "className": "qx.ui.layout.HBox",
+  "packageName": "qx.ui.layout",
+  "name": "HBox",
+  "superClass": "qx.ui.layout.Abstract",
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 82,
+        "column": 0
+      },
+      "end": {
+        "line": 545,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "A horizontal box layout.\n\nThe horizontal box layout lays out widgets in a horizontal row, from left\nto right.\n\n*Features*\n\n* Minimum and maximum dimensions\n* Prioritized growing/shrinking (flex)\n* Margins (with horizontal collapsing)\n* Auto sizing (ignoring percent values)\n* Percent widths (not relevant for size hint)\n* Alignment (child property {@link qx.ui.core.LayoutItem#alignX} is ignored)\n* Horizontal spacing (collapsed with margins)\n* Reversed children layout (from last to first)\n* Vertical children stretching (respecting size hints)\n\n*Item Properties*\n\n<ul>\n<li><strong>flex</strong> <em>(Integer)</em>: The flexibility of a layout item determines how the container\ndistributes remaining empty space among its children. If items are made\nflexible, they can grow or shrink accordingly. Their relative flex values\ndetermine how the items are being resized, i.e. the larger the flex ratio\nof two items, the larger the resizing of the first item compared to the\nsecond.\n\nIf there is only one flex item in a layout container, its actual flex\nvalue is not relevant. To disallow items to become flexible, set the\nflex value to zero.\n</li>\n<li><strong>width</strong> <em>(String)</em>: Allows to define a percent\nwidth for the item. The width in percent, if specified, is used instead\nof the width defined by the size hint. The minimum and maximum width still\ntakes care of the element's limits. It has no influence on the layout's\nsize hint. Percent values are mostly useful for widgets which are sized by\nthe outer hierarchy.\n</li>\n</ul>\n\n*Example*\n\nHere is a little example of how to use the HBox layout.\n\n<pre class=\"javascript\">\nvar layout = new qx.ui.layout.HBox();\nlayout.setSpacing(4); // apply spacing\n\nvar container = new qx.ui.container.Composite(layout);\n\ncontainer.add(new qx.ui.core.Widget());\ncontainer.add(new qx.ui.core.Widget());\ncontainer.add(new qx.ui.core.Widget());\n</pre>\n\n*External Documentation*\n\nSee <a href='http://manual.qooxdoo.org/${qxversion}/pages/layout/box.html'>extended documentation</a>\nand links to demos for this layout."
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 101,
+        "column": 2
+      },
+      "end": {
+        "line": 116,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nCONSTRUCTOR\n****************************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "spacing {Integer?0} The spacing between child widgets {@link #spacing}.",
+          "paramName": "spacing",
+          "description": " The spacing between child widgets {@link #spacing}.",
+          "optional": true,
+          "defaultValue": "0",
+          "type": "Integer"
+        },
+        {
+          "name": "@param",
+          "body": "alignX {String?\"left\"} Horizontal alignment of the whole children\nblock {@link #alignX}.",
+          "paramName": "alignX",
+          "description": " Horizontal alignment of the whole children\nblock {@link #alignX}.",
+          "optional": true,
+          "defaultValue": "\"left\"",
+          "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "separator {String|qx.ui.decoration.IDecorator} A separator to render between the items",
+          "paramName": "separator",
+          "description": " A separator to render between the items",
+          "type": [
+            "String",
+            "qx.ui.decoration.IDecorator"
+          ]
+        }
+      ]
+    }
+  },
+  "properties": {
+    "alignX": {
+      "location": {
+        "start": {
+          "line": 135,
+          "column": 4
+        },
+        "end": {
+          "line": 140,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Horizontal alignment of the whole children block. The horizontal\nalignment of the child is completely ignored in HBoxes (\n{@link qx.ui.core.LayoutItem#alignX})."
+          }
+        ]
+      },
+      "name": "alignX",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "possibleValues": [
+        "left",
+        "center",
+        "right"
+      ],
+      "defaultValue": "left"
+    },
+    "alignY": {
+      "location": {
+        "start": {
+          "line": 147,
+          "column": 4
+        },
+        "end": {
+          "line": 152,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Vertical alignment of each child. Can be overridden through\n{@link qx.ui.core.LayoutItem#alignY}."
+          }
+        ]
+      },
+      "name": "alignY",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "possibleValues": [
+        "top",
+        "middle",
+        "bottom"
+      ],
+      "defaultValue": "top"
+    },
+    "spacing": {
+      "location": {
+        "start": {
+          "line": 156,
+          "column": 4
+        },
+        "end": {
+          "line": 161,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Horizontal spacing between two children"
+          }
+        ]
+      },
+      "name": "spacing",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "check": "Integer",
+      "defaultValue": 0
+    },
+    "separator": {
+      "location": {
+        "start": {
+          "line": 165,
+          "column": 4
+        },
+        "end": {
+          "line": 170,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Separator lines to use between the objects"
+          }
+        ]
+      },
+      "name": "separator",
+      "propertyType": "new",
+      "apply": "_applyLayoutChange",
+      "allowNull": true,
+      "check": "Decorator"
+    },
+    "reversed": {
+      "location": {
+        "start": {
+          "line": 174,
+          "column": 4
+        },
+        "end": {
+          "line": 179,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Whether the actual children list should be laid out in reversed order."
+          }
+        ]
+      },
+      "name": "reversed",
+      "propertyType": "new",
+      "apply": "_applyReversed",
+      "check": "Boolean",
+      "defaultValue": false
+    }
+  },
+  "members": {
+    "__widths": {
+      "location": {
+        "start": {
+          "line": 194,
+          "column": 4
+        },
+        "end": {
+          "line": 194,
+          "column": 19
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__flexs": {
+      "location": {
+        "start": {
+          "line": 195,
+          "column": 4
+        },
+        "end": {
+          "line": 195,
+          "column": 18
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__enableFlex": {
+      "location": {
+        "start": {
+          "line": 196,
+          "column": 4
+        },
+        "end": {
+          "line": 196,
+          "column": 23
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__children": {
+      "location": {
+        "start": {
+          "line": 197,
+          "column": 4
+        },
+        "end": {
+          "line": 197,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "_applyReversed": {
+      "location": {
+        "start": {
+          "line": 206,
+          "column": 4
+        },
+        "end": {
+          "line": 213,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nHELPER METHODS\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "property apply"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "__rebuildCache": {
+      "location": {
+        "start": {
+          "line": 219,
+          "column": 4
+        },
+        "end": {
+          "line": 267,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Rebuilds caches for flex and percent layout properties"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    },
+    "verifyLayoutProperty": {
+      "location": {
+        "start": {
+          "line": 280,
+          "column": 4
+        },
+        "end": {
+          "line": 299,
+          "column": 6
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "---------------------------------------------------------------------------\nLAYOUT INTERFACE\n---------------------------------------------------------------------------"
+          },
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "renderLayout": {
+      "location": {
+        "start": {
+          "line": 303,
+          "column": 4
+        },
+        "end": {
+          "line": 460,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "availWidth {Integer} Final width available for the content (in pixel)",
+            "paramName": "availWidth",
+            "description": " Final width available for the content (in pixel)",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "availHeight {Integer} Final height available for the content (in pixel)",
+            "paramName": "availHeight",
+            "description": " Final height available for the content (in pixel)",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "padding {Map} Map containing the padding values. Keys:\n<code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>",
+            "paramName": "padding",
+            "description": " Map containing the padding values. Keys:\n<code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>",
+            "type": "Map"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public",
+      "overriddenFrom": "qx.ui.layout.Abstract",
+      "appearsIn": [
+        "qx.ui.layout.Abstract"
+      ]
+    },
+    "_computeSizeHint": {
+      "location": {
+        "start": {
+          "line": 464,
+          "column": 4
+        },
+        "end": {
+          "line": 531,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "overridden"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Map} The size hint.",
+            "type": "Map",
+            "desc": " The size hint."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected",
+      "overriddenFrom": "qx.ui.layout.Abstract",
+      "appearsIn": [
+        "qx.ui.layout.Abstract"
+      ]
+    },
+    "getAlignX": {
+      "type": "function",
+      "name": "getAlignX",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setAlignX": {
+      "type": "function",
+      "name": "setAlignX",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetAlignX": {
+      "type": "function",
+      "name": "resetAlignX",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getAlignY": {
+      "type": "function",
+      "name": "getAlignY",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "any",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setAlignY": {
+      "type": "function",
+      "name": "setAlignY",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "any",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetAlignY": {
+      "type": "function",
+      "name": "resetAlignY",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getSpacing": {
+      "type": "function",
+      "name": "getSpacing",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Integer",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setSpacing": {
+      "type": "function",
+      "name": "setSpacing",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Integer",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetSpacing": {
+      "type": "function",
+      "name": "resetSpacing",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getSeparator": {
+      "type": "function",
+      "name": "getSeparator",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Decorator",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setSeparator": {
+      "type": "function",
+      "name": "setSeparator",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Decorator",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetSeparator": {
+      "type": "function",
+      "name": "resetSeparator",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    },
+    "getReversed": {
+      "type": "function",
+      "name": "getReversed",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "get",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "isReversed": {
+      "type": "function",
+      "name": "isReversed",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "is",
+      "jsdoc": {
+        "@return": [
+          {
+            "name": "@return",
+            "type": "Boolean",
+            "desc": "Returns the value for undefined"
+          }
+        ]
+      }
+    },
+    "setReversed": {
+      "type": "function",
+      "name": "setReversed",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "set",
+      "jsdoc": {
+        "@param": [
+          {
+            "name": "@param",
+            "type": "Boolean",
+            "paramName": "value",
+            "desc": "Value for undefined"
+          }
+        ]
+      }
+    },
+    "resetReversed": {
+      "type": "function",
+      "name": "resetReversed",
+      "abstract": false,
+      "mixin": false,
+      "inherited": false,
+      "access": "public",
+      "property": "reset",
+      "jsdoc": {}
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 542,
+        "column": 2
+      },
+      "end": {
+        "line": 544,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "****************************************************************************\nDESTRUCTOR\n****************************************************************************"
+        }
+      ]
+    }
+  },
+  "abstract": true,
+  "descendants": []
+}

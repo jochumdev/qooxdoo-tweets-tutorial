@@ -1,0 +1,52 @@
+{
+  "className": "qx.event.GlobalError",
+  "packageName": "qx.event",
+  "name": "GlobalError",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 31,
+        "column": 0
+      },
+      "end": {
+        "line": 175,
+        "column": 3
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp://qooxdoo.org\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\nLicense:\nMIT: https://opensource.org/licenses/MIT\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\nMartin Wittemann (martinwittemann)\n\n***********************************************************************"
+        },
+        {
+          "name": "@description",
+          "body": "The GlobalError class stores a reference to a global error handler function.\n\nThis function is called for each uncatched JavaScript exception. To enable\nglobal error handling the setting <code>qx.globalErrorHandling</code> must\nbe enabled and an error handler must be registered.\nFurther each JavaScript \"entry point\" must be wrapped with a call to\n{@link qx.event.GlobalError#observeMethod}."
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "qx.core, qx.core.Environment"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "defer": {
+    "location": {
+      "start": {
+        "line": 164,
+        "column": 2
+      },
+      "end": {
+        "line": 174,
+        "column": 3
+      }
+    }
+  },
+  "descendants": []
+}
