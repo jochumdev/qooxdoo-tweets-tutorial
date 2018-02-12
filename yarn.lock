@@ -6,12 +6,12 @@ qooxdoo-sdk@^6.0.0-alpha:
   version "6.0.0-alpha"
   resolved "https://registry.yarnpkg.com/qooxdoo-sdk/-/qooxdoo-sdk-6.0.0-alpha.tgz#c76acb73b36fe056fcd2db278f6befee40143a50"
 
-qxc.require@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/qxc.require/-/qxc.require-1.2.1.tgz#b9e9031db1b6fa5778feaf94f8215c74d16a0e9c"
+qxc.require@^1.2.2:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/qxc.require/-/qxc.require-1.2.3.tgz#7c0d8a05dff4299941c0081a1f2f8f29ef83e30b"
 
-qxc.restful@^0.9.9:
-  version "0.9.9"
-  resolved "https://registry.yarnpkg.com/qxc.restful/-/qxc.restful-0.9.9.tgz#05fada8a9698f65fa7dcb4e0be8be591a13445ea"
+qxc.restful@^0.9.10:
+  version "0.9.10"
+  resolved "https://registry.yarnpkg.com/qxc.restful/-/qxc.restful-0.9.10.tgz#7b915726b1944250f51c07d8371e5c7c40424a74"
   dependencies:
-    qxc.require "^1.2.1"
+    qxc.require "^1.2.2"

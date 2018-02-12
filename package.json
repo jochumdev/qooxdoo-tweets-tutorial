@@ -10,6 +10,6 @@
     "license": "MIT",
     "dependencies": {
         "qooxdoo-sdk": "^6.0.0-alpha",
-        "qxc.restful": "^0.9.9"
+        "qxc.restful": "^0.9.10"
     }
 }
