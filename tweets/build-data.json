@@ -222,8 +222,8 @@
         "qx:qx/event/util/Keyboard.js",
         "qx:qx/util/Wheel.js",
         "qx:qx/util/ResourceManager.js",
-        "qx:qx/bom/client/Transport.js",
         "qx:qx/util/LibraryManager.js",
+        "qx:qx/bom/client/Transport.js",
         "qx:qx/data/store/Json.js",
         "qx:qx/data/marshal/IMarshaler.js",
         "qx:qx/data/marshal/Json.js",
@@ -251,6 +251,7 @@
         "qx:qx/ui/virtual/selection/MModel.js",
         "qx:qx/data/controller/ISelection.js",
         "qx:qx/ui/virtual/core/Pane.js",
+        "qx:qx/ui/virtual/core/Axis.js",
         "qx:qx/ui/list/List.js",
         "qx:qx/ui/form/MForm.js",
         "qx:qx/ui/form/AbstractField.js",
@@ -359,7 +360,6 @@
         "qx:qx/ui/list/core/MWidgetController.js",
         "qx:qx/ui/list/provider/WidgetProvider.js",
         "qx:qx/util/Delegate.js",
-        "qx:qx/ui/virtual/core/Axis.js",
         "qx:qx/ui/virtual/core/CellEvent.js",
         "qx:qx/html/Input.js",
         "qx:qx/ui/form/validation/Manager.js",
@@ -430,7 +430,7 @@
         "tweets:tweets/theme/Theme.js",
         "qx:qx/theme/simple/Image.js"
       ],
-      "hashValue": "cd899297ea46a8455fbdc8f76e21aba5ebffe9373747a804a2c5708dd2bef1b5",
+      "hashValue": "6eb7ca06125a6412be0926254186e4cfac93f21b85cb5b60a5d6592933461f96",
       "modified": true
     }
   }
