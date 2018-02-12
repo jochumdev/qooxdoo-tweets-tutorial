@@ -28,7 +28,7 @@ var libinfo = {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
-  "qxc.require": {
+  "tweets": {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
@@ -36,7 +36,7 @@ var libinfo = {
     "sourceUri": ".",
     "resourceUri": "../resource"
   },
-  "tweets": {
+  "qxc.require": {
     "sourceUri": ".",
     "resourceUri": "../resource"
   }

@@ -688,18 +688,6 @@ qx.$$packageData['0'] = {
       "png",
       "qx"
     ],
-    "qxc.restful/js/fetch.js": [
-      null,
-      null,
-      "js",
-      "qxc.restful"
-    ],
-    "qxc.restful/js/fetch.min.js": [
-      null,
-      null,
-      "js",
-      "qxc.restful"
-    ],
     "qxc.restful/js/restful.js": [
       null,
       null,
